@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;bldc motor controller/include/servo&apos; to &apos;servo.h&apos;" description="Rename resource &apos;servo&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="include/servo" name="servo.h" stamp="1714229954470" updateReferences="true"/>
+</session>

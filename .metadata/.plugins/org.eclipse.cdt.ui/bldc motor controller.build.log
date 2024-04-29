@@ -1,0 +1,11 @@
+19:19:44 **** Incremental Build of configuration Debug for project bldc motor controller ****
+make all 
+Invoking: GNU Arm Cross Print Size
+arm-none-eabi-size --format=berkeley "bldc motor controller.elf"
+   text	   data	    bss	    dec	    hex	filename
+   8228	     56	   1688	   9972	   26f4	bldc motor controller.elf
+Finished building: bldc motor controller.siz
+ 
+
+19:19:44 Build Finished. 0 errors, 0 warnings. (took 114ms)
+

@@ -1,0 +1,181 @@
+
+#include "at32f403a_407_board.h"
+#include "at32f403a_407_clock.h"
+
+
+
+#define TMRx_PR 1000
+#define BIT_NUMBER 8
+#define BUF_SIZE                         2
+
+uint16_t PWM_DataLength = 0;
+tmr_output_config_type tmr_output_struct;
+
+uint16_t src_buffer[BIT_NUMBER] = {900, 900, 900, 900, 900, 900, 900, 900};
+
+void crm_configuration(void);
+void gpio_configuration(void);
+void tmr_configuration(void);
+void dma_configuration(void);
+void TMR2_DMA_Duty_Cycle(void);
+
+/**
+  * @brief  configures the different system clocks.
+  * @param  none
+  * @retval none
+  */
+void crm_configuration(void)
+{
+  /* tmr clock enable */
+  crm_periph_clock_enable(CRM_TMR2_PERIPH_CLOCK, TRUE);
+
+  /* gpio clock enable */
+  crm_periph_clock_enable(CRM_GPIOA_PERIPH_CLOCK, TRUE);
+
+	/* dma clock enable */
+  crm_periph_clock_enable(CRM_DMA1_PERIPH_CLOCK, TRUE);
+}
+
+/**
+  * @brief  configures the PWM dma duty cycle parameters.
+  * @param  none
+  * @retval none
+  */
+void TMR2_DMA_Duty_Cycle(void)
+{
+	//for (int i = 0; i < 1000000; i++);
+
+	/* set tmr channel CC value */
+	tmr_channel_value_set(TMR2, TMR_SELECT_CHANNEL_3, 0);
+
+  /* config set the number of data to be transferred by dma */
+  dma_channel_enable(DMA1_CHANNEL1, FALSE);
+  dma_data_number_set(DMA1_CHANNEL1, PWM_DataLength);
+  dma_channel_enable(DMA1_CHANNEL1, TRUE);
+
+	/* TMR enable counter */
+	tmr_counter_enable(TMR2, TRUE);
+
+	/* wait for the end of dma transfer */
+	while (!dma_flag_get(DMA1_FDT1_FLAG));
+	/* Clear dma flag */
+	dma_flag_clear(DMA1_FDT1_FLAG);
+
+	/* Clear TMR3 update Interrupt  pending bit */
+	tmr_flag_clear(TMR2, TMR_OVF_FLAG);
+  while(SET!=tmr_flag_get(TMR2, TMR_OVF_FLAG));
+	/* Clear TMR3 update Interrupt  pending bit */
+	tmr_flag_clear(TMR2, TMR_OVF_FLAG);
+  while(SET != tmr_flag_get(TMR2, TMR_OVF_FLAG));
+
+	/* TMR disable counter */
+	tmr_counter_enable(TMR2, FALSE);
+
+}
+
+
+void gpio_configuration(void)
+{
+  gpio_init_type gpio_init_struct;
+
+  gpio_default_para_init(&gpio_init_struct);
+
+	/* configure PB1 tmr3_ch4 as output*/
+  gpio_init_struct.gpio_pins = GPIO_PINS_2;
+  gpio_init_struct.gpio_mode = GPIO_MODE_MUX;
+  gpio_init(GPIOA, &gpio_init_struct);
+}
+
+
+void dma_configuration(void)
+{
+	dma_init_type dma_init_struct = {0};
+	uint16_t index = 0;
+
+	while(index < PWM_DataLength)
+	{
+		src_buffer[index] = (uint16_t) (((uint32_t) (src_buffer[index]) * (TMRx_PR)) / (1000));
+		index++;
+	}
+
+  /* dma1 channel1 configuration */
+  dma_default_para_init(&dma_init_struct);
+
+  dma_init_struct.buffer_size = PWM_DataLength;
+  dma_init_struct.direction = DMA_DIR_MEMORY_TO_PERIPHERAL;
+  dma_init_struct.memory_base_addr = (uint32_t)src_buffer;
+  dma_init_struct.memory_data_width = DMA_MEMORY_DATA_WIDTH_HALFWORD;
+  dma_init_struct.memory_inc_enable = TRUE;
+  dma_init_struct.peripheral_base_addr = (uint32_t)&TMR2->c3dt;
+  dma_init_struct.peripheral_data_width= DMA_PERIPHERAL_DATA_WIDTH_HALFWORD;
+  dma_init_struct.peripheral_inc_enable  = FALSE;
+  dma_init_struct.priority = DMA_PRIORITY_HIGH;
+  dma_init_struct.loop_mode_enable = FALSE;
+  dma_init(DMA1_CHANNEL1, &dma_init_struct);
+}
+
+
+/**
+  * @brief  configure the tmr parameters.
+  * @param  none
+  * @retval none
+  */
+void tmr_configuration(void)
+{
+  /* Init TMR3 */
+	//2603879
+  tmr_base_init(TMR2, TMRx_PR-1, 9);
+  tmr_cnt_dir_set(TMR2, TMR_COUNT_UP);
+
+	/* TMR configuration as output mode */
+  tmr_output_default_para_init(&tmr_output_struct);
+  tmr_output_struct.oc_mode = TMR_OUTPUT_CONTROL_PWM_MODE_A;
+  tmr_output_struct.oc_output_state = TRUE;
+  tmr_output_struct.oc_polarity = TMR_OUTPUT_ACTIVE_LOW;
+
+	/* TMR2 channel 3 configuration */
+  tmr_output_channel_config(TMR2, TMR_SELECT_CHANNEL_3, &tmr_output_struct);
+
+	/* enable tmr output channel buffer */
+  tmr_output_channel_buffer_enable(TMR2, TMR_SELECT_CHANNEL_3, TRUE);
+}
+
+/**
+  * @brief  main function.
+  * @param  none
+  * @retval none
+  */
+int main(void)
+{
+
+    /* config nvic priority group */
+    nvic_priority_group_config(NVIC_PRIORITY_GROUP_4);
+
+    system_clock_config();
+  
+    at32_board_init();
+
+    crm_configuration();
+
+    /* tmr gpio configuration */
+    gpio_configuration();
+
+    /* dma configuration */
+    dma_configuration();
+
+    /* tmr configuration */
+    tmr_configuration();
+
+  while(1)
+  {
+	/* the Number of Pwm Output */
+	PWM_DataLength = sizeof(src_buffer)/sizeof(src_buffer[0]);
+
+	/* enable tmr3 overflow dma request */
+	tmr_dma_request_enable(TMR2, TMR_OVERFLOW_DMA_REQUEST, TRUE);
+    at32_led_on(LED4);
+
+	TMR2_DMA_Duty_Cycle();
+  }   
+}
+
