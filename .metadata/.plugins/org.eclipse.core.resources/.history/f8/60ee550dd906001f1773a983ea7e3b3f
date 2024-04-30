@@ -35,10 +35,10 @@ int main(void)
   /* get system clock */
   crm_clocks_freq_get(&crm_clocks_freq_struct);
 
-//  /* turn led2/led3/led4 on */
-//  at32_led_on(LED2);
-//  at32_led_on(LED3);
-//  at32_led_on(LED4);
+  /* turn led2/led3/led4 on */
+  at32_led_on(LED2);
+  at32_led_on(LED3);
+  at32_led_on(LED4);
 
   /* enable tmr1/gpioa/gpiob clock */
   crm_periph_clock_enable(CRM_TMR1_PERIPH_CLOCK, TRUE);
@@ -144,15 +144,12 @@ int main(void)
 
   while(1)
   {
+	  //delay_sec(10);
+	  //gpio_bits_write(GPIOA, GPIO_PINS_4, CW);
 	  delay_sec(10);
-	  gpio_bits_write(GPIOA, GPIO_PINS_4, CW);
-	  delay_sec(10);
-	  channel2_pulse = (uint16_t)(((uint32_t) 0.5 * (timer_period - 1)) / 100);
+	  channel2_pulse = (uint16_t)(((uint32_t) 10 * (timer_period - 1)) / 100);
 	  tmr_channel_value_set(TMR1, TMR_SELECT_CHANNEL_2, channel2_pulse);
-	  delay_sec(10);
-	  at32_led_on(LED2);
-	  channel2_pulse = (uint16_t)(((uint32_t) 0.1 * (timer_period - 1)) / 100);
-	  tmr_channel_value_set(TMR1, TMR_SELECT_CHANNEL_2, channel2_pulse);
+
 
 
   }

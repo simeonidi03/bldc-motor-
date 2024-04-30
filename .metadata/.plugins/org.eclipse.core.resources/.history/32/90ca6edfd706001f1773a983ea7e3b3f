@@ -4,8 +4,6 @@
 #define CW  0 // clockwise         по часовой
 #define CCW 1 // counterclock-wise против часовой
 
-//	  gpio_bits_write(GPIOA, GPIO_PINS_4, CCW);
-
 /** @addtogroup AT32F403A_periph_examples
   * @{
   */
@@ -35,10 +33,10 @@ int main(void)
   /* get system clock */
   crm_clocks_freq_get(&crm_clocks_freq_struct);
 
-//  /* turn led2/led3/led4 on */
-//  at32_led_on(LED2);
-//  at32_led_on(LED3);
-//  at32_led_on(LED4);
+  /* turn led2/led3/led4 on */
+  at32_led_on(LED2);
+  at32_led_on(LED3);
+  at32_led_on(LED4);
 
   /* enable tmr1/gpioa/gpiob clock */
   crm_periph_clock_enable(CRM_TMR1_PERIPH_CLOCK, TRUE);
@@ -58,7 +56,7 @@ int main(void)
 
 
   /* timer1 output pin Configuration */
-  gpio_init_struct.gpio_pins = /*GPIO_PINS_8 |*/ GPIO_PINS_9 | GPIO_PINS_10 | GPIO_PINS_11;
+  gpio_init_struct.gpio_pins = GPIO_PINS_8 | GPIO_PINS_9 | GPIO_PINS_10 | GPIO_PINS_11;
   gpio_init_struct.gpio_mode = GPIO_MODE_MUX;
   gpio_init_struct.gpio_out_type = GPIO_OUTPUT_PUSH_PULL;
   gpio_init_struct.gpio_pull = GPIO_PULL_NONE;
@@ -95,8 +93,8 @@ int main(void)
   /* compute the value to be set in arr regiter to generate signal frequency at 20khz */
   timer_period = (crm_clocks_freq_struct.sclk_freq / 20000  ) - 1;
 
-//  /* compute ccr1 value to generate a duty cycle at 50% for channel 1 and 1n */
-//  channel1_pulse = (uint16_t)(((uint32_t) 5 * (timer_period - 1)) / 10);
+  /* compute ccr1 value to generate a duty cycle at 50% for channel 1 and 1n */
+  channel1_pulse = (uint16_t)(((uint32_t) 5 * (timer_period - 1)) / 10);
 
   /* compute ccr2 value to generate a duty cycle at 37.5%  for channel 2 and 2n */
   channel2_pulse = (uint16_t)(((uint32_t) 375 * (timer_period - 1)) / 1000);
@@ -104,8 +102,8 @@ int main(void)
   /* compute ccr3 value to generate a duty cycle at 25%  for channel 3 and 3n */
   channel3_pulse = (uint16_t)(((uint32_t) 25 * (timer_period - 1)) / 100);
 
-//  /* compute ccr4 value to generate a duty cycle at 12.5%  for channel 4 */
-//  channel4_pulse = (uint16_t)(((uint32_t) 125 * (timer_period- 1)) / 1000);
+  /* compute ccr4 value to generate a duty cycle at 12.5%  for channel 4 */
+  channel4_pulse = (uint16_t)(((uint32_t) 125 * (timer_period- 1)) / 1000);
 
   tmr_base_init(TMR1, timer_period, 0);
   tmr_cnt_dir_set(TMR1, TMR_COUNT_UP);
@@ -120,9 +118,9 @@ int main(void)
   tmr_output_struct.occ_polarity = TMR_OUTPUT_ACTIVE_HIGH;
   tmr_output_struct.occ_idle_state = FALSE;
 
-//  /* channel 1 */
-//  tmr_output_channel_config(TMR1, TMR_SELECT_CHANNEL_1, &tmr_output_struct);
-//  tmr_channel_value_set(TMR1, TMR_SELECT_CHANNEL_1, channel1_pulse);
+  /* channel 1 */
+  tmr_output_channel_config(TMR1, TMR_SELECT_CHANNEL_1, &tmr_output_struct);
+  tmr_channel_value_set(TMR1, TMR_SELECT_CHANNEL_1, channel1_pulse);
 
   /* channel 2 */
   tmr_output_channel_config(TMR1, TMR_SELECT_CHANNEL_2, &tmr_output_struct);
@@ -132,9 +130,9 @@ int main(void)
   tmr_output_channel_config(TMR1, TMR_SELECT_CHANNEL_3, &tmr_output_struct);
   tmr_channel_value_set(TMR1, TMR_SELECT_CHANNEL_3, channel3_pulse);
 
-//  /* channel 4 */
-//  tmr_output_channel_config(TMR1, TMR_SELECT_CHANNEL_4, &tmr_output_struct);
-//  tmr_channel_value_set(TMR1, TMR_SELECT_CHANNEL_4, channel4_pulse);
+  /* channel 4 */
+  tmr_output_channel_config(TMR1, TMR_SELECT_CHANNEL_4, &tmr_output_struct);
+  tmr_channel_value_set(TMR1, TMR_SELECT_CHANNEL_4, channel4_pulse);
 
   /* output enable */
   tmr_output_enable(TMR1, TRUE);
@@ -144,15 +142,9 @@ int main(void)
 
   while(1)
   {
-	  delay_sec(10);
-	  gpio_bits_write(GPIOA, GPIO_PINS_4, CW);
-	  delay_sec(10);
-	  channel2_pulse = (uint16_t)(((uint32_t) 0.5 * (timer_period - 1)) / 100);
-	  tmr_channel_value_set(TMR1, TMR_SELECT_CHANNEL_2, channel2_pulse);
-	  delay_sec(10);
-	  at32_led_on(LED2);
-	  channel2_pulse = (uint16_t)(((uint32_t) 0.1 * (timer_period - 1)) / 100);
-	  tmr_channel_value_set(TMR1, TMR_SELECT_CHANNEL_2, channel2_pulse);
+	  gpio_bits_write(GPIOA, GPIO_PINS_4, CCW);
+
+
 
 
   }
