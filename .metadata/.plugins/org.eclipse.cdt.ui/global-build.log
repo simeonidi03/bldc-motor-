@@ -2696,3 +2696,147 @@ arm-none-eabi-size --format=berkeley "control.elf"
    5232	     48	   1624	   6904	   1af8	control.elf
 Finished building: control.siz
  
+18:02:58 **** Incremental Build of configuration Debug for project control ****
+make all 
+Building file: ../user/main.c
+Invoking: GNU Arm Cross C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -O0 -ffunction-sections  -g -DAT_START_F403A_V1 -DAT32F403AVGT7 -DUSE_STDPERIPH_DRIVER -I"../include" -I"../include/libraries/drivers/inc" -I"../include/libraries/cmsis/cm4/core_support" -I"../include/libraries/cmsis/cm4/device_support" -std=c99 -MMD -MP -MF"user/main.d" -MT"user/main.o" -c -o "user/main.o" "../user/main.c"
+Finished building: ../user/main.c
+ 
+Building target: control.elf
+Invoking: GNU Arm Cross C Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -O0 -ffunction-sections  -g -T "/home/user/Documents/bldc motor /control/ldscripts/AT32F403AxG_FLASH.ld" -Xlinker --gc-sections -Wl,-Map,"control.map" --specs=nano.specs --specs=nosys.specs -o "control.elf" ./user/at32f403a_407_clock.o ./user/at32f403a_407_int.o ./user/i2c_application.o ./user/main.o  ./firmware/at32f403a_407_acc.o ./firmware/at32f403a_407_adc.o ./firmware/at32f403a_407_bpr.o ./firmware/at32f403a_407_can.o ./firmware/at32f403a_407_crc.o ./firmware/at32f403a_407_crm.o ./firmware/at32f403a_407_dac.o ./firmware/at32f403a_407_debug.o ./firmware/at32f403a_407_dma.o ./firmware/at32f403a_407_emac.o ./firmware/at32f403a_407_exint.o ./firmware/at32f403a_407_flash.o ./firmware/at32f403a_407_gpio.o ./firmware/at32f403a_407_i2c.o ./firmware/at32f403a_407_misc.o ./firmware/at32f403a_407_pwc.o ./firmware/at32f403a_407_rtc.o ./firmware/at32f403a_407_sdio.o ./firmware/at32f403a_407_spi.o ./firmware/at32f403a_407_tmr.o ./firmware/at32f403a_407_usart.o ./firmware/at32f403a_407_usb.o ./firmware/at32f403a_407_wdt.o ./firmware/at32f403a_407_wwdt.o ./firmware/at32f403a_407_xmc.o  ./cmsis/startup_at32f403a_407.o ./cmsis/system_at32f403a_407.o  ./bsp/at32f403a_407_board.o   
+Finished building target: control.elf
+ 
+Invoking: GNU Arm Cross Create Flash Image
+arm-none-eabi-objcopy -O ihex "control.elf"  "control.hex"
+Finished building: control.hex
+ 
+Invoking: GNU Arm Cross Print Size
+arm-none-eabi-size --format=berkeley "control.elf"
+   text	   data	    bss	    dec	    hex	filename
+   5348	     48	   1624	   7020	   1b6c	control.elf
+Finished building: control.siz
+ 
+18:05:27 **** Incremental Build of configuration Debug for project control ****
+make all 
+Building file: ../user/main.c
+Invoking: GNU Arm Cross C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -O0 -ffunction-sections  -g -DAT_START_F403A_V1 -DAT32F403AVGT7 -DUSE_STDPERIPH_DRIVER -I"../include" -I"../include/libraries/drivers/inc" -I"../include/libraries/cmsis/cm4/core_support" -I"../include/libraries/cmsis/cm4/device_support" -std=c99 -MMD -MP -MF"user/main.d" -MT"user/main.o" -c -o "user/main.o" "../user/main.c"
+Finished building: ../user/main.c
+ 
+Building target: control.elf
+Invoking: GNU Arm Cross C Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -O0 -ffunction-sections  -g -T "/home/user/Documents/bldc motor /control/ldscripts/AT32F403AxG_FLASH.ld" -Xlinker --gc-sections -Wl,-Map,"control.map" --specs=nano.specs --specs=nosys.specs -o "control.elf" ./user/at32f403a_407_clock.o ./user/at32f403a_407_int.o ./user/i2c_application.o ./user/main.o  ./firmware/at32f403a_407_acc.o ./firmware/at32f403a_407_adc.o ./firmware/at32f403a_407_bpr.o ./firmware/at32f403a_407_can.o ./firmware/at32f403a_407_crc.o ./firmware/at32f403a_407_crm.o ./firmware/at32f403a_407_dac.o ./firmware/at32f403a_407_debug.o ./firmware/at32f403a_407_dma.o ./firmware/at32f403a_407_emac.o ./firmware/at32f403a_407_exint.o ./firmware/at32f403a_407_flash.o ./firmware/at32f403a_407_gpio.o ./firmware/at32f403a_407_i2c.o ./firmware/at32f403a_407_misc.o ./firmware/at32f403a_407_pwc.o ./firmware/at32f403a_407_rtc.o ./firmware/at32f403a_407_sdio.o ./firmware/at32f403a_407_spi.o ./firmware/at32f403a_407_tmr.o ./firmware/at32f403a_407_usart.o ./firmware/at32f403a_407_usb.o ./firmware/at32f403a_407_wdt.o ./firmware/at32f403a_407_wwdt.o ./firmware/at32f403a_407_xmc.o  ./cmsis/startup_at32f403a_407.o ./cmsis/system_at32f403a_407.o  ./bsp/at32f403a_407_board.o   
+Finished building target: control.elf
+ 
+Invoking: GNU Arm Cross Create Flash Image
+arm-none-eabi-objcopy -O ihex "control.elf"  "control.hex"
+Finished building: control.hex
+ 
+Invoking: GNU Arm Cross Print Size
+arm-none-eabi-size --format=berkeley "control.elf"
+   text	   data	    bss	    dec	    hex	filename
+   5576	     48	   1624	   7248	   1c50	control.elf
+Finished building: control.siz
+ 
+18:06:10 **** Incremental Build of configuration Debug for project control ****
+make all 
+Building file: ../user/main.c
+Invoking: GNU Arm Cross C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -O0 -ffunction-sections  -g -DAT_START_F403A_V1 -DAT32F403AVGT7 -DUSE_STDPERIPH_DRIVER -I"../include" -I"../include/libraries/drivers/inc" -I"../include/libraries/cmsis/cm4/core_support" -I"../include/libraries/cmsis/cm4/device_support" -std=c99 -MMD -MP -MF"user/main.d" -MT"user/main.o" -c -o "user/main.o" "../user/main.c"
+Finished building: ../user/main.c
+ 
+Building target: control.elf
+Invoking: GNU Arm Cross C Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -O0 -ffunction-sections  -g -T "/home/user/Documents/bldc motor /control/ldscripts/AT32F403AxG_FLASH.ld" -Xlinker --gc-sections -Wl,-Map,"control.map" --specs=nano.specs --specs=nosys.specs -o "control.elf" ./user/at32f403a_407_clock.o ./user/at32f403a_407_int.o ./user/i2c_application.o ./user/main.o  ./firmware/at32f403a_407_acc.o ./firmware/at32f403a_407_adc.o ./firmware/at32f403a_407_bpr.o ./firmware/at32f403a_407_can.o ./firmware/at32f403a_407_crc.o ./firmware/at32f403a_407_crm.o ./firmware/at32f403a_407_dac.o ./firmware/at32f403a_407_debug.o ./firmware/at32f403a_407_dma.o ./firmware/at32f403a_407_emac.o ./firmware/at32f403a_407_exint.o ./firmware/at32f403a_407_flash.o ./firmware/at32f403a_407_gpio.o ./firmware/at32f403a_407_i2c.o ./firmware/at32f403a_407_misc.o ./firmware/at32f403a_407_pwc.o ./firmware/at32f403a_407_rtc.o ./firmware/at32f403a_407_sdio.o ./firmware/at32f403a_407_spi.o ./firmware/at32f403a_407_tmr.o ./firmware/at32f403a_407_usart.o ./firmware/at32f403a_407_usb.o ./firmware/at32f403a_407_wdt.o ./firmware/at32f403a_407_wwdt.o ./firmware/at32f403a_407_xmc.o  ./cmsis/startup_at32f403a_407.o ./cmsis/system_at32f403a_407.o  ./bsp/at32f403a_407_board.o   
+Finished building target: control.elf
+ 
+Invoking: GNU Arm Cross Create Flash Image
+arm-none-eabi-objcopy -O ihex "control.elf"  "control.hex"
+Finished building: control.hex
+ 
+Invoking: GNU Arm Cross Print Size
+arm-none-eabi-size --format=berkeley "control.elf"
+   text	   data	    bss	    dec	    hex	filename
+   5652	     48	   1624	   7324	   1c9c	control.elf
+Finished building: control.siz
+ 
+12:22:26 **** Incremental Build of configuration Debug for project control ****
+make all 
+Building file: ../user/main.c
+Invoking: GNU Arm Cross C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -O0 -ffunction-sections  -g -DAT_START_F403A_V1 -DAT32F403AVGT7 -DUSE_STDPERIPH_DRIVER -I"../include" -I"../include/libraries/drivers/inc" -I"../include/libraries/cmsis/cm4/core_support" -I"../include/libraries/cmsis/cm4/device_support" -std=c99 -MMD -MP -MF"user/main.d" -MT"user/main.o" -c -o "user/main.o" "../user/main.c"
+Finished building: ../user/main.c
+ 
+Building target: control.elf
+Invoking: GNU Arm Cross C Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -O0 -ffunction-sections  -g -T "/home/user/Documents/bldc motor /control/ldscripts/AT32F403AxG_FLASH.ld" -Xlinker --gc-sections -Wl,-Map,"control.map" --specs=nano.specs --specs=nosys.specs -o "control.elf" ./user/at32f403a_407_clock.o ./user/at32f403a_407_int.o ./user/i2c_application.o ./user/main.o  ./firmware/at32f403a_407_acc.o ./firmware/at32f403a_407_adc.o ./firmware/at32f403a_407_bpr.o ./firmware/at32f403a_407_can.o ./firmware/at32f403a_407_crc.o ./firmware/at32f403a_407_crm.o ./firmware/at32f403a_407_dac.o ./firmware/at32f403a_407_debug.o ./firmware/at32f403a_407_dma.o ./firmware/at32f403a_407_emac.o ./firmware/at32f403a_407_exint.o ./firmware/at32f403a_407_flash.o ./firmware/at32f403a_407_gpio.o ./firmware/at32f403a_407_i2c.o ./firmware/at32f403a_407_misc.o ./firmware/at32f403a_407_pwc.o ./firmware/at32f403a_407_rtc.o ./firmware/at32f403a_407_sdio.o ./firmware/at32f403a_407_spi.o ./firmware/at32f403a_407_tmr.o ./firmware/at32f403a_407_usart.o ./firmware/at32f403a_407_usb.o ./firmware/at32f403a_407_wdt.o ./firmware/at32f403a_407_wwdt.o ./firmware/at32f403a_407_xmc.o  ./cmsis/startup_at32f403a_407.o ./cmsis/system_at32f403a_407.o  ./bsp/at32f403a_407_board.o   
+Finished building target: control.elf
+ 
+Invoking: GNU Arm Cross Create Flash Image
+arm-none-eabi-objcopy -O ihex "control.elf"  "control.hex"
+Finished building: control.hex
+ 
+Invoking: GNU Arm Cross Print Size
+arm-none-eabi-size --format=berkeley "control.elf"
+   text	   data	    bss	    dec	    hex	filename
+   5636	     48	   1624	   7308	   1c8c	control.elf
+Finished building: control.siz
+ 
+12:32:58 **** Incremental Build of configuration Debug for project control ****
+make all 
+Building file: ../user/main.c
+Invoking: GNU Arm Cross C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -O0 -ffunction-sections  -g -DAT_START_F403A_V1 -DAT32F403AVGT7 -DUSE_STDPERIPH_DRIVER -I"../include" -I"../include/libraries/drivers/inc" -I"../include/libraries/cmsis/cm4/core_support" -I"../include/libraries/cmsis/cm4/device_support" -std=c99 -MMD -MP -MF"user/main.d" -MT"user/main.o" -c -o "user/main.o" "../user/main.c"
+Finished building: ../user/main.c
+ 
+Building target: control.elf
+Invoking: GNU Arm Cross C Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -O0 -ffunction-sections  -g -T "/home/user/Documents/bldc motor /control/ldscripts/AT32F403AxG_FLASH.ld" -Xlinker --gc-sections -Wl,-Map,"control.map" --specs=nano.specs --specs=nosys.specs -o "control.elf" ./user/at32f403a_407_clock.o ./user/at32f403a_407_int.o ./user/i2c_application.o ./user/main.o  ./firmware/at32f403a_407_acc.o ./firmware/at32f403a_407_adc.o ./firmware/at32f403a_407_bpr.o ./firmware/at32f403a_407_can.o ./firmware/at32f403a_407_crc.o ./firmware/at32f403a_407_crm.o ./firmware/at32f403a_407_dac.o ./firmware/at32f403a_407_debug.o ./firmware/at32f403a_407_dma.o ./firmware/at32f403a_407_emac.o ./firmware/at32f403a_407_exint.o ./firmware/at32f403a_407_flash.o ./firmware/at32f403a_407_gpio.o ./firmware/at32f403a_407_i2c.o ./firmware/at32f403a_407_misc.o ./firmware/at32f403a_407_pwc.o ./firmware/at32f403a_407_rtc.o ./firmware/at32f403a_407_sdio.o ./firmware/at32f403a_407_spi.o ./firmware/at32f403a_407_tmr.o ./firmware/at32f403a_407_usart.o ./firmware/at32f403a_407_usb.o ./firmware/at32f403a_407_wdt.o ./firmware/at32f403a_407_wwdt.o ./firmware/at32f403a_407_xmc.o  ./cmsis/startup_at32f403a_407.o ./cmsis/system_at32f403a_407.o  ./bsp/at32f403a_407_board.o   
+Finished building target: control.elf
+ 
+Invoking: GNU Arm Cross Create Flash Image
+arm-none-eabi-objcopy -O ihex "control.elf"  "control.hex"
+Finished building: control.hex
+ 
+Invoking: GNU Arm Cross Print Size
+arm-none-eabi-size --format=berkeley "control.elf"
+   text	   data	    bss	    dec	    hex	filename
+   5404	     48	   1624	   7076	   1ba4	control.elf
+Finished building: control.siz
+ 
+12:38:11 **** Incremental Build of configuration Debug for project control ****
+make all 
+Building file: ../user/main.c
+Invoking: GNU Arm Cross C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -O0 -ffunction-sections  -g -DAT_START_F403A_V1 -DAT32F403AVGT7 -DUSE_STDPERIPH_DRIVER -I"../include" -I"../include/libraries/drivers/inc" -I"../include/libraries/cmsis/cm4/core_support" -I"../include/libraries/cmsis/cm4/device_support" -std=c99 -MMD -MP -MF"user/main.d" -MT"user/main.o" -c -o "user/main.o" "../user/main.c"
+../user/main.c: In function 'main':
+../user/main.c:145:40: error: 'C\U00000421W' undeclared (first use in this function)
+  145 |    gpio_bits_write(GPIOA, GPIO_PINS_4, CСW);
+      |                                        ^~~
+../user/main.c:145:40: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [user/subdir.mk:29: user/main.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+12:38:41 **** Incremental Build of configuration Debug for project control ****
+make all 
+Building file: ../user/main.c
+Invoking: GNU Arm Cross C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -O0 -ffunction-sections  -g -DAT_START_F403A_V1 -DAT32F403AVGT7 -DUSE_STDPERIPH_DRIVER -I"../include" -I"../include/libraries/drivers/inc" -I"../include/libraries/cmsis/cm4/core_support" -I"../include/libraries/cmsis/cm4/device_support" -std=c99 -MMD -MP -MF"user/main.d" -MT"user/main.o" -c -o "user/main.o" "../user/main.c"
+Finished building: ../user/main.c
+ 
+Building target: control.elf
+Invoking: GNU Arm Cross C Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -O0 -ffunction-sections  -g -T "/home/user/Documents/bldc motor /control/ldscripts/AT32F403AxG_FLASH.ld" -Xlinker --gc-sections -Wl,-Map,"control.map" --specs=nano.specs --specs=nosys.specs -o "control.elf" ./user/at32f403a_407_clock.o ./user/at32f403a_407_int.o ./user/i2c_application.o ./user/main.o  ./firmware/at32f403a_407_acc.o ./firmware/at32f403a_407_adc.o ./firmware/at32f403a_407_bpr.o ./firmware/at32f403a_407_can.o ./firmware/at32f403a_407_crc.o ./firmware/at32f403a_407_crm.o ./firmware/at32f403a_407_dac.o ./firmware/at32f403a_407_debug.o ./firmware/at32f403a_407_dma.o ./firmware/at32f403a_407_emac.o ./firmware/at32f403a_407_exint.o ./firmware/at32f403a_407_flash.o ./firmware/at32f403a_407_gpio.o ./firmware/at32f403a_407_i2c.o ./firmware/at32f403a_407_misc.o ./firmware/at32f403a_407_pwc.o ./firmware/at32f403a_407_rtc.o ./firmware/at32f403a_407_sdio.o ./firmware/at32f403a_407_spi.o ./firmware/at32f403a_407_tmr.o ./firmware/at32f403a_407_usart.o ./firmware/at32f403a_407_usb.o ./firmware/at32f403a_407_wdt.o ./firmware/at32f403a_407_wwdt.o ./firmware/at32f403a_407_xmc.o  ./cmsis/startup_at32f403a_407.o ./cmsis/system_at32f403a_407.o  ./bsp/at32f403a_407_board.o   
+Finished building target: control.elf
+ 
+Invoking: GNU Arm Cross Create Flash Image
+arm-none-eabi-objcopy -O ihex "control.elf"  "control.hex"
+Finished building: control.hex
+ 
+Invoking: GNU Arm Cross Print Size
+arm-none-eabi-size --format=berkeley "control.elf"
+   text	   data	    bss	    dec	    hex	filename
+   5404	     48	   1624	   7076	   1ba4	control.elf
+Finished building: control.siz
+ 

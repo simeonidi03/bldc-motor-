@@ -1,8 +1,7 @@
 #include "at32f403a_407_board.h"
 #include "at32f403a_407_clock.h"
 
-#define CW  0 // clockwise         по часовой
-#define CCW 1 // counterclock-wise против часовой
+#define CW 0
 
 /** @addtogroup AT32F403A_periph_examples
   * @{
@@ -142,9 +141,10 @@ int main(void)
 
   while(1)
   {
-	  gpio_bits_write(GPIOA, GPIO_PINS_4, CCW);
+	  gpio_bits_write(GPIOA, GPIO_PINS_4, CW);
 
-
+//	  delay_sec(3);
+//	  gpio_bits_write(GPIOA, GPIO_PINS_4, FALSE);
 
 
   }

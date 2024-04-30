@@ -142,7 +142,7 @@ int main(void)
 
   while(1)
   {
-	  gpio_bits_write(GPIOA, GPIO_PINS_4, CCW);
+	  gpio_bits_write(GPIOA, GPIO_PINS_4, CСW);
 
 
 
