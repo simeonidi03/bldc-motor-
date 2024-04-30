@@ -142,7 +142,7 @@ int main(void)
   /* enable tmr1 */
   tmr_counter_enable(TMR1, TRUE);
 
- uint16_t speed = 750;
+ uint16_t speed = 75;
  uint16_t direction = CW;
 
  gpio_bits_write(GPIOA, GPIO_PINS_4, direction);
@@ -159,32 +159,14 @@ int main(void)
 //	  delay_sec(10);
 //	  at32_led_on(LED2);
 //	  channel2_pulse = (uint16_t)(((uint32_t) 1 * (timer_period - 1)) / 1000);
-//	  tmr_channel_value_set(TMR1, TMR_SELECT_CHANNEL_2, channel2_pulse)
-
-		gpio_bits_write(GPIOA, GPIO_PINS_4, direction);
-		//набор скорости
-		for (int i = 0; i < 750; i++) {
+//	  tmr_channel_value_set(TMR1, TMR_SELECT_CHANNEL_2, channel2_pulse);
+		uint16_t direction = CW;
+		for (int i = 0; i <= 75; i++) {
 			channel2_pulse = (uint16_t) (((uint32_t) speed * (timer_period - 1)) / 1000);
 			tmr_channel_value_set(TMR1, TMR_SELECT_CHANNEL_2, channel2_pulse);
 			speed--;
-			delay_ms(50);
 		}
 
-		//сброс скорости
-		for (int i = 0; i < 750; i++) {
-			channel2_pulse = (uint16_t) (((uint32_t) speed * (timer_period - 1)) / 1000);
-			tmr_channel_value_set(TMR1, TMR_SELECT_CHANNEL_2, channel2_pulse);
-			speed++;
-			delay_ms(50);
-		}
-
-		if(direction == CW){
-			direction = CCW;
-		}else{
-			direction = CW;
-		}
-		uint16_t speed = 750;
-		at32_led_on(LED2);
 	}
 }
 
