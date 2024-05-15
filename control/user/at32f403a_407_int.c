@@ -27,6 +27,9 @@
 /* includes ------------------------------------------------------------------*/
 #include "at32f403a_407_int.h"
 
+extern void usart2_tx_rx_handler(void);
+extern uint16_t direction;
+
 /** @addtogroup AT32F403A_periph_examples
   * @{
   */
@@ -134,10 +137,29 @@ void SysTick_Handler(void)
   tmr_event_sw_trigger(TMR1, TMR_HALL_SWTRIG);
 }
 
-/**
-  * @}
-  */
+void EXINT15_10_IRQHandler(void)
+{
+	if(direction == 0){
+		odometr_div18++;
+	}else{
+		odometr_div18--;
+	}
+
+    EXINT->intsts = EXINT_LINE_13;
+}
+
+void USART2_IRQHandler(void)
+{
+  usart2_tx_rx_handler();
+}
 
 /**
-  * @}
+  * @brief  this function handles usart3 handler.
+  * @param  none
+  * @retval none
   */
+void USART3_IRQHandler(void)
+{
+
+}
+

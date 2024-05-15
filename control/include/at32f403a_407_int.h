@@ -35,6 +35,9 @@ extern "C" {
 /* includes ------------------------------------------------------------------*/
 #include "at32f403a_407.h"
 
+extern int64_t odometr_div18;
+extern int16_t odometr;
+
 /* exported types ------------------------------------------------------------*/
 /* exported constants --------------------------------------------------------*/
 /* exported macro ------------------------------------------------------------*/
@@ -49,6 +52,7 @@ void SVC_Handler(void);
 void DebugMon_Handler(void);
 void PendSV_Handler(void);
 void SysTick_Handler(void);
+void EXINT15_10_IRQHandler(void);
 
 #ifdef __cplusplus
 }
