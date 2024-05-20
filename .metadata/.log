@@ -7357,3 +7357,812 @@ For more details, see the openocd console.
 
 !ENTRY org.eclipse.embedcdt.templates.core 4 1 2024-05-15 13:39:46.315
 !MESSAGE arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.embedcdt.templates.core 4 1 2024-05-15 15:00:25.768
+!MESSAGE arm-none-eabi-gdb --version
+
+!ENTRY org.eclipse.embedcdt.templates.core 4 1 2024-05-15 15:00:25.875
+!MESSAGE /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/OpenOCD/bin/openocd -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/OpenOCD/scripts -f ./interface/atlink.cfg -f ./target/at32f403axG.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.templates.core 4 1 2024-05-15 15:00:25.995
+!MESSAGE arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.embedcdt.templates.core 4 1 2024-05-15 15:01:37.394
+!MESSAGE arm-none-eabi-gdb --version
+
+!ENTRY org.eclipse.embedcdt.templates.core 4 1 2024-05-15 15:01:37.504
+!MESSAGE /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/OpenOCD/bin/openocd -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/OpenOCD/scripts -f ./interface/atlink.cfg -f ./target/at32f403axG.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.templates.core 4 1 2024-05-15 15:01:37.626
+!MESSAGE arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.debug.core 4 120 2024-05-15 16:52:16.229
+!MESSAGE Variable references empty selection: ${project_name}
+
+!ENTRY org.eclipse.embedcdt.templates.core 4 1 2024-05-15 16:52:20.241
+!MESSAGE arm-none-eabi-gdb --version
+
+!ENTRY org.eclipse.embedcdt.templates.core 4 1 2024-05-15 16:52:20.350
+!MESSAGE /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/OpenOCD/bin/openocd -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/OpenOCD/scripts -f ./interface/atlink.cfg -f ./target/at32f403axG.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.templates.core 4 1 2024-05-15 16:52:20.475
+!MESSAGE arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.embedcdt.templates.core 4 1 2024-05-15 16:58:24.973
+!MESSAGE arm-none-eabi-gdb --version
+
+!ENTRY org.eclipse.embedcdt.templates.core 4 1 2024-05-15 16:58:25.085
+!MESSAGE /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/OpenOCD/bin/openocd -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/OpenOCD/scripts -f ./interface/atlink.cfg -f ./target/at32f403axG.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.templates.core 4 1 2024-05-15 16:58:25.208
+!MESSAGE arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.embedcdt.templates.core 4 1 2024-05-15 16:59:28.956
+!MESSAGE arm-none-eabi-gdb --version
+
+!ENTRY org.eclipse.embedcdt.templates.core 4 1 2024-05-15 16:59:29.070
+!MESSAGE /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/OpenOCD/bin/openocd -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/OpenOCD/scripts -f ./interface/atlink.cfg -f ./target/at32f403axG.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.templates.core 4 1 2024-05-15 16:59:29.195
+!MESSAGE arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.embedcdt.templates.core 4 1 2024-05-15 17:01:44.772
+!MESSAGE arm-none-eabi-gdb --version
+
+!ENTRY org.eclipse.embedcdt.templates.core 4 1 2024-05-15 17:01:44.879
+!MESSAGE /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/OpenOCD/bin/openocd -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/OpenOCD/scripts -f ./interface/atlink.cfg -f ./target/at32f403axG.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.templates.core 4 1 2024-05-15 17:01:45.010
+!MESSAGE arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.embedcdt.templates.core 4 1 2024-05-15 17:09:51.080
+!MESSAGE arm-none-eabi-gdb --version
+
+!ENTRY org.eclipse.embedcdt.templates.core 4 1 2024-05-15 17:09:51.197
+!MESSAGE /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/OpenOCD/bin/openocd -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/OpenOCD/scripts -f ./interface/atlink.cfg -f ./target/at32f403axG.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.templates.core 4 1 2024-05-15 17:09:51.322
+!MESSAGE arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.embedcdt.templates.core 4 1 2024-05-15 17:22:38.412
+!MESSAGE arm-none-eabi-gdb --version
+
+!ENTRY org.eclipse.embedcdt.templates.core 4 1 2024-05-15 17:22:38.524
+!MESSAGE /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/OpenOCD/bin/openocd -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/OpenOCD/scripts -f ./interface/atlink.cfg -f ./target/at32f403axG.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.templates.core 4 1 2024-05-15 17:22:38.649
+!MESSAGE arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.embedcdt.templates.core 4 1 2024-05-15 17:26:33.972
+!MESSAGE arm-none-eabi-gdb --version
+
+!ENTRY org.eclipse.embedcdt.templates.core 4 1 2024-05-15 17:26:34.082
+!MESSAGE /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/OpenOCD/bin/openocd -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/OpenOCD/scripts -f ./interface/atlink.cfg -f ./target/at32f403axG.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.templates.core 4 1 2024-05-15 17:26:34.205
+!MESSAGE arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.embedcdt.templates.core 4 1 2024-05-15 17:27:37.148
+!MESSAGE arm-none-eabi-gdb --version
+
+!ENTRY org.eclipse.embedcdt.templates.core 4 1 2024-05-15 17:27:37.257
+!MESSAGE /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/OpenOCD/bin/openocd -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/OpenOCD/scripts -f ./interface/atlink.cfg -f ./target/at32f403axG.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.templates.core 4 1 2024-05-15 17:27:37.386
+!MESSAGE arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.embedcdt.templates.core 4 1 2024-05-15 17:28:41.809
+!MESSAGE arm-none-eabi-gdb --version
+
+!ENTRY org.eclipse.embedcdt.templates.core 4 1 2024-05-15 17:28:41.922
+!MESSAGE /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/OpenOCD/bin/openocd -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/OpenOCD/scripts -f ./interface/atlink.cfg -f ./target/at32f403axG.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.templates.core 4 1 2024-05-15 17:28:42.046
+!MESSAGE arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.embedcdt.templates.core 4 1 2024-05-15 17:32:14.448
+!MESSAGE arm-none-eabi-gdb --version
+
+!ENTRY org.eclipse.embedcdt.templates.core 4 1 2024-05-15 17:32:14.560
+!MESSAGE /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/OpenOCD/bin/openocd -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/OpenOCD/scripts -f ./interface/atlink.cfg -f ./target/at32f403axG.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.templates.core 4 1 2024-05-15 17:32:14.683
+!MESSAGE arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.embedcdt.templates.core 4 1 2024-05-15 17:37:41.763
+!MESSAGE arm-none-eabi-gdb --version
+
+!ENTRY org.eclipse.embedcdt.templates.core 4 1 2024-05-15 17:37:41.874
+!MESSAGE /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/OpenOCD/bin/openocd -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/OpenOCD/scripts -f ./interface/atlink.cfg -f ./target/at32f403axG.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.templates.core 4 1 2024-05-15 17:37:42.002
+!MESSAGE arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.embedcdt.templates.core 4 1 2024-05-15 17:38:13.404
+!MESSAGE arm-none-eabi-gdb --version
+
+!ENTRY org.eclipse.embedcdt.templates.core 4 1 2024-05-15 17:38:13.533
+!MESSAGE /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/OpenOCD/bin/openocd -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/OpenOCD/scripts -f ./interface/atlink.cfg -f ./target/at32f403axG.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.templates.core 4 1 2024-05-15 17:38:13.657
+!MESSAGE arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 0 2024-05-15 17:39:37.720
+!MESSAGE Debug session 'control Debug' already started. Terminate the first one before restarting.
+
+!ENTRY org.eclipse.embedcdt.templates.core 4 1 2024-05-15 17:39:39.992
+!MESSAGE arm-none-eabi-gdb --version
+
+!ENTRY org.eclipse.embedcdt.templates.core 4 1 2024-05-15 17:39:40.099
+!MESSAGE /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/OpenOCD/bin/openocd -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/OpenOCD/scripts -f ./interface/atlink.cfg -f ./target/at32f403axG.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.templates.core 4 1 2024-05-15 17:39:40.231
+!MESSAGE arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2024-05-15 17:39:53.940
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@39540568): Status OK: unknown code=0 OK' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2024-05-15 17:39:53.940
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@19b2c133): Status OK: unknown code=0 OK' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2024-05-15 17:39:53.940
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@2aaefcf9): Status OK: unknown code=0 OK' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2024-05-15 17:39:53.940
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@5c55f4d4): Status OK: unknown code=0 OK' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2024-05-15 17:39:53.940
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@532c076e): Status OK: unknown code=0 OK' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2024-05-15 17:39:53.940
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@2257c1db): Status OK: unknown code=0 OK' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2024-05-15 17:45:18.582
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@7604dc93): Status OK: unknown code=0 OK' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2024-05-15 17:45:18.582
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@46711043): Status OK: unknown code=0 OK' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2024-05-15 17:45:18.582
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@704bbf3c): Status OK: unknown code=0 OK' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2024-05-15 17:45:18.582
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@746ed187): Status OK: unknown code=0 OK' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2024-05-15 17:45:18.582
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@62c60c2): Status OK: unknown code=0 OK' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2024-05-15 17:45:18.582
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@66d58184): Status OK: unknown code=0 OK' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 0 2024-05-15 18:02:41.139
+!MESSAGE Debug session 'control Debug' already started. Terminate the first one before restarting.
+
+!ENTRY org.eclipse.embedcdt.templates.core 4 1 2024-05-15 18:02:54.125
+!MESSAGE arm-none-eabi-gdb --version
+
+!ENTRY org.eclipse.embedcdt.templates.core 4 1 2024-05-15 18:02:54.239
+!MESSAGE /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/OpenOCD/bin/openocd -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/OpenOCD/scripts -f ./interface/atlink.cfg -f ./target/at32f403axG.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.templates.core 4 1 2024-05-15 18:02:54.364
+!MESSAGE arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.embedcdt.templates.core 4 1 2024-05-15 18:11:37.722
+!MESSAGE arm-none-eabi-gdb --version
+
+!ENTRY org.eclipse.embedcdt.templates.core 4 1 2024-05-15 18:11:37.833
+!MESSAGE /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/OpenOCD/bin/openocd -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/OpenOCD/scripts -f ./interface/atlink.cfg -f ./target/at32f403axG.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.templates.core 4 1 2024-05-15 18:11:37.958
+!MESSAGE arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.embedcdt.templates.core 4 1 2024-05-15 18:17:09.646
+!MESSAGE arm-none-eabi-gdb --version
+
+!ENTRY org.eclipse.embedcdt.templates.core 4 1 2024-05-15 18:17:09.752
+!MESSAGE /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/OpenOCD/bin/openocd -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/OpenOCD/scripts -f ./interface/atlink.cfg -f ./target/at32f403axG.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.templates.core 4 1 2024-05-15 18:17:09.875
+!MESSAGE arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.embedcdt.templates.core 4 1 2024-05-15 18:22:15.695
+!MESSAGE arm-none-eabi-gdb --version
+
+!ENTRY org.eclipse.embedcdt.templates.core 4 1 2024-05-15 18:22:15.806
+!MESSAGE /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/OpenOCD/bin/openocd -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/OpenOCD/scripts -f ./interface/atlink.cfg -f ./target/at32f403axG.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.templates.core 4 1 2024-05-15 18:22:15.932
+!MESSAGE arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.embedcdt.templates.core 4 1 2024-05-15 18:41:30.054
+!MESSAGE arm-none-eabi-gdb --version
+
+!ENTRY org.eclipse.embedcdt.templates.core 4 1 2024-05-15 18:41:30.173
+!MESSAGE /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/OpenOCD/bin/openocd -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/OpenOCD/scripts -f ./interface/atlink.cfg -f ./target/at32f403axG.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.templates.core 4 1 2024-05-15 18:41:30.298
+!MESSAGE arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.embedcdt.templates.core 4 1 2024-05-15 18:42:30.017
+!MESSAGE arm-none-eabi-gdb --version
+
+!ENTRY org.eclipse.embedcdt.templates.core 4 1 2024-05-15 18:42:30.126
+!MESSAGE /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/OpenOCD/bin/openocd -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/OpenOCD/scripts -f ./interface/atlink.cfg -f ./target/at32f403axG.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.templates.core 4 1 2024-05-15 18:42:30.250
+!MESSAGE arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.ui 4 0 2024-05-15 18:50:00.132
+!MESSAGE Unhandled event loop exception
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "org.eclipse.core.resources.IResource.getAdapter(java.lang.Class)" because "resource" is null
+	at org.eclipse.linuxtools.internal.changelog.core.editors.GNUHyperlinkDetector.detectHyperlinks(GNUHyperlinkDetector.java:120)
+	at org.eclipse.ui.texteditor.HyperlinkDetectorRegistry$HyperlinkDetectorDelegate.detectHyperlinks(HyperlinkDetectorRegistry.java:81)
+	at org.eclipse.jface.text.hyperlink.HyperlinkManager.findHyperlinks(HyperlinkManager.java:289)
+	at org.eclipse.jface.text.hyperlink.HyperlinkManager.findHyperlinks(HyperlinkManager.java:262)
+	at org.eclipse.jface.text.hyperlink.HyperlinkManager.mouseMove(HyperlinkManager.java:457)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:216)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:5895)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1520)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:5126)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:4581)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:644)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:551)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:156)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:401)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:659)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:596)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1440)
+
+!ENTRY org.eclipse.ui 4 0 2024-05-15 18:50:00.149
+!MESSAGE Unhandled event loop exception
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "org.eclipse.core.resources.IResource.getAdapter(java.lang.Class)" because "resource" is null
+	at org.eclipse.linuxtools.internal.changelog.core.editors.GNUHyperlinkDetector.detectHyperlinks(GNUHyperlinkDetector.java:120)
+	at org.eclipse.ui.texteditor.HyperlinkDetectorRegistry$HyperlinkDetectorDelegate.detectHyperlinks(HyperlinkDetectorRegistry.java:81)
+	at org.eclipse.jface.text.hyperlink.HyperlinkManager.findHyperlinks(HyperlinkManager.java:289)
+	at org.eclipse.jface.text.hyperlink.HyperlinkManager.findHyperlinks(HyperlinkManager.java:262)
+	at org.eclipse.jface.text.hyperlink.HyperlinkManager.mouseMove(HyperlinkManager.java:457)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:216)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:5895)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1520)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:5126)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:4581)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:644)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:551)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:156)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:401)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:659)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:596)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1440)
+
+!ENTRY org.eclipse.embedcdt.templates.core 4 1 2024-05-20 14:26:14.554
+!MESSAGE arm-none-eabi-gdb --version
+
+!ENTRY org.eclipse.embedcdt.templates.core 4 1 2024-05-20 14:26:14.684
+!MESSAGE /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/OpenOCD/bin/openocd -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/OpenOCD/scripts -f ./interface/atlink.cfg -f ./target/at32f403axG.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 0 2024-05-20 14:26:14.808
+!MESSAGE OpenOCD failed with code (1).
+
+For more details, see the openocd console.
+
+!ENTRY org.eclipse.embedcdt.templates.core 4 1 2024-05-20 14:26:17.670
+!MESSAGE arm-none-eabi-gdb --version
+
+!ENTRY org.eclipse.embedcdt.templates.core 4 1 2024-05-20 14:26:17.782
+!MESSAGE /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/OpenOCD/bin/openocd -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/OpenOCD/scripts -f ./interface/atlink.cfg -f ./target/at32f403axG.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 0 2024-05-20 14:26:17.904
+!MESSAGE OpenOCD failed with code (1).
+
+For more details, see the openocd console.
+
+!ENTRY org.eclipse.embedcdt.templates.core 4 1 2024-05-20 14:31:55.459
+!MESSAGE arm-none-eabi-gdb --version
+
+!ENTRY org.eclipse.embedcdt.templates.core 4 1 2024-05-20 14:31:55.573
+!MESSAGE /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/OpenOCD/bin/openocd -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/OpenOCD/scripts -f ./interface/atlink.cfg -f ./target/at32f403axG.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.templates.core 4 1 2024-05-20 14:31:55.701
+!MESSAGE arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.embedcdt.templates.core 4 1 2024-05-20 14:43:31.579
+!MESSAGE arm-none-eabi-gdb --version
+
+!ENTRY org.eclipse.embedcdt.templates.core 4 1 2024-05-20 14:43:31.696
+!MESSAGE /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/OpenOCD/bin/openocd -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/OpenOCD/scripts -f ./interface/atlink.cfg -f ./target/at32f403axG.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.templates.core 4 1 2024-05-20 14:43:31.826
+!MESSAGE arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.equinox.p2.transport.ecf 2 0 2024-05-20 15:25:11.411
+!MESSAGE Connection to http://atkpc2023:8080/at32ide_repository/p2.index failed on atkpc2023: No address associated with hostname. Retry attempt 0 started
+!STACK 0
+java.net.UnknownHostException: atkpc2023: No address associated with hostname
+	at java.base/java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method)
+	at java.base/java.net.InetAddress$PlatformNameService.lookupAllHostAddr(InetAddress.java:933)
+	at java.base/java.net.InetAddress.getAddressesFromNameService(InetAddress.java:1519)
+	at java.base/java.net.InetAddress$NameServiceAddresses.get(InetAddress.java:852)
+	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1509)
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1367)
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1301)
+	at org.apache.hc.client5.http.SystemDefaultDnsResolver.resolve(SystemDefaultDnsResolver.java:43)
+	at org.apache.hc.client5.http.impl.io.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:118)
+	at org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:396)
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:158)
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:168)
+	at org.apache.hc.client5.http.impl.classic.ConnectExec.execute(ConnectExec.java:136)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement$1.proceed(ExecChainElement.java:57)
+	at org.apache.hc.client5.http.impl.classic.ProtocolExec.execute(ProtocolExec.java:175)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement$1.proceed(ExecChainElement.java:57)
+	at org.apache.hc.client5.http.impl.classic.HttpRequestRetryExec.execute(HttpRequestRetryExec.java:96)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement$1.proceed(ExecChainElement.java:57)
+	at org.apache.hc.client5.http.impl.classic.ContentCompressionExec.execute(ContentCompressionExec.java:133)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement$1.proceed(ExecChainElement.java:57)
+	at org.apache.hc.client5.http.impl.classic.RedirectExec.execute(RedirectExec.java:115)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.InternalHttpClient.doExecute(InternalHttpClient.java:170)
+	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:75)
+	at org.eclipse.ecf.provider.filetransfer.httpclient5.HttpClientRetrieveFileTransfer.performConnect(HttpClientRetrieveFileTransfer.java:1009)
+	at org.eclipse.ecf.provider.filetransfer.httpclient5.HttpClientRetrieveFileTransfer.access$0(HttpClientRetrieveFileTransfer.java:1001)
+	at org.eclipse.ecf.provider.filetransfer.httpclient5.HttpClientRetrieveFileTransfer$1.performFileTransfer(HttpClientRetrieveFileTransfer.java:997)
+	at org.eclipse.ecf.filetransfer.FileTransferJob.run(FileTransferJob.java:76)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2024-05-20 15:25:11.612
+!MESSAGE Using unsafe http transport to retrieve http://atkpc2023:8080/at32ide_repository/, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.transport.ecf 4 1006 2024-05-20 15:25:11.614
+!MESSAGE Unknown Host: http://atkpc2023:8080/at32ide_repository/content.xml
+!STACK 0
+java.net.UnknownHostException: atkpc2023
+	at java.base/java.net.InetAddress$CachedAddresses.get(InetAddress.java:801)
+	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1509)
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1367)
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1301)
+	at org.apache.hc.client5.http.SystemDefaultDnsResolver.resolve(SystemDefaultDnsResolver.java:43)
+	at org.apache.hc.client5.http.impl.io.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:118)
+	at org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:396)
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:158)
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:168)
+	at org.apache.hc.client5.http.impl.classic.ConnectExec.execute(ConnectExec.java:136)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement$1.proceed(ExecChainElement.java:57)
+	at org.apache.hc.client5.http.impl.classic.ProtocolExec.execute(ProtocolExec.java:175)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement$1.proceed(ExecChainElement.java:57)
+	at org.apache.hc.client5.http.impl.classic.HttpRequestRetryExec.execute(HttpRequestRetryExec.java:96)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement$1.proceed(ExecChainElement.java:57)
+	at org.apache.hc.client5.http.impl.classic.ContentCompressionExec.execute(ContentCompressionExec.java:133)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement$1.proceed(ExecChainElement.java:57)
+	at org.apache.hc.client5.http.impl.classic.RedirectExec.execute(RedirectExec.java:115)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.InternalHttpClient.doExecute(InternalHttpClient.java:170)
+	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:75)
+	at org.eclipse.ecf.provider.filetransfer.httpclient5.HttpClientFileSystemBrowser.runRequest(HttpClientFileSystemBrowser.java:251)
+	at org.eclipse.ecf.provider.filetransfer.browse.AbstractFileSystemBrowser$DirectoryJob.run(AbstractFileSystemBrowser.java:71)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.equinox.p2.transport.ecf 2 0 2024-05-20 15:25:11.653
+!MESSAGE Connection to http://atkpc2023:8080/at32ide_repository/p2.index failed on atkpc2023. Retry attempt 0 started
+!STACK 0
+java.net.UnknownHostException: atkpc2023
+	at java.base/java.net.InetAddress$CachedAddresses.get(InetAddress.java:801)
+	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1509)
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1367)
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1301)
+	at org.apache.hc.client5.http.SystemDefaultDnsResolver.resolve(SystemDefaultDnsResolver.java:43)
+	at org.apache.hc.client5.http.impl.io.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:118)
+	at org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:396)
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:158)
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:168)
+	at org.apache.hc.client5.http.impl.classic.ConnectExec.execute(ConnectExec.java:136)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement$1.proceed(ExecChainElement.java:57)
+	at org.apache.hc.client5.http.impl.classic.ProtocolExec.execute(ProtocolExec.java:175)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement$1.proceed(ExecChainElement.java:57)
+	at org.apache.hc.client5.http.impl.classic.HttpRequestRetryExec.execute(HttpRequestRetryExec.java:96)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement$1.proceed(ExecChainElement.java:57)
+	at org.apache.hc.client5.http.impl.classic.ContentCompressionExec.execute(ContentCompressionExec.java:133)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement$1.proceed(ExecChainElement.java:57)
+	at org.apache.hc.client5.http.impl.classic.RedirectExec.execute(RedirectExec.java:115)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.InternalHttpClient.doExecute(InternalHttpClient.java:170)
+	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:75)
+	at org.eclipse.ecf.provider.filetransfer.httpclient5.HttpClientRetrieveFileTransfer.performConnect(HttpClientRetrieveFileTransfer.java:1009)
+	at org.eclipse.ecf.provider.filetransfer.httpclient5.HttpClientRetrieveFileTransfer.access$0(HttpClientRetrieveFileTransfer.java:1001)
+	at org.eclipse.ecf.provider.filetransfer.httpclient5.HttpClientRetrieveFileTransfer$1.performFileTransfer(HttpClientRetrieveFileTransfer.java:997)
+	at org.eclipse.ecf.filetransfer.FileTransferJob.run(FileTransferJob.java:76)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2024-05-20 15:25:11.855
+!MESSAGE Using unsafe http transport to retrieve http://atkpc2023:8080/at32ide_repository/, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.embedcdt.templates.core 4 1 2024-05-20 15:29:46.327
+!MESSAGE arm-none-eabi-gdb --version
+
+!ENTRY org.eclipse.embedcdt.templates.core 4 1 2024-05-20 15:29:46.436
+!MESSAGE /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/OpenOCD/bin/openocd -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/OpenOCD/scripts -f ./interface/atlink.cfg -f ./target/at32f403axG.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.templates.core 4 1 2024-05-20 15:29:46.564
+!MESSAGE arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 0 2024-05-20 15:39:42.691
+!MESSAGE Debug session 'control Debug' already started. Terminate the first one before restarting.
+
+!ENTRY org.eclipse.embedcdt.templates.core 4 1 2024-05-20 15:39:45.310
+!MESSAGE arm-none-eabi-gdb --version
+
+!ENTRY org.eclipse.embedcdt.templates.core 4 1 2024-05-20 15:39:45.429
+!MESSAGE /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/OpenOCD/bin/openocd -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/OpenOCD/scripts -f ./interface/atlink.cfg -f ./target/at32f403axG.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.templates.core 4 1 2024-05-20 15:39:45.551
+!MESSAGE arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2024-05-20 15:42:23.040
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@3703a8ef): Status OK: unknown code=0 OK' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2024-05-20 15:42:23.041
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@181fb340): Status OK: unknown code=0 OK' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2024-05-20 15:42:23.041
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@611dee28): Status OK: unknown code=0 OK' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2024-05-20 15:42:23.041
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@1208cd1b): Status OK: unknown code=0 OK' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2024-05-20 15:42:23.041
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@174507a2): Status OK: unknown code=0 OK' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2024-05-20 15:42:23.041
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@4628d372): Status OK: unknown code=0 OK' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 0 2024-05-20 16:13:41.536
+!MESSAGE Debug session 'control Debug' already started. Terminate the first one before restarting.
+
+!ENTRY org.eclipse.embedcdt.templates.core 4 1 2024-05-20 16:13:58.745
+!MESSAGE arm-none-eabi-gdb --version
+
+!ENTRY org.eclipse.embedcdt.templates.core 4 1 2024-05-20 16:13:58.852
+!MESSAGE /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/OpenOCD/bin/openocd -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/OpenOCD/scripts -f ./interface/atlink.cfg -f ./target/at32f403axG.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.templates.core 4 1 2024-05-20 16:13:58.978
+!MESSAGE arm-none-eabi-gdb --interpreter=mi2 --nx
+!SESSION 2024-05-20 16:38:23.144 -----------------------------------------------
+eclipse.buildId=4.23.0.I20220308-0310
+java.version=17.0.2
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_us_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.cpp.product
+
+!ENTRY org.eclipse.jface 2 0 2024-05-20 16:38:29.276
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2024-05-20 16:38:29.276
+!MESSAGE A conflict occurred for CTRL+6:
+Binding(CTRL+6,
+	ParameterizedCommand(Command(com.atk.at32ide.application.commands.umCommand,Open UM,
+		,
+		Category(com.atk.at32ide.application.commands.category,application Category,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@1e836aed,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+6,
+	ParameterizedCommand(Command(com.atk.at32ide.application.commands.clCommand,Change Language,
+		,
+		Category(com.atk.at32ide.application.commands.category,application Category,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@4bc41565,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+6,
+	ParameterizedCommand(Command(com.atk.at32ide.flash.commands.downloadCommand,Flash Download,
+		,
+		Category(com.atk.at32ide.flash.commands.category,Flash Category,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@8dedec8,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+6,
+	ParameterizedCommand(Command(com.atk.at32ide.flash.commands.eraseCommand,Flash Erase,
+		,
+		Category(com.atk.at32ide.flash.commands.category,Flash Category,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@226e95e9,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.atlink.core 4 1 2024-05-20 16:42:07.989
+!MESSAGE arm-none-eabi-gdb --version
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.atlink.core 4 1 2024-05-20 16:42:08.123
+!MESSAGE /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/OpenOCD/bin/openocd -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/OpenOCD/scripts -f ./interface/atlink.cfg -f ./target/at32f403axG.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.atlink.core 4 1 2024-05-20 16:42:08.272
+!MESSAGE arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.atlink.core 4 1 2024-05-20 17:11:24.345
+!MESSAGE arm-none-eabi-gdb --version
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.atlink.core 4 1 2024-05-20 17:11:24.456
+!MESSAGE /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/OpenOCD/bin/openocd -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/OpenOCD/scripts -f ./interface/atlink.cfg -f ./target/at32f403axG.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.atlink.core 4 1 2024-05-20 17:11:24.582
+!MESSAGE arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.equinox.p2.transport.ecf 2 0 2024-05-20 17:17:19.919
+!MESSAGE Connection to http://atkpc2023:8080/at32ide_repository/p2.index failed on atkpc2023: No address associated with hostname. Retry attempt 0 started
+!STACK 0
+java.net.UnknownHostException: atkpc2023: No address associated with hostname
+	at java.base/java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method)
+	at java.base/java.net.InetAddress$PlatformNameService.lookupAllHostAddr(InetAddress.java:933)
+	at java.base/java.net.InetAddress.getAddressesFromNameService(InetAddress.java:1519)
+	at java.base/java.net.InetAddress$NameServiceAddresses.get(InetAddress.java:852)
+	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1509)
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1367)
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1301)
+	at org.apache.hc.client5.http.SystemDefaultDnsResolver.resolve(SystemDefaultDnsResolver.java:43)
+	at org.apache.hc.client5.http.impl.io.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:118)
+	at org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:396)
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:158)
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:168)
+	at org.apache.hc.client5.http.impl.classic.ConnectExec.execute(ConnectExec.java:136)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement$1.proceed(ExecChainElement.java:57)
+	at org.apache.hc.client5.http.impl.classic.ProtocolExec.execute(ProtocolExec.java:175)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement$1.proceed(ExecChainElement.java:57)
+	at org.apache.hc.client5.http.impl.classic.HttpRequestRetryExec.execute(HttpRequestRetryExec.java:96)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement$1.proceed(ExecChainElement.java:57)
+	at org.apache.hc.client5.http.impl.classic.ContentCompressionExec.execute(ContentCompressionExec.java:133)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement$1.proceed(ExecChainElement.java:57)
+	at org.apache.hc.client5.http.impl.classic.RedirectExec.execute(RedirectExec.java:115)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.InternalHttpClient.doExecute(InternalHttpClient.java:170)
+	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:75)
+	at org.eclipse.ecf.provider.filetransfer.httpclient5.HttpClientRetrieveFileTransfer.performConnect(HttpClientRetrieveFileTransfer.java:1009)
+	at org.eclipse.ecf.provider.filetransfer.httpclient5.HttpClientRetrieveFileTransfer.access$0(HttpClientRetrieveFileTransfer.java:1001)
+	at org.eclipse.ecf.provider.filetransfer.httpclient5.HttpClientRetrieveFileTransfer$1.performFileTransfer(HttpClientRetrieveFileTransfer.java:997)
+	at org.eclipse.ecf.filetransfer.FileTransferJob.run(FileTransferJob.java:76)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2024-05-20 17:17:20.121
+!MESSAGE Using unsafe http transport to retrieve http://atkpc2023:8080/at32ide_repository/, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.transport.ecf 4 1006 2024-05-20 17:17:20.122
+!MESSAGE Unknown Host: http://atkpc2023:8080/at32ide_repository/content.xml
+!STACK 0
+java.net.UnknownHostException: atkpc2023
+	at java.base/java.net.InetAddress$CachedAddresses.get(InetAddress.java:801)
+	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1509)
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1367)
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1301)
+	at org.apache.hc.client5.http.SystemDefaultDnsResolver.resolve(SystemDefaultDnsResolver.java:43)
+	at org.apache.hc.client5.http.impl.io.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:118)
+	at org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:396)
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:158)
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:168)
+	at org.apache.hc.client5.http.impl.classic.ConnectExec.execute(ConnectExec.java:136)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement$1.proceed(ExecChainElement.java:57)
+	at org.apache.hc.client5.http.impl.classic.ProtocolExec.execute(ProtocolExec.java:175)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement$1.proceed(ExecChainElement.java:57)
+	at org.apache.hc.client5.http.impl.classic.HttpRequestRetryExec.execute(HttpRequestRetryExec.java:96)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement$1.proceed(ExecChainElement.java:57)
+	at org.apache.hc.client5.http.impl.classic.ContentCompressionExec.execute(ContentCompressionExec.java:133)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement$1.proceed(ExecChainElement.java:57)
+	at org.apache.hc.client5.http.impl.classic.RedirectExec.execute(RedirectExec.java:115)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.InternalHttpClient.doExecute(InternalHttpClient.java:170)
+	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:75)
+	at org.eclipse.ecf.provider.filetransfer.httpclient5.HttpClientFileSystemBrowser.runRequest(HttpClientFileSystemBrowser.java:251)
+	at org.eclipse.ecf.provider.filetransfer.browse.AbstractFileSystemBrowser$DirectoryJob.run(AbstractFileSystemBrowser.java:71)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.equinox.p2.transport.ecf 2 0 2024-05-20 17:17:21.751
+!MESSAGE Connection to http://atkpc2023:8080/at32ide_repository/p2.index failed on atkpc2023. Retry attempt 0 started
+!STACK 0
+java.net.UnknownHostException: atkpc2023
+	at java.base/java.net.InetAddress$CachedAddresses.get(InetAddress.java:801)
+	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1509)
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1367)
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1301)
+	at org.apache.hc.client5.http.SystemDefaultDnsResolver.resolve(SystemDefaultDnsResolver.java:43)
+	at org.apache.hc.client5.http.impl.io.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:118)
+	at org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:396)
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:158)
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:168)
+	at org.apache.hc.client5.http.impl.classic.ConnectExec.execute(ConnectExec.java:136)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement$1.proceed(ExecChainElement.java:57)
+	at org.apache.hc.client5.http.impl.classic.ProtocolExec.execute(ProtocolExec.java:175)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement$1.proceed(ExecChainElement.java:57)
+	at org.apache.hc.client5.http.impl.classic.HttpRequestRetryExec.execute(HttpRequestRetryExec.java:96)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement$1.proceed(ExecChainElement.java:57)
+	at org.apache.hc.client5.http.impl.classic.ContentCompressionExec.execute(ContentCompressionExec.java:133)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement$1.proceed(ExecChainElement.java:57)
+	at org.apache.hc.client5.http.impl.classic.RedirectExec.execute(RedirectExec.java:115)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.InternalHttpClient.doExecute(InternalHttpClient.java:170)
+	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:75)
+	at org.eclipse.ecf.provider.filetransfer.httpclient5.HttpClientRetrieveFileTransfer.performConnect(HttpClientRetrieveFileTransfer.java:1009)
+	at org.eclipse.ecf.provider.filetransfer.httpclient5.HttpClientRetrieveFileTransfer.access$0(HttpClientRetrieveFileTransfer.java:1001)
+	at org.eclipse.ecf.provider.filetransfer.httpclient5.HttpClientRetrieveFileTransfer$1.performFileTransfer(HttpClientRetrieveFileTransfer.java:997)
+	at org.eclipse.ecf.filetransfer.FileTransferJob.run(FileTransferJob.java:76)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2024-05-20 17:17:21.953
+!MESSAGE Using unsafe http transport to retrieve http://atkpc2023:8080/at32ide_repository/, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.atlink.core 4 1 2024-05-20 17:43:02.357
+!MESSAGE arm-none-eabi-gdb --version
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.atlink.core 4 1 2024-05-20 17:43:02.461
+!MESSAGE /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/OpenOCD/bin/openocd -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/OpenOCD/scripts -f ./interface/atlink.cfg -f ./target/at32f403axG.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 0 2024-05-20 17:43:02.568
+!MESSAGE OpenOCD failed with code (1).
+
+For more details, see the openocd console.
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.atlink.core 4 1 2024-05-20 19:06:45.455
+!MESSAGE arm-none-eabi-gdb --version
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.atlink.core 4 1 2024-05-20 19:06:45.564
+!MESSAGE /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/OpenOCD/bin/openocd -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/OpenOCD/scripts -f ./interface/atlink.cfg -f ./target/at32f403axG.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.atlink.core 4 1 2024-05-20 19:06:45.688
+!MESSAGE arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.atlink.core 4 1 2024-05-20 19:08:21.428
+!MESSAGE arm-none-eabi-gdb --version
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.atlink.core 4 1 2024-05-20 19:08:21.541
+!MESSAGE /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/OpenOCD/bin/openocd -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/OpenOCD/scripts -f ./interface/atlink.cfg -f ./target/at32f403axG.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.atlink.core 4 1 2024-05-20 19:08:21.668
+!MESSAGE arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.atlink.core 4 1 2024-05-20 19:10:03.457
+!MESSAGE arm-none-eabi-gdb --version
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.atlink.core 4 1 2024-05-20 19:10:03.568
+!MESSAGE /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/OpenOCD/bin/openocd -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/OpenOCD/scripts -f ./interface/atlink.cfg -f ./target/at32f403axG.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.atlink.core 4 1 2024-05-20 19:10:03.689
+!MESSAGE arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.atlink.core 4 1 2024-05-20 19:12:48.088
+!MESSAGE arm-none-eabi-gdb --version
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.atlink.core 4 1 2024-05-20 19:12:48.196
+!MESSAGE /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/OpenOCD/bin/openocd -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/OpenOCD/scripts -f ./interface/atlink.cfg -f ./target/at32f403axG.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.atlink.core 4 1 2024-05-20 19:12:48.323
+!MESSAGE arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 0 2024-05-20 19:12:52.832
+!MESSAGE Debug session 'control Debug' already started. Terminate the first one before restarting.
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.atlink.core 4 1 2024-05-20 19:12:55.088
+!MESSAGE arm-none-eabi-gdb --version
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.atlink.core 4 1 2024-05-20 19:12:55.193
+!MESSAGE /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/OpenOCD/bin/openocd -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/OpenOCD/scripts -f ./interface/atlink.cfg -f ./target/at32f403axG.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.atlink.core 4 1 2024-05-20 19:12:55.312
+!MESSAGE arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 0 2024-05-20 19:31:31.194
+!MESSAGE Debug session 'control Debug' already started. Terminate the first one before restarting.
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.atlink.core 4 1 2024-05-20 19:31:33.478
+!MESSAGE arm-none-eabi-gdb --version
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.atlink.core 4 1 2024-05-20 19:31:33.593
+!MESSAGE /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/OpenOCD/bin/openocd -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/OpenOCD/scripts -f ./interface/atlink.cfg -f ./target/at32f403axG.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.atlink.core 4 1 2024-05-20 19:31:33.717
+!MESSAGE arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.atlink.core 4 1 2024-05-20 19:32:08.822
+!MESSAGE arm-none-eabi-gdb --version
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.atlink.core 4 1 2024-05-20 19:32:08.934
+!MESSAGE /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/OpenOCD/bin/openocd -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/OpenOCD/scripts -f ./interface/atlink.cfg -f ./target/at32f403axG.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.atlink.core 4 1 2024-05-20 19:32:09.061
+!MESSAGE arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2024-05-20 19:32:52.230
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@7398b384): Status OK: unknown code=0 OK' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.atlink.core 4 1 2024-05-20 19:40:17.912
+!MESSAGE arm-none-eabi-gdb --version
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.atlink.core 4 1 2024-05-20 19:40:18.020
+!MESSAGE /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/OpenOCD/bin/openocd -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/OpenOCD/scripts -f ./interface/atlink.cfg -f ./target/at32f403axG.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.atlink.core 4 1 2024-05-20 19:40:18.138
+!MESSAGE arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2024-05-20 19:44:39.653
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@f1f8c4e): Status OK: unknown code=0 OK' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.atlink.core 4 1 2024-05-20 19:45:39.449
+!MESSAGE arm-none-eabi-gdb --version
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.atlink.core 4 1 2024-05-20 19:45:39.559
+!MESSAGE /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/OpenOCD/bin/openocd -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/OpenOCD/scripts -f ./interface/atlink.cfg -f ./target/at32f403axG.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.atlink.core 4 1 2024-05-20 19:45:39.681
+!MESSAGE arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.atlink.core 4 1 2024-05-20 19:46:36.386
+!MESSAGE arm-none-eabi-gdb --version
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.atlink.core 4 1 2024-05-20 19:46:36.507
+!MESSAGE /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/OpenOCD/bin/openocd -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/OpenOCD/scripts -f ./interface/atlink.cfg -f ./target/at32f403axG.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.atlink.core 4 1 2024-05-20 19:46:36.626
+!MESSAGE arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2024-05-20 19:47:04.951
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@56c99ac8): Status OK: unknown code=0 OK' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2024-05-20 19:47:04.951
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@2ea6509c): Status OK: unknown code=0 OK' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2024-05-20 19:47:04.952
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@744ab03a): Status OK: unknown code=0 OK' resulted in a rejected execution exception.

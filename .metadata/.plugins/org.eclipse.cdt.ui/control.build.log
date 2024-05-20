@@ -1,8 +1,17 @@
-13:39:45 **** Incremental Build of configuration Debug for project control ****
+19:46:36 **** Incremental Build of configuration Debug for project control ****
 make all 
 Building file: ../user/main.c
 Invoking: GNU Arm Cross C Compiler
 arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -O0 -ffunction-sections  -g -DAT_START_F403A_V1 -DAT32F403AVGT7 -DUSE_STDPERIPH_DRIVER -I"../include" -I"../include/libraries/drivers/inc" -I"../include/libraries/cmsis/cm4/core_support" -I"../include/libraries/cmsis/cm4/device_support" -std=c99 -MMD -MP -MF"user/main.d" -MT"user/main.o" -c -o "user/main.o" "../user/main.c"
+../user/main.c: In function 'usart2_tx_without_int':
+../user/main.c:137:28: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+  137 |     for (size_t i = 0; i < strlen(buffer); i++) {
+      |                            ^~~~~~
+../user/main.c:137:28: warning: incompatible implicit declaration of built-in function 'strlen'
+../user/main.c:5:1: note: include '<string.h>' or provide a declaration of 'strlen'
+    4 | #include <stdio.h>
+  +++ |+#include <string.h>
+    5 | 
 Finished building: ../user/main.c
  
 Building target: control.elf
@@ -17,9 +26,9 @@ Finished building: control.hex
 Invoking: GNU Arm Cross Print Size
 arm-none-eabi-size --format=berkeley "control.elf"
    text	   data	    bss	    dec	    hex	filename
-   8748	     52	   1680	  10480	   28f0	control.elf
+  10496	    152	   1656	  12304	   3010	control.elf
 Finished building: control.siz
  
 
-13:39:46 Build Finished. 0 errors, 0 warnings. (took 214ms)
+19:46:36 Build Finished. 0 errors, 2 warnings. (took 213ms)
 

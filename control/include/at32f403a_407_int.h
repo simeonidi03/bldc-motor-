@@ -35,7 +35,7 @@ extern "C" {
 /* includes ------------------------------------------------------------------*/
 #include "at32f403a_407.h"
 
-extern int64_t odometr_div18;
+extern int32_t odometr_div18;
 extern int16_t odometr;
 
 /* exported types ------------------------------------------------------------*/

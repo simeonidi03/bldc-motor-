@@ -55,4 +55,10 @@
 		<item value="org.eclipse.tm.terminal.view.feature:10.6.0.202201122357"/>
 		<item value="org.eclipse.userstorage:1.2.0.v20210517-0327"/>
 	</list>
+	<section name="NewWizardAction">
+		<item key="NewWizardSelectionPage.STORE_SELECTED_ID" value="org.eclipse.cdt.ui.wizard.project"/>
+		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
+			<item value="org.eclipse.cdt.ui.newCWizards"/>
+		</list>
+	</section>
 </section>

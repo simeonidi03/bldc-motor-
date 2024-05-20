@@ -6,8 +6,10 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="peripheral_base_addr"/>
+		<item key="selection" value="GPIO_PINS_4"/>
 		<list key="findhistory">
+			<item value="GPIO_PINS_4"/>
+			<item value="direction"/>
 			<item value="TMR3"/>
 			<item value="peripheral_base_addr"/>
 			<item value="channel4"/>

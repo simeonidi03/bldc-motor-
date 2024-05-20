@@ -1,6 +1,8 @@
 #include "at32f403a_407_board.h"
 #include "at32f403a_407_clock.h"
 
+#include <stdio.h>
+
 #define CW  0 // clockwise         по часовой
 #define CCW 1 // counterclock-wise против часовой
 
@@ -16,10 +18,6 @@ uint8_t usart2_tx_buffer_size = 1;
 void usart_configuration(void);
 void usart2_tx_rx_handler(void);
 
-volatile uint16_t start1 = 0, end_imp1 = 0, end_per1 = 0, start2 = 0, end_imp2 = 0, end_per2 = 0;
-volatile uint16_t period1 = 0, fill_factor1 = 0, long_imp1 = 0, period2 = 0, fill_factor2 = 0, long_imp2 = 0;
-volatile uint16_t freq1 = 0, freq2 = 0;
-volatile uint8_t flag_IC = 0;
 
 int16_t odometr = 0;
 int32_t odometr_div18 = 0;
@@ -125,9 +123,23 @@ void usart2_tx_rx_handler(void)
 
     /* disable the usart2 transmit interrupt */
     usart_interrupt_enable(USART2, USART_TDBE_INT, FALSE);
-
   }
 }
+
+void usart2_tx_without_int(int64_t odo_path) {
+    odo_path = odometr_div18 / 10;
+    char buffer[20];  // Увеличиваем размер буфера для безопасного хранения длинных строк
+
+    // Конвертация числа в строку
+    snprintf(buffer, sizeof(buffer), "%d", odo_path);  // Добавляем символ новой строки для обозначения конца строки
+
+    // Отправка строки через UART
+    for (size_t i = 0; i < strlen(buffer); i++) {
+        usart_data_transmit(USART2, (int16_t)buffer[i]);
+    }
+}
+
+
 
 int main(void)
 {
@@ -264,14 +276,16 @@ int main(void)
 					/ 1000);
 			tmr_channel_value_set(TMR1, TMR_SELECT_CHANNEL_2, channel2_pulse);
 			speed--;
-			odometr = odometr_div18/400;
 
-		    // Передача старшего байта
-		    uint8_t high_byte = (uint8_t)(odometr >> 8);
-		    usart_data_transmit(USART2, high_byte);
-		    // Передача младшего байта
-		    uint8_t low_byte = (uint8_t)odometr;
-		    usart_data_transmit(USART2, low_byte);
+			odometr = odometr_div18/10;
+			usart2_tx_without_int(odometr);
+
+//		    // Передача старшего байта
+//		    uint8_t high_byte = (uint8_t)(odometr >> 8);
+//		    usart_data_transmit(USART2, high_byte);
+//		    // Передача младшего байта
+//		    uint8_t low_byte = (uint8_t)odometr;
+//		    usart_data_transmit(USART2, low_byte);
 
 			delay_ms(50);
 		}
@@ -282,14 +296,18 @@ int main(void)
 					/ 1000);
 			tmr_channel_value_set(TMR1, TMR_SELECT_CHANNEL_2, channel2_pulse);
 			speed++;
-			odometr = odometr_div18;
 
-		    // Передача старшего байта
-		    uint8_t high_byte = (uint8_t)(odometr >> 8);
-		    usart_data_transmit(USART2, high_byte);
-		    // Передача младшего байта
-		    uint8_t low_byte = (uint8_t)odometr;
-		    usart_data_transmit(USART2, low_byte);
+			odometr = odometr_div18/10;
+			usart2_tx_without_int(odometr);
+
+
+//			odometr = odometr_div18/10;
+//		    // Передача старшего байта
+//		    uint8_t high_byte = (uint8_t)(odometr >> 8);
+//		    usart_data_transmit(USART2, high_byte);
+//		    // Передача младшего байта
+//		    uint8_t low_byte = (uint8_t)odometr;
+//		    usart_data_transmit(USART2, low_byte);
 
 			delay_ms(50);
 		}
