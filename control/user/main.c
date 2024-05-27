@@ -126,16 +126,37 @@ void usart2_tx_rx_handler(void)
   }
 }
 
-void usart2_tx_without_int(int64_t odo_path) {
-    odo_path = odometr_div18 / 10;
+
+
+void usart2_tx_without_int() {
+    int64_t odo_path = odometr_div18;  // Примерное значение переменной
     char buffer[20];  // Увеличиваем размер буфера для безопасного хранения длинных строк
 
-    // Конвертация числа в строку
-    snprintf(buffer, sizeof(buffer), "%d", odo_path);  // Добавляем символ новой строки для обозначения конца строки
+    int8_t ostatok = 0;
+    int8_t iter = 0;
+
+    if (odo_path == 0) {
+        buffer[iter++] = '0';
+    } else {
+        while (odo_path > 0) {
+            ostatok = odo_path % 10;
+            odo_path /= 10;
+            buffer[iter++] = '0' + ostatok;  // Преобразование числа в символ
+        }
+    }
+
+    buffer[iter] = '\0';
+
+    // Развернуть строку
+    for (int i = 0; i < iter / 2; ++i) {
+        char temp = buffer[i];
+        buffer[i] = buffer[iter - i - 1];
+        buffer[iter - i - 1] = temp;
+    }
 
     // Отправка строки через UART
-    for (size_t i = 0; i < strlen(buffer); i++) {
-        usart_data_transmit(USART2, (int16_t)buffer[i]);
+    for (size_t i = 0; i < iter; i++) {
+        usart_data_transmit(USART2, (int8_t)buffer[i]);
     }
 }
 
@@ -278,7 +299,7 @@ int main(void)
 			speed--;
 
 			odometr = odometr_div18/10;
-			usart2_tx_without_int(odometr);
+			usart2_tx_without_int();
 
 //		    // Передача старшего байта
 //		    uint8_t high_byte = (uint8_t)(odometr >> 8);
@@ -298,7 +319,7 @@ int main(void)
 			speed++;
 
 			odometr = odometr_div18/10;
-			usart2_tx_without_int(odometr);
+			usart2_tx_without_int();
 
 
 //			odometr = odometr_div18/10;
