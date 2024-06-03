@@ -130,7 +130,8 @@ void usart2_tx_rx_handler(void)
 
 void usart2_tx_without_int() {
     int64_t odo_path = odometr_div18;  // Примерное значение переменной
-    char buffer[20];  // Увеличиваем размер буфера для безопасного хранения длинных строк
+    char buffer[20] = {'0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0'};
+    // Увеличиваем размер буфера для безопасного хранения длинных строк
 
     int8_t ostatok = 0;
     int8_t iter = 0;
@@ -156,7 +157,7 @@ void usart2_tx_without_int() {
 
     // Отправка строки через UART
     for (size_t i = 0; i < iter; i++) {
-        usart_data_transmit(USART2, (int8_t)buffer[i]);
+        usart_data_transmit(USART2, (int16_t)buffer[i]);
     }
 }
 

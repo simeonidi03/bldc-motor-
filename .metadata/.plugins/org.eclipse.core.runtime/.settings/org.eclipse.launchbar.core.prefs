@@ -8,6 +8,6 @@ configDescList=org.eclipse.launchbar.core.descriptorType.default\:test Debug,org
 eclipse.preferences.version=1
 org.eclipse.launchbar.core.descriptorType.default\:bldc\ motor\ controller\ Debug/activeLaunchMode=run
 org.eclipse.launchbar.core.descriptorType.default\:bldc\ motor\ controller\ Debug/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
-org.eclipse.launchbar.core.descriptorType.default\:control\ Debug/activeLaunchMode=debug
+org.eclipse.launchbar.core.descriptorType.default\:control\ Debug/activeLaunchMode=run
 org.eclipse.launchbar.core.descriptorType.default\:test\ Debug/activeLaunchMode=run
 org.eclipse.launchbar.core.descriptorType.default\:test\ Debug/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
