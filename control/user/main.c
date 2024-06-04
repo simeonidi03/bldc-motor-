@@ -135,6 +135,12 @@ void usart2_tx_without_int() {
 
     int8_t ostatok = 0;
     int8_t iter = 0;
+    int8_t sight = 0;
+
+    if(odo_path < 0){
+    	sight = 0x4d;
+    	odo_path *= -1;
+    }
 
     if (odo_path == 0) {
         buffer[iter++] = '0';
@@ -146,7 +152,13 @@ void usart2_tx_without_int() {
         }
     }
 
-    buffer[iter] = '\0';
+    if(sight){
+    	buffer[iter] = '-';
+    	iter++;
+    }
+
+    buffer[iter] = '\r';
+    buffer[++iter] = '\n';
 
     // Развернуть строку
     for (int i = 0; i < iter / 2; ++i) {
@@ -154,10 +166,12 @@ void usart2_tx_without_int() {
         buffer[i] = buffer[iter - i - 1];
         buffer[iter - i - 1] = temp;
     }
-
+    //
     // Отправка строки через UART
-    for (size_t i = 0; i < iter; i++) {
-        usart_data_transmit(USART2, (int16_t)buffer[i]);
+    for (size_t i = 0; i <= iter; i++) {
+    	while (!USART2->sts_bit.tdbe)
+    		;
+        usart_data_transmit(USART2, (int8_t)buffer[i]);
     }
 }
 
@@ -246,7 +260,7 @@ int main(void)
   /* compute ccr3 value to generate a duty cycle at 25%  for channel 3 and 3n */
   channel3_pulse = (uint16_t)(((uint32_t) 25 * (timer_period - 1)) / 100);
 
-//  /* compute ccr4 value to generate a duty cycle at 12.5%  for channel 4 */
+  /* compute ccr4 value to generate a duty cycle at 12.5%  for channel 4 */
 //  channel4_pulse = (uint16_t)(((uint32_t) 125 * (timer_period- 1)) / 1000);
 
   tmr_base_init(TMR1, timer_period, 0);
@@ -291,7 +305,18 @@ int main(void)
 		usart_data_transmit(USART2, usart2_tx_buffer);
 		usart2_tx_buffer++;
 
-		gpio_bits_write(GPIOA, GPIO_PINS_4, direction);
+		if(direction){
+			 /* channel 3 */
+			 channel3_pulse = (uint16_t) (((uint32_t) 1000 * (timer_period - 1))/ 1000);
+			 tmr_channel_value_set(TMR1, TMR_SELECT_CHANNEL_3, channel3_pulse);
+			 //gpio_bits_reset(GPIOA, GPIO_PINS_4);
+		}else{
+			channel3_pulse = (uint16_t) (((uint32_t) 10 * (timer_period - 1))/ 1000);
+			tmr_channel_value_set(TMR1, TMR_SELECT_CHANNEL_3, channel3_pulse);
+			//gpio_bits_set(GPIOA, GPIO_PINS_4);
+		}
+
+		//gpio_bits_write(GPIOA, GPIO_PINS_4, direction);
 		//набор скорости
 		for (int i = 0; i < 750; i++) {
 			channel2_pulse = (uint16_t) (((uint32_t) speed * (timer_period - 1))
@@ -309,7 +334,7 @@ int main(void)
 //		    uint8_t low_byte = (uint8_t)odometr;
 //		    usart_data_transmit(USART2, low_byte);
 
-			delay_ms(50);
+			delay_ms(5);
 		}
 
 		//сброс скорости
@@ -331,8 +356,9 @@ int main(void)
 //		    uint8_t low_byte = (uint8_t)odometr;
 //		    usart_data_transmit(USART2, low_byte);
 
-			delay_ms(50);
+			delay_ms(5);
 		}
+
 
 		if (direction == CW) {
 			direction = CCW;
