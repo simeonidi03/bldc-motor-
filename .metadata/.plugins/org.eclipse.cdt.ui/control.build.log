@@ -1,11 +1,11 @@
-18:29:38 **** Incremental Build of configuration Debug for project control ****
+17:04:54 **** Incremental Build of configuration Debug for project control ****
 make all 
 Invoking: GNU Arm Cross Print Size
 arm-none-eabi-size --format=berkeley "control.elf"
    text	   data	    bss	    dec	    hex	filename
-   9200	     52	   1636	  10888	   2a88	control.elf
+   9640	     52	   1644	  11336	   2c48	control.elf
 Finished building: control.siz
  
 
-18:29:38 Build Finished. 0 errors, 0 warnings. (took 172ms)
+17:04:55 Build Finished. 0 errors, 0 warnings. (took 110ms)
 

@@ -1,6 +1,6 @@
 #include "at32f403a_407_board.h"
 #include "at32f403a_407_clock.h"
-
+#include "at32f403a_407_wk_config.h"
 #include <stdio.h>
 
 #define CW  0 // clockwise         по часовой
@@ -22,10 +22,11 @@ void usart2_tx_rx_handler(void);
 int16_t odometr = 0;
 int32_t odometr_div18 = 0;
 
-uint16_t direction = CW;
+int32_t odometr_bef = 0;
+int32_t odometr_next = 0;
+int16_t speed_hall =0;
 
-void usart_configuration(void);
-void usart2_tx_rx_handler(void);
+uint16_t direction = CW;
 
 //	  gpio_bits_write(GPIOA, GPIO_PINS_4, CCW);
 
@@ -129,7 +130,7 @@ void usart2_tx_rx_handler(void)
 
 
 void usart2_tx_without_int() {
-    int64_t odo_path = odometr_div18;  // Примерное значение переменной
+    int64_t odo_path = speed_hall;  // Примерное значение переменной
     char buffer[20] = {'0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0'};
     // Увеличиваем размер буфера для безопасного хранения длинных строк
 
@@ -176,142 +177,44 @@ void usart2_tx_without_int() {
 }
 
 
-
 int main(void)
 {
   system_clock_config();
-
   at32_board_init();
 
   /* get system clock */
   crm_clocks_freq_get(&crm_clocks_freq_struct);
 
-  /* enable tmr1/gpioa/gpiob clock */
-  crm_periph_clock_enable(CRM_TMR1_PERIPH_CLOCK, TRUE);
-  crm_periph_clock_enable(CRM_GPIOA_PERIPH_CLOCK, TRUE);
-  crm_periph_clock_enable(CRM_GPIOB_PERIPH_CLOCK, TRUE);
-
-  /* gpio output config */
-  gpio_bits_set(GPIOA, GPIO_PINS_4);
-  gpio_bits_reset(GPIOA, GPIO_PINS_5);
-
-  gpio_init_struct.gpio_drive_strength = GPIO_DRIVE_STRENGTH_MODERATE;
-  gpio_init_struct.gpio_out_type = GPIO_OUTPUT_PUSH_PULL;
-  gpio_init_struct.gpio_mode = GPIO_MODE_OUTPUT;
-  gpio_init_struct.gpio_pins = GPIO_PINS_4 | GPIO_PINS_5;
-  gpio_init_struct.gpio_pull = GPIO_PULL_NONE;
-  gpio_init(GPIOA, &gpio_init_struct);
-
-
-  /* timer1 output pin Configuration */
-  gpio_init_struct.gpio_pins = /*GPIO_PINS_8 |*/ GPIO_PINS_9 | GPIO_PINS_10 | GPIO_PINS_11;
-  gpio_init_struct.gpio_mode = GPIO_MODE_MUX;
-  gpio_init_struct.gpio_out_type = GPIO_OUTPUT_PUSH_PULL;
-  gpio_init_struct.gpio_pull = GPIO_PULL_NONE;
-  gpio_init_struct.gpio_drive_strength = GPIO_DRIVE_STRENGTH_STRONGER;
-  gpio_init(GPIOA, &gpio_init_struct);
-
-  gpio_init_struct.gpio_pins = GPIO_PINS_13 | GPIO_PINS_14 | GPIO_PINS_15;
-  gpio_init_struct.gpio_mode = GPIO_MODE_MUX;
-  gpio_init_struct.gpio_out_type = GPIO_OUTPUT_PUSH_PULL;
-  gpio_init_struct.gpio_pull = GPIO_PULL_NONE;
-  gpio_init_struct.gpio_drive_strength = GPIO_DRIVE_STRENGTH_STRONGER;
-  gpio_init(GPIOB, &gpio_init_struct);
-
-  gpio_init_struct.gpio_pins = GPIO_PINS_12;
-  gpio_init_struct.gpio_mode = GPIO_MODE_INPUT;
-  gpio_init_struct.gpio_out_type = GPIO_OUTPUT_PUSH_PULL;
-  gpio_init_struct.gpio_pull = GPIO_PULL_NONE;
-  gpio_init_struct.gpio_drive_strength = GPIO_DRIVE_STRENGTH_STRONGER;
-  gpio_init(GPIOB, &gpio_init_struct);
-
-  gpio_init_struct.gpio_pins = GPIO_PINS_13;
-  gpio_init_struct.gpio_mode = GPIO_MODE_INPUT;
-  gpio_init_struct.gpio_out_type = GPIO_OUTPUT_PUSH_PULL;
-  gpio_init_struct.gpio_pull = GPIO_PULL_NONE;
-  gpio_init_struct.gpio_drive_strength = GPIO_DRIVE_STRENGTH_STRONGER;
-  gpio_init(GPIOC, &gpio_init_struct);
-
+  crm_init();
+  wk_nvic_config();
   usart_configuration();
-
-
-
-  /* tmr1 configuration generate 7 pwm signals with 4 different duty cycles:
-   prescaler = 0, tmr1 counter clock = system_core_clock
-
-   the objective is to generate 7 pwm signal at 17.57 khz:
-     - tim1_period = (system_core_clock / 17570) - 1
-   the channel 1 and channel 1n duty cycle is set to 50%
-   the channel 2 and channel 2n duty cycle is set to 37.5%
-   the channel 3 and channel 3n duty cycle is set to 25%
-   the channel 4 duty cycle is set to 12.5%
-   the timer pulse is calculated as follows:
-     - channelxpulse = duty_cycle * (tim1_period - 1) / 100 */
-
-  /* compute the value to be set in arr regiter to generate signal frequency at 20khz */
-  timer_period = (crm_clocks_freq_struct.sclk_freq / 20000  ) - 1;
-
-//  /* compute ccr1 value to generate a duty cycle at 50% for channel 1 and 1n */
-//  channel1_pulse = (uint16_t)(((uint32_t) 5 * (timer_period - 1)) / 10);
-
-  /* compute ccr2 value to generate a duty cycle at 37.5%  for channel 2 and 2n */
-  channel2_pulse = (uint16_t)(((uint32_t) 375 * (timer_period - 1)) / 1000);
-
-  /* compute ccr3 value to generate a duty cycle at 25%  for channel 3 and 3n */
-  channel3_pulse = (uint16_t)(((uint32_t) 25 * (timer_period - 1)) / 100);
-
-  /* compute ccr4 value to generate a duty cycle at 12.5%  for channel 4 */
-//  channel4_pulse = (uint16_t)(((uint32_t) 125 * (timer_period- 1)) / 1000);
-
-  tmr_base_init(TMR1, timer_period, 0);
-  tmr_cnt_dir_set(TMR1, TMR_COUNT_UP);
-
-  /* channel 1, 2, 3 and 4 configuration in output mode */
-  tmr_output_default_para_init(&tmr_output_struct);
-  tmr_output_struct.oc_mode = TMR_OUTPUT_CONTROL_PWM_MODE_B;
-  tmr_output_struct.oc_output_state = TRUE;
-  tmr_output_struct.oc_polarity = TMR_OUTPUT_ACTIVE_LOW;
-  tmr_output_struct.oc_idle_state = TRUE;
-  tmr_output_struct.occ_output_state = TRUE;
-  tmr_output_struct.occ_polarity = TMR_OUTPUT_ACTIVE_HIGH;
-  tmr_output_struct.occ_idle_state = FALSE;
-
-  /* channel 2 */
-  tmr_output_channel_config(TMR1, TMR_SELECT_CHANNEL_2, &tmr_output_struct);
-  tmr_channel_value_set(TMR1, TMR_SELECT_CHANNEL_2, channel2_pulse);
-
-  /* channel 3 */
-  tmr_output_channel_config(TMR1, TMR_SELECT_CHANNEL_3, &tmr_output_struct);
-  tmr_channel_value_set(TMR1, TMR_SELECT_CHANNEL_3, channel3_pulse);
-
-  /* output enable */
-  tmr_output_enable(TMR1, TRUE);
-
-  /* enable tmr1 */
-  tmr_counter_enable(TMR1, TRUE);
+  wk_tmr6_init();
+  wk_gpio_init();
+  wk_tmr1_init();
 
   uint16_t speed = 750;
 
 
-  gpio_bits_write(GPIOA, GPIO_PINS_4, direction);
+//  gpio_bits_write(GPIOA, GPIO_PINS_4, direction);
   channel2_pulse = (uint16_t)(((uint32_t) speed * (timer_period - 1)) / 1000);
   tmr_channel_value_set(TMR1, TMR_SELECT_CHANNEL_2, channel2_pulse);
 
   holl_exint_init();
-
 
 	while (1) {
 
 		usart_data_transmit(USART2, usart2_tx_buffer);
 		usart2_tx_buffer++;
 
-		if(direction){
-			 /* channel 3 */
-			 channel3_pulse = (uint16_t) (((uint32_t) 1000 * (timer_period - 1))/ 1000);
-			 tmr_channel_value_set(TMR1, TMR_SELECT_CHANNEL_3, channel3_pulse);
-			 //gpio_bits_reset(GPIOA, GPIO_PINS_4);
-		}else{
-			channel3_pulse = (uint16_t) (((uint32_t) 10 * (timer_period - 1))/ 1000);
+		if (direction) {
+			/* channel 3 */
+			channel3_pulse = (uint16_t) (((uint32_t) 1000 * (timer_period - 1))
+					/ 1000);
+			tmr_channel_value_set(TMR1, TMR_SELECT_CHANNEL_3, channel3_pulse);
+			//gpio_bits_reset(GPIOA, GPIO_PINS_4);
+		} else {
+			channel3_pulse = (uint16_t) (((uint32_t) 10 * (timer_period - 1))
+					/ 1000);
 			tmr_channel_value_set(TMR1, TMR_SELECT_CHANNEL_3, channel3_pulse);
 			//gpio_bits_set(GPIOA, GPIO_PINS_4);
 		}
@@ -324,17 +227,9 @@ int main(void)
 			tmr_channel_value_set(TMR1, TMR_SELECT_CHANNEL_2, channel2_pulse);
 			speed--;
 
-			odometr = odometr_div18/10;
+			odometr = odometr_div18 / 10;
 			usart2_tx_without_int();
-
-//		    // Передача старшего байта
-//		    uint8_t high_byte = (uint8_t)(odometr >> 8);
-//		    usart_data_transmit(USART2, high_byte);
-//		    // Передача младшего байта
-//		    uint8_t low_byte = (uint8_t)odometr;
-//		    usart_data_transmit(USART2, low_byte);
-
-			delay_ms(5);
+			delay_ms(50);
 		}
 
 		//сброс скорости
@@ -343,22 +238,10 @@ int main(void)
 					/ 1000);
 			tmr_channel_value_set(TMR1, TMR_SELECT_CHANNEL_2, channel2_pulse);
 			speed++;
-
-			odometr = odometr_div18/10;
+			odometr = odometr_div18 / 10;
 			usart2_tx_without_int();
-
-
-//			odometr = odometr_div18/10;
-//		    // Передача старшего байта
-//		    uint8_t high_byte = (uint8_t)(odometr >> 8);
-//		    usart_data_transmit(USART2, high_byte);
-//		    // Передача младшего байта
-//		    uint8_t low_byte = (uint8_t)odometr;
-//		    usart_data_transmit(USART2, low_byte);
-
-			delay_ms(5);
+			delay_ms(50);
 		}
-
 
 		if (direction == CW) {
 			direction = CCW;

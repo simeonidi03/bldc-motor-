@@ -10,8 +10,8 @@ RM := rm -rf
 -include sources.mk
 -include user/subdir.mk
 -include firmware/subdir.mk
+-include cmsis/bsp/subdir.mk
 -include cmsis/subdir.mk
--include bsp/subdir.mk
 -include subdir.mk
 -include objects.mk
 

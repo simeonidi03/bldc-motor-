@@ -6,20 +6,26 @@
 C_SRCS += \
 ../user/at32f403a_407_clock.c \
 ../user/at32f403a_407_int.c \
+../user/at32f403a_407_wk_config.c \
 ../user/i2c_application.c \
-../user/main.c 
+../user/main.c \
+../user/motor_control.c 
 
 OBJS += \
 ./user/at32f403a_407_clock.o \
 ./user/at32f403a_407_int.o \
+./user/at32f403a_407_wk_config.o \
 ./user/i2c_application.o \
-./user/main.o 
+./user/main.o \
+./user/motor_control.o 
 
 C_DEPS += \
 ./user/at32f403a_407_clock.d \
 ./user/at32f403a_407_int.d \
+./user/at32f403a_407_wk_config.d \
 ./user/i2c_application.d \
-./user/main.d 
+./user/main.d \
+./user/motor_control.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes

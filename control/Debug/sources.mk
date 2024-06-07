@@ -19,7 +19,7 @@ C_DEPS :=
 
 # Every subdirectory with source files must be described here
 SUBDIRS := \
-bsp \
+cmsis/bsp \
 cmsis \
 firmware \
 user \

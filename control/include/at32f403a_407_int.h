@@ -37,6 +37,10 @@ extern "C" {
 
 extern int32_t odometr_div18;
 extern int16_t odometr;
+extern int32_t odometr_bef;
+extern int32_t odometr_next;
+extern int16_t speed_hall;
+extern int16_t speed;
 
 /* exported types ------------------------------------------------------------*/
 /* exported constants --------------------------------------------------------*/
@@ -53,6 +57,7 @@ void DebugMon_Handler(void);
 void PendSV_Handler(void);
 void SysTick_Handler(void);
 void EXINT15_10_IRQHandler(void);
+void TMR6_GLOBAL_IRQHandler(void);
 
 #ifdef __cplusplus
 }
