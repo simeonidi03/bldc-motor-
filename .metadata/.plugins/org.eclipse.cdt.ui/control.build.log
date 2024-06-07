@@ -1,10 +1,5 @@
-18:40:40 **** Incremental Build of configuration Debug for project control ****
+18:45:02 **** Incremental Build of configuration Debug for project control ****
 make all 
-Building file: ../user/main.c
-Invoking: GNU Arm Cross C Compiler
-arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -O0 -ffunction-sections  -g -DAT_START_F403A_V1 -DAT32F403AVGT7 -DUSE_STDPERIPH_DRIVER -I"../include" -I"../include/libraries/drivers/inc" -I"../include/libraries/cmsis/cm4/core_support" -I"../include/libraries/cmsis/cm4/device_support" -std=c99 -MMD -MP -MF"user/main.d" -MT"user/main.o" -c -o "user/main.o" "../user/main.c"
-Finished building: ../user/main.c
- 
 Building file: ../user/motor_control.c
 Invoking: GNU Arm Cross C Compiler
 arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -O0 -ffunction-sections  -g -DAT_START_F403A_V1 -DAT32F403AVGT7 -DUSE_STDPERIPH_DRIVER -I"../include" -I"../include/libraries/drivers/inc" -I"../include/libraries/cmsis/cm4/core_support" -I"../include/libraries/cmsis/cm4/device_support" -std=c99 -MMD -MP -MF"user/motor_control.d" -MT"user/motor_control.o" -c -o "user/motor_control.o" "../user/motor_control.c"
@@ -26,5 +21,5 @@ arm-none-eabi-size --format=berkeley "control.elf"
 Finished building: control.siz
  
 
-18:40:40 Build Finished. 0 errors, 0 warnings. (took 211ms)
+18:45:02 Build Finished. 0 errors, 0 warnings. (took 212ms)
 
