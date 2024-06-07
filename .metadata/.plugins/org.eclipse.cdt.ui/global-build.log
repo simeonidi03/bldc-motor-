@@ -9700,3 +9700,334 @@ arm-none-eabi-size --format=berkeley "control.elf"
    9640	     52	   1644	  11336	   2c48	control.elf
 Finished building: control.siz
  
+17:39:21 **** Incremental Build of configuration Debug for project control ****
+make all 
+Building file: ../user/main.c
+Invoking: GNU Arm Cross C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -O0 -ffunction-sections  -g -DAT_START_F403A_V1 -DAT32F403AVGT7 -DUSE_STDPERIPH_DRIVER -I"../include" -I"../include/libraries/drivers/inc" -I"../include/libraries/cmsis/cm4/core_support" -I"../include/libraries/cmsis/cm4/device_support" -std=c99 -MMD -MP -MF"user/main.d" -MT"user/main.o" -c -o "user/main.o" "../user/main.c"
+Finished building: ../user/main.c
+ 
+Building file: ../user/motor_control.c
+Invoking: GNU Arm Cross C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -O0 -ffunction-sections  -g -DAT_START_F403A_V1 -DAT32F403AVGT7 -DUSE_STDPERIPH_DRIVER -I"../include" -I"../include/libraries/drivers/inc" -I"../include/libraries/cmsis/cm4/core_support" -I"../include/libraries/cmsis/cm4/device_support" -std=c99 -MMD -MP -MF"user/motor_control.d" -MT"user/motor_control.o" -c -o "user/motor_control.o" "../user/motor_control.c"
+In file included from ../user/motor_control.c:7:
+../include/motor_control.h:13:1: warning: parameter names (without types) in function declaration
+   13 | typedef void (*pSetPIDMotor)(int16_t);
+      | ^~~~~~~
+../include/motor_control.h:18:11: error: unknown type name 'uint8_t'
+   18 |  volatile uint8_t* timerPWMReg;  //регистр таймера
+      |           ^~~~~~~
+../include/motor_control.h:19:11: error: unknown type name 'uint8_t'
+   19 |  volatile uint8_t* portCw; //порт выхода направления вращения
+      |           ^~~~~~~
+../include/motor_control.h:20:11: error: unknown type name 'uint8_t'
+   20 |  volatile uint8_t* pinCw; //пин выхода направления вращения
+      |           ^~~~~~~
+../include/motor_control.h:21:2: error: unknown type name 'uint8_t'
+   21 |  uint8_t bitCwMask; //маска
+      |  ^~~~~~~
+../include/motor_control.h:22:11: error: unknown type name 'uint8_t'
+   22 |  volatile uint8_t* pinFg; //пин входа обратной связи (датчик холла)
+      |           ^~~~~~~
+../include/motor_control.h:23:2: error: unknown type name 'uint8_t'
+   23 |  uint8_t bitFgMask; //маска
+      |  ^~~~~~~
+../include/motor_control.h:25:2: error: unknown type name 'int32_t'
+   25 |  int32_t odomCount; //счетчик тиков датчика холла
+      |  ^~~~~~~
+../include/motor_control.h:26:2: error: unknown type name 'int32_t'
+   26 |  int32_t odomCountOld; //старое значение тиков с датчика холла
+      |  ^~~~~~~
+../include/motor_control.h:27:2: error: unknown type name 'int16_t'
+   27 |  int16_t setParrot; //уставка (тики датчика холла за время timePID)
+      |  ^~~~~~~
+../include/motor_control.h:28:2: error: unknown type name 'int16_t'
+   28 |  int16_t integralSum; //интегральная сумма
+      |  ^~~~~~~
+../include/motor_control.h:29:2: error: unknown type name 'int16_t'
+   29 |  int16_t oldErrorParrot; //старое значение ошибки
+      |  ^~~~~~~
+../include/motor_control.h:30:2: error: unknown type name 'int16_t'
+   30 |  int16_t currentParrot;  //текущие тики датчика хола за время timePID
+      |  ^~~~~~~
+../include/motor_control.h:34:2: error: unknown type name 'int16_t'
+   34 |  int16_t resPID; //сумма всех составляющих ПИД
+      |  ^~~~~~~
+../include/motor_control.h:35:2: error: unknown type name 'int16_t'
+   35 |  int16_t sendParrot; //двухбайтовая переменная для отправки данных по шине i2c
+      |  ^~~~~~~
+../include/motor_control.h:39:1: warning: parameter names (without types) in function declaration
+   39 | void SetMotorDir(int16_t);
+      | ^~~~
+../user/motor_control.c: In function 'SetMotorDir':
+../user/motor_control.c:9:6: warning: type of 'int16_t' defaults to 'int' [-Wimplicit-int]
+    9 | void SetMotorDir(int16_t){
+      |      ^~~~~~~~~~~
+make: *** [user/subdir.mk:35: user/motor_control.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+17:40:51 **** Incremental Build of configuration Debug for project control ****
+make all 
+Building file: ../user/main.c
+Invoking: GNU Arm Cross C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -O0 -ffunction-sections  -g -DAT_START_F403A_V1 -DAT32F403AVGT7 -DUSE_STDPERIPH_DRIVER -I"../include" -I"../include/libraries/drivers/inc" -I"../include/libraries/cmsis/cm4/core_support" -I"../include/libraries/cmsis/cm4/device_support" -std=c99 -MMD -MP -MF"user/main.d" -MT"user/main.o" -c -o "user/main.o" "../user/main.c"
+In file included from ../user/main.c:5:
+../include/motor_control.h:7:9: error: empty filename in #include
+    7 | #include""
+      |         ^~
+../user/main.c: In function 'usart2_tx_without_int':
+../user/main.c:173:10: error: unknown type name 'size_t'
+  173 |     for (size_t i = 0; i <= iter; i++) {
+      |          ^~~~~~
+../user/main.c:6:1: note: 'size_t' is defined in header '<stddef.h>'; did you forget to '#include <stddef.h>'?
+    5 | #include "motor_control.h"
+  +++ |+#include <stddef.h>
+    6 | 
+make: *** [user/subdir.mk:35: user/main.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+17:41:09 **** Incremental Build of configuration Debug for project control ****
+make all 
+Building file: ../user/main.c
+Invoking: GNU Arm Cross C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -O0 -ffunction-sections  -g -DAT_START_F403A_V1 -DAT32F403AVGT7 -DUSE_STDPERIPH_DRIVER -I"../include" -I"../include/libraries/drivers/inc" -I"../include/libraries/cmsis/cm4/core_support" -I"../include/libraries/cmsis/cm4/device_support" -std=c99 -MMD -MP -MF"user/main.d" -MT"user/main.o" -c -o "user/main.o" "../user/main.c"
+Finished building: ../user/main.c
+ 
+Building file: ../user/motor_control.c
+Invoking: GNU Arm Cross C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -O0 -ffunction-sections  -g -DAT_START_F403A_V1 -DAT32F403AVGT7 -DUSE_STDPERIPH_DRIVER -I"../include" -I"../include/libraries/drivers/inc" -I"../include/libraries/cmsis/cm4/core_support" -I"../include/libraries/cmsis/cm4/device_support" -std=c99 -MMD -MP -MF"user/motor_control.d" -MT"user/motor_control.o" -c -o "user/motor_control.o" "../user/motor_control.c"
+In file included from ../user/motor_control.c:7:
+../include/motor_control.h:14:1: warning: parameter names (without types) in function declaration
+   14 | typedef void (*pSetPIDMotor)(int16_t);
+      | ^~~~~~~
+../include/motor_control.h:19:11: error: unknown type name 'uint8_t'
+   19 |  volatile uint8_t* timerPWMReg;  //регистр таймера
+      |           ^~~~~~~
+../include/motor_control.h:20:11: error: unknown type name 'uint8_t'
+   20 |  volatile uint8_t* portCw; //порт выхода направления вращения
+      |           ^~~~~~~
+../include/motor_control.h:21:11: error: unknown type name 'uint8_t'
+   21 |  volatile uint8_t* pinCw; //пин выхода направления вращения
+      |           ^~~~~~~
+../include/motor_control.h:22:2: error: unknown type name 'uint8_t'
+   22 |  uint8_t bitCwMask; //маска
+      |  ^~~~~~~
+../include/motor_control.h:23:11: error: unknown type name 'uint8_t'
+   23 |  volatile uint8_t* pinFg; //пин входа обратной связи (датчик холла)
+      |           ^~~~~~~
+../include/motor_control.h:24:2: error: unknown type name 'uint8_t'
+   24 |  uint8_t bitFgMask; //маска
+      |  ^~~~~~~
+../include/motor_control.h:26:2: error: unknown type name 'int32_t'
+   26 |  int32_t odomCount; //счетчик тиков датчика холла
+      |  ^~~~~~~
+../include/motor_control.h:27:2: error: unknown type name 'int32_t'
+   27 |  int32_t odomCountOld; //старое значение тиков с датчика холла
+      |  ^~~~~~~
+../include/motor_control.h:28:2: error: unknown type name 'int16_t'
+   28 |  int16_t setParrot; //уставка (тики датчика холла за время timePID)
+      |  ^~~~~~~
+../include/motor_control.h:29:2: error: unknown type name 'int16_t'
+   29 |  int16_t integralSum; //интегральная сумма
+      |  ^~~~~~~
+../include/motor_control.h:30:2: error: unknown type name 'int16_t'
+   30 |  int16_t oldErrorParrot; //старое значение ошибки
+      |  ^~~~~~~
+../include/motor_control.h:31:2: error: unknown type name 'int16_t'
+   31 |  int16_t currentParrot;  //текущие тики датчика хола за время timePID
+      |  ^~~~~~~
+../include/motor_control.h:35:2: error: unknown type name 'int16_t'
+   35 |  int16_t resPID; //сумма всех составляющих ПИД
+      |  ^~~~~~~
+../include/motor_control.h:36:2: error: unknown type name 'int16_t'
+   36 |  int16_t sendParrot; //двухбайтовая переменная для отправки данных по шине i2c
+      |  ^~~~~~~
+../include/motor_control.h:40:1: warning: parameter names (without types) in function declaration
+   40 | void SetMotorDir(int16_t);
+      | ^~~~
+../user/motor_control.c: In function 'SetMotorDir':
+../user/motor_control.c:9:6: warning: type of 'int16_t' defaults to 'int' [-Wimplicit-int]
+    9 | void SetMotorDir(int16_t){
+      |      ^~~~~~~~~~~
+make: *** [user/subdir.mk:35: user/motor_control.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+17:42:30 **** Incremental Build of configuration Debug for project control ****
+make all 
+Building file: ../user/main.c
+Invoking: GNU Arm Cross C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -O0 -ffunction-sections  -g -DAT_START_F403A_V1 -DAT32F403AVGT7 -DUSE_STDPERIPH_DRIVER -I"../include" -I"../include/libraries/drivers/inc" -I"../include/libraries/cmsis/cm4/core_support" -I"../include/libraries/cmsis/cm4/device_support" -std=c99 -MMD -MP -MF"user/main.d" -MT"user/main.o" -c -o "user/main.o" "../user/main.c"
+Finished building: ../user/main.c
+ 
+Building file: ../user/motor_control.c
+Invoking: GNU Arm Cross C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -O0 -ffunction-sections  -g -DAT_START_F403A_V1 -DAT32F403AVGT7 -DUSE_STDPERIPH_DRIVER -I"../include" -I"../include/libraries/drivers/inc" -I"../include/libraries/cmsis/cm4/core_support" -I"../include/libraries/cmsis/cm4/device_support" -std=c99 -MMD -MP -MF"user/motor_control.d" -MT"user/motor_control.o" -c -o "user/motor_control.o" "../user/motor_control.c"
+../user/motor_control.c: In function 'SetMotorDir':
+../user/motor_control.c:9:18: error: parameter name omitted
+    9 | void SetMotorDir(int16_t){
+      |                  ^~~~~~~
+make: *** [user/subdir.mk:35: user/motor_control.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+17:45:20 **** Incremental Build of configuration Debug for project control ****
+make all 
+Building file: ../user/motor_control.c
+Invoking: GNU Arm Cross C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -O0 -ffunction-sections  -g -DAT_START_F403A_V1 -DAT32F403AVGT7 -DUSE_STDPERIPH_DRIVER -I"../include" -I"../include/libraries/drivers/inc" -I"../include/libraries/cmsis/cm4/core_support" -I"../include/libraries/cmsis/cm4/device_support" -std=c99 -MMD -MP -MF"user/motor_control.d" -MT"user/motor_control.o" -c -o "user/motor_control.o" "../user/motor_control.c"
+Finished building: ../user/motor_control.c
+ 
+Building target: control.elf
+Invoking: GNU Arm Cross C Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -O0 -ffunction-sections  -g -T "/home/user/Documents/bldc motor /control/ldscripts/AT32F403AxG_FLASH.ld" -Xlinker --gc-sections -Wl,-Map,"control.map" --specs=nano.specs --specs=nosys.specs -o "control.elf" ./user/at32f403a_407_clock.o ./user/at32f403a_407_int.o ./user/at32f403a_407_wk_config.o ./user/i2c_application.o ./user/main.o ./user/motor_control.o  ./firmware/at32f403a_407_acc.o ./firmware/at32f403a_407_adc.o ./firmware/at32f403a_407_bpr.o ./firmware/at32f403a_407_can.o ./firmware/at32f403a_407_crc.o ./firmware/at32f403a_407_crm.o ./firmware/at32f403a_407_dac.o ./firmware/at32f403a_407_debug.o ./firmware/at32f403a_407_dma.o ./firmware/at32f403a_407_emac.o ./firmware/at32f403a_407_exint.o ./firmware/at32f403a_407_flash.o ./firmware/at32f403a_407_gpio.o ./firmware/at32f403a_407_i2c.o ./firmware/at32f403a_407_misc.o ./firmware/at32f403a_407_pwc.o ./firmware/at32f403a_407_rtc.o ./firmware/at32f403a_407_sdio.o ./firmware/at32f403a_407_spi.o ./firmware/at32f403a_407_tmr.o ./firmware/at32f403a_407_usart.o ./firmware/at32f403a_407_usb.o ./firmware/at32f403a_407_wdt.o ./firmware/at32f403a_407_wwdt.o ./firmware/at32f403a_407_xmc.o  ./cmsis/bsp/at32f403a_407_board.o  ./cmsis/startup_at32f403a_407.o ./cmsis/system_at32f403a_407.o   
+Finished building target: control.elf
+ 
+Invoking: GNU Arm Cross Create Flash Image
+arm-none-eabi-objcopy -O ihex "control.elf"  "control.hex"
+Finished building: control.hex
+ 
+Invoking: GNU Arm Cross Print Size
+arm-none-eabi-size --format=berkeley "control.elf"
+   text	   data	    bss	    dec	    hex	filename
+   9640	     52	   1644	  11336	   2c48	control.elf
+Finished building: control.siz
+ 
+18:10:56 **** Incremental Build of configuration Debug for project control ****
+make all 
+Building file: ../user/main.c
+Invoking: GNU Arm Cross C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -O0 -ffunction-sections  -g -DAT_START_F403A_V1 -DAT32F403AVGT7 -DUSE_STDPERIPH_DRIVER -I"../include" -I"../include/libraries/drivers/inc" -I"../include/libraries/cmsis/cm4/core_support" -I"../include/libraries/cmsis/cm4/device_support" -std=c99 -MMD -MP -MF"user/main.d" -MT"user/main.o" -c -o "user/main.o" "../user/main.c"
+Finished building: ../user/main.c
+ 
+Building file: ../user/motor_control.c
+Invoking: GNU Arm Cross C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -O0 -ffunction-sections  -g -DAT_START_F403A_V1 -DAT32F403AVGT7 -DUSE_STDPERIPH_DRIVER -I"../include" -I"../include/libraries/drivers/inc" -I"../include/libraries/cmsis/cm4/core_support" -I"../include/libraries/cmsis/cm4/device_support" -std=c99 -MMD -MP -MF"user/motor_control.d" -MT"user/motor_control.o" -c -o "user/motor_control.o" "../user/motor_control.c"
+../user/motor_control.c:10:8: error: unknown type name 'Motordata'
+   10 | extern Motordata current_data;
+      |        ^~~~~~~~~
+../user/motor_control.c: In function 'SetMotorDir':
+../user/motor_control.c:16:3: error: 'channel3_pulse' undeclared (first use in this function)
+   16 |   channel3_pulse = (uint16_t) (((uint32_t) 1000 * (timer_period - 1))
+      |   ^~~~~~~~~~~~~~
+../user/motor_control.c:16:3: note: each undeclared identifier is reported only once for each function it appears in
+../user/motor_control.c:16:52: error: 'timer_period' undeclared (first use in this function)
+   16 |   channel3_pulse = (uint16_t) (((uint32_t) 1000 * (timer_period - 1))
+      |                                                    ^~~~~~~~~~~~
+make: *** [user/subdir.mk:35: user/motor_control.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+18:11:21 **** Incremental Build of configuration Debug for project control ****
+make all 
+Building file: ../user/motor_control.c
+Invoking: GNU Arm Cross C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -O0 -ffunction-sections  -g -DAT_START_F403A_V1 -DAT32F403AVGT7 -DUSE_STDPERIPH_DRIVER -I"../include" -I"../include/libraries/drivers/inc" -I"../include/libraries/cmsis/cm4/core_support" -I"../include/libraries/cmsis/cm4/device_support" -std=c99 -MMD -MP -MF"user/motor_control.d" -MT"user/motor_control.o" -c -o "user/motor_control.o" "../user/motor_control.c"
+../user/motor_control.c: In function 'SetMotorDir':
+../user/motor_control.c:16:3: error: 'channel3_pulse' undeclared (first use in this function)
+   16 |   channel3_pulse = (uint16_t) (((uint32_t) 1000 * (timer_period - 1))
+      |   ^~~~~~~~~~~~~~
+../user/motor_control.c:16:3: note: each undeclared identifier is reported only once for each function it appears in
+../user/motor_control.c:16:52: error: 'timer_period' undeclared (first use in this function)
+   16 |   channel3_pulse = (uint16_t) (((uint32_t) 1000 * (timer_period - 1))
+      |                                                    ^~~~~~~~~~~~
+make: *** [user/subdir.mk:35: user/motor_control.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+18:11:39 **** Incremental Build of configuration Debug for project control ****
+make all 
+Building file: ../user/main.c
+Invoking: GNU Arm Cross C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -O0 -ffunction-sections  -g -DAT_START_F403A_V1 -DAT32F403AVGT7 -DUSE_STDPERIPH_DRIVER -I"../include" -I"../include/libraries/drivers/inc" -I"../include/libraries/cmsis/cm4/core_support" -I"../include/libraries/cmsis/cm4/device_support" -std=c99 -MMD -MP -MF"user/main.d" -MT"user/main.o" -c -o "user/main.o" "../user/main.c"
+../user/main.c:25:18: error: storage size of 'current_data' isn't known
+   25 | struct MotorData current_data;
+      |                  ^~~~~~~~~~~~
+make: *** [user/subdir.mk:35: user/main.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+18:11:59 **** Incremental Build of configuration Debug for project control ****
+make all 
+Building file: ../user/main.c
+Invoking: GNU Arm Cross C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -O0 -ffunction-sections  -g -DAT_START_F403A_V1 -DAT32F403AVGT7 -DUSE_STDPERIPH_DRIVER -I"../include" -I"../include/libraries/drivers/inc" -I"../include/libraries/cmsis/cm4/core_support" -I"../include/libraries/cmsis/cm4/device_support" -std=c99 -MMD -MP -MF"user/main.d" -MT"user/main.o" -c -o "user/main.o" "../user/main.c"
+Finished building: ../user/main.c
+ 
+Building file: ../user/motor_control.c
+Invoking: GNU Arm Cross C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -O0 -ffunction-sections  -g -DAT_START_F403A_V1 -DAT32F403AVGT7 -DUSE_STDPERIPH_DRIVER -I"../include" -I"../include/libraries/drivers/inc" -I"../include/libraries/cmsis/cm4/core_support" -I"../include/libraries/cmsis/cm4/device_support" -std=c99 -MMD -MP -MF"user/motor_control.d" -MT"user/motor_control.o" -c -o "user/motor_control.o" "../user/motor_control.c"
+../user/motor_control.c: In function 'SetMotorDir':
+../user/motor_control.c:16:3: error: 'channel3_pulse' undeclared (first use in this function)
+   16 |   channel3_pulse = (uint16_t) (((uint32_t) 1000 * (timer_period - 1))
+      |   ^~~~~~~~~~~~~~
+../user/motor_control.c:16:3: note: each undeclared identifier is reported only once for each function it appears in
+../user/motor_control.c:16:52: error: 'timer_period' undeclared (first use in this function)
+   16 |   channel3_pulse = (uint16_t) (((uint32_t) 1000 * (timer_period - 1))
+      |                                                    ^~~~~~~~~~~~
+make: *** [user/subdir.mk:35: user/motor_control.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+18:36:02 **** Incremental Build of configuration Debug for project control ****
+make all 
+Building file: ../user/main.c
+Invoking: GNU Arm Cross C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -O0 -ffunction-sections  -g -DAT_START_F403A_V1 -DAT32F403AVGT7 -DUSE_STDPERIPH_DRIVER -I"../include" -I"../include/libraries/drivers/inc" -I"../include/libraries/cmsis/cm4/core_support" -I"../include/libraries/cmsis/cm4/device_support" -std=c99 -MMD -MP -MF"user/main.d" -MT"user/main.o" -c -o "user/main.o" "../user/main.c"
+Finished building: ../user/main.c
+ 
+Building file: ../user/motor_control.c
+Invoking: GNU Arm Cross C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -O0 -ffunction-sections  -g -DAT_START_F403A_V1 -DAT32F403AVGT7 -DUSE_STDPERIPH_DRIVER -I"../include" -I"../include/libraries/drivers/inc" -I"../include/libraries/cmsis/cm4/core_support" -I"../include/libraries/cmsis/cm4/device_support" -std=c99 -MMD -MP -MF"user/motor_control.d" -MT"user/motor_control.o" -c -o "user/motor_control.o" "../user/motor_control.c"
+../user/motor_control.c:10:6: error: conflicting types for 'SetMotorDir'
+   10 | void SetMotorDir(int16_t wheel_direction, char motor_number){
+      |      ^~~~~~~~~~~
+In file included from ../user/motor_control.c:7:
+../include/motor_control.h:49:6: note: previous declaration of 'SetMotorDir' was here
+   49 | void SetMotorDir(int16_t);
+      |      ^~~~~~~~~~~
+../user/motor_control.c: In function 'SetMotorDir':
+../user/motor_control.c:18:3: error: 'channel3_pulse' undeclared (first use in this function)
+   18 |   channel3_pulse = (uint16_t) (((uint32_t) 1000 * (timer_period - 1))
+      |   ^~~~~~~~~~~~~~
+../user/motor_control.c:18:3: note: each undeclared identifier is reported only once for each function it appears in
+../user/motor_control.c:18:52: error: 'timer_period' undeclared (first use in this function)
+   18 |   channel3_pulse = (uint16_t) (((uint32_t) 1000 * (timer_period - 1))
+      |                                                    ^~~~~~~~~~~~
+../user/motor_control.c:32:4: error: 'channel1_pulse' undeclared (first use in this function)
+   32 |    channel1_pulse = (uint16_t) (((uint32_t) 1000 * (timer_period - 1))
+      |    ^~~~~~~~~~~~~~
+make: *** [user/subdir.mk:35: user/motor_control.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+18:39:53 **** Incremental Build of configuration Debug for project control ****
+make all 
+Building file: ../user/main.c
+Invoking: GNU Arm Cross C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -O0 -ffunction-sections  -g -DAT_START_F403A_V1 -DAT32F403AVGT7 -DUSE_STDPERIPH_DRIVER -I"../include" -I"../include/libraries/drivers/inc" -I"../include/libraries/cmsis/cm4/core_support" -I"../include/libraries/cmsis/cm4/device_support" -std=c99 -MMD -MP -MF"user/main.d" -MT"user/main.o" -c -o "user/main.o" "../user/main.c"
+Finished building: ../user/main.c
+ 
+Building file: ../user/motor_control.c
+Invoking: GNU Arm Cross C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -O0 -ffunction-sections  -g -DAT_START_F403A_V1 -DAT32F403AVGT7 -DUSE_STDPERIPH_DRIVER -I"../include" -I"../include/libraries/drivers/inc" -I"../include/libraries/cmsis/cm4/core_support" -I"../include/libraries/cmsis/cm4/device_support" -std=c99 -MMD -MP -MF"user/motor_control.d" -MT"user/motor_control.o" -c -o "user/motor_control.o" "../user/motor_control.c"
+../user/motor_control.c:10:6: error: conflicting types for 'SetMotorDir'
+   10 | void SetMotorDir(int16_t wheel_direction, char motor_number){
+      |      ^~~~~~~~~~~
+In file included from ../user/motor_control.c:7:
+../include/motor_control.h:51:6: note: previous declaration of 'SetMotorDir' was here
+   51 | void SetMotorDir(int16_t);
+      |      ^~~~~~~~~~~
+make: *** [user/subdir.mk:35: user/motor_control.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+18:40:40 **** Incremental Build of configuration Debug for project control ****
+make all 
+Building file: ../user/main.c
+Invoking: GNU Arm Cross C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -O0 -ffunction-sections  -g -DAT_START_F403A_V1 -DAT32F403AVGT7 -DUSE_STDPERIPH_DRIVER -I"../include" -I"../include/libraries/drivers/inc" -I"../include/libraries/cmsis/cm4/core_support" -I"../include/libraries/cmsis/cm4/device_support" -std=c99 -MMD -MP -MF"user/main.d" -MT"user/main.o" -c -o "user/main.o" "../user/main.c"
+Finished building: ../user/main.c
+ 
+Building file: ../user/motor_control.c
+Invoking: GNU Arm Cross C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -O0 -ffunction-sections  -g -DAT_START_F403A_V1 -DAT32F403AVGT7 -DUSE_STDPERIPH_DRIVER -I"../include" -I"../include/libraries/drivers/inc" -I"../include/libraries/cmsis/cm4/core_support" -I"../include/libraries/cmsis/cm4/device_support" -std=c99 -MMD -MP -MF"user/motor_control.d" -MT"user/motor_control.o" -c -o "user/motor_control.o" "../user/motor_control.c"
+Finished building: ../user/motor_control.c
+ 
+Building target: control.elf
+Invoking: GNU Arm Cross C Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -O0 -ffunction-sections  -g -T "/home/user/Documents/bldc motor /control/ldscripts/AT32F403AxG_FLASH.ld" -Xlinker --gc-sections -Wl,-Map,"control.map" --specs=nano.specs --specs=nosys.specs -o "control.elf" ./user/at32f403a_407_clock.o ./user/at32f403a_407_int.o ./user/at32f403a_407_wk_config.o ./user/i2c_application.o ./user/main.o ./user/motor_control.o  ./firmware/at32f403a_407_acc.o ./firmware/at32f403a_407_adc.o ./firmware/at32f403a_407_bpr.o ./firmware/at32f403a_407_can.o ./firmware/at32f403a_407_crc.o ./firmware/at32f403a_407_crm.o ./firmware/at32f403a_407_dac.o ./firmware/at32f403a_407_debug.o ./firmware/at32f403a_407_dma.o ./firmware/at32f403a_407_emac.o ./firmware/at32f403a_407_exint.o ./firmware/at32f403a_407_flash.o ./firmware/at32f403a_407_gpio.o ./firmware/at32f403a_407_i2c.o ./firmware/at32f403a_407_misc.o ./firmware/at32f403a_407_pwc.o ./firmware/at32f403a_407_rtc.o ./firmware/at32f403a_407_sdio.o ./firmware/at32f403a_407_spi.o ./firmware/at32f403a_407_tmr.o ./firmware/at32f403a_407_usart.o ./firmware/at32f403a_407_usb.o ./firmware/at32f403a_407_wdt.o ./firmware/at32f403a_407_wwdt.o ./firmware/at32f403a_407_xmc.o  ./cmsis/bsp/at32f403a_407_board.o  ./cmsis/startup_at32f403a_407.o ./cmsis/system_at32f403a_407.o   
+Finished building target: control.elf
+ 
+Invoking: GNU Arm Cross Create Flash Image
+arm-none-eabi-objcopy -O ihex "control.elf"  "control.hex"
+Finished building: control.hex
+ 
+Invoking: GNU Arm Cross Print Size
+arm-none-eabi-size --format=berkeley "control.elf"
+   text	   data	    bss	    dec	    hex	filename
+   9640	     52	   1644	  11336	   2c48	control.elf
+Finished building: control.siz
+ 

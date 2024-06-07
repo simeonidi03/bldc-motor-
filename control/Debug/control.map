@@ -126,9 +126,17 @@ Discarded input sections
  .text          0x0000000000000000        0x0 ./user/motor_control.o
  .data          0x0000000000000000        0x0 ./user/motor_control.o
  .bss           0x0000000000000000        0x0 ./user/motor_control.o
- .debug_line    0x0000000000000000        0x0 ./user/motor_control.o
- .debug_str     0x0000000000000000       0xdb ./user/motor_control.o
+ .text.SetMotorDir
+                0x0000000000000000      0x104 ./user/motor_control.o
+ .debug_info    0x0000000000000000      0xf96 ./user/motor_control.o
+ .debug_abbrev  0x0000000000000000      0x11c ./user/motor_control.o
+ .debug_aranges
+                0x0000000000000000       0x20 ./user/motor_control.o
+ .debug_ranges  0x0000000000000000       0x10 ./user/motor_control.o
+ .debug_line    0x0000000000000000      0x260 ./user/motor_control.o
+ .debug_str     0x0000000000000000      0x64c ./user/motor_control.o
  .comment       0x0000000000000000       0x4a ./user/motor_control.o
+ .debug_frame   0x0000000000000000       0x34 ./user/motor_control.o
  .ARM.attributes
                 0x0000000000000000       0x34 ./user/motor_control.o
  .text          0x0000000000000000        0x0 ./firmware/at32f403a_407_acc.o
@@ -1984,20 +1992,20 @@ LOAD /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x8
 LOAD /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/platform/tools/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a
 LOAD /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/platform/tools/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/libgcc.a
 
-.debug_info     0x0000000000000000    0x11829
+.debug_info     0x0000000000000000    0x11830
  .debug_info    0x0000000000000000      0x3cc ./user/at32f403a_407_clock.o
  .debug_info    0x00000000000003cc     0x127a ./user/at32f403a_407_int.o
  .debug_info    0x0000000000001646     0x229d ./user/at32f403a_407_wk_config.o
- .debug_info    0x00000000000038e3     0x2cd6 ./user/main.o
- .debug_info    0x00000000000065b9     0x2375 ./firmware/at32f403a_407_crm.o
- .debug_info    0x000000000000892e      0x54c ./firmware/at32f403a_407_exint.o
- .debug_info    0x0000000000008e7a     0x1f20 ./firmware/at32f403a_407_gpio.o
- .debug_info    0x000000000000ad9a      0x9de ./firmware/at32f403a_407_misc.o
- .debug_info    0x000000000000b778     0x26ca ./firmware/at32f403a_407_tmr.o
- .debug_info    0x000000000000de42     0x10a6 ./firmware/at32f403a_407_usart.o
- .debug_info    0x000000000000eee8     0x1389 ./cmsis/bsp/at32f403a_407_board.o
- .debug_info    0x0000000000010271       0x22 ./cmsis/startup_at32f403a_407.o
- .debug_info    0x0000000000010293     0x1596 ./cmsis/system_at32f403a_407.o
+ .debug_info    0x00000000000038e3     0x2cdd ./user/main.o
+ .debug_info    0x00000000000065c0     0x2375 ./firmware/at32f403a_407_crm.o
+ .debug_info    0x0000000000008935      0x54c ./firmware/at32f403a_407_exint.o
+ .debug_info    0x0000000000008e81     0x1f20 ./firmware/at32f403a_407_gpio.o
+ .debug_info    0x000000000000ada1      0x9de ./firmware/at32f403a_407_misc.o
+ .debug_info    0x000000000000b77f     0x26ca ./firmware/at32f403a_407_tmr.o
+ .debug_info    0x000000000000de49     0x10a6 ./firmware/at32f403a_407_usart.o
+ .debug_info    0x000000000000eeef     0x1389 ./cmsis/bsp/at32f403a_407_board.o
+ .debug_info    0x0000000000010278       0x22 ./cmsis/startup_at32f403a_407.o
+ .debug_info    0x000000000001029a     0x1596 ./cmsis/system_at32f403a_407.o
 
 .debug_abbrev   0x0000000000000000     0x15fe
  .debug_abbrev  0x0000000000000000       0x78 ./user/at32f403a_407_clock.o
@@ -2072,32 +2080,32 @@ LOAD /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x8
  .debug_line    0x0000000000004060       0x7c ./cmsis/startup_at32f403a_407.o
  .debug_line    0x00000000000040dc      0x3c3 ./cmsis/system_at32f403a_407.o
 
-.debug_str      0x0000000000000000     0x6063
+.debug_str      0x0000000000000000     0x6069
  .debug_str     0x0000000000000000      0x7bb ./user/at32f403a_407_clock.o
                                         0x7fe (size before relaxing)
  .debug_str     0x00000000000007bb      0x5f7 ./user/at32f403a_407_int.o
                                         0x796 (size before relaxing)
  .debug_str     0x0000000000000db2     0x12e8 ./user/at32f403a_407_wk_config.o
                                        0x1825 (size before relaxing)
- .debug_str     0x000000000000209a      0x697 ./user/main.o
-                                       0x1dee (size before relaxing)
- .debug_str     0x0000000000002731     0x1408 ./firmware/at32f403a_407_crm.o
+ .debug_str     0x000000000000209a      0x69d ./user/main.o
+                                       0x1df4 (size before relaxing)
+ .debug_str     0x0000000000002737     0x1408 ./firmware/at32f403a_407_crm.o
                                        0x214f (size before relaxing)
- .debug_str     0x0000000000003b39       0xff ./firmware/at32f403a_407_exint.o
+ .debug_str     0x0000000000003b3f       0xff ./firmware/at32f403a_407_exint.o
                                         0x431 (size before relaxing)
- .debug_str     0x0000000000003c38      0x6f9 ./firmware/at32f403a_407_gpio.o
+ .debug_str     0x0000000000003c3e      0x6f9 ./firmware/at32f403a_407_gpio.o
                                        0x139f (size before relaxing)
- .debug_str     0x0000000000004331      0x3b5 ./firmware/at32f403a_407_misc.o
+ .debug_str     0x0000000000004337      0x3b5 ./firmware/at32f403a_407_misc.o
                                         0xada (size before relaxing)
- .debug_str     0x00000000000046e6     0x11b1 ./firmware/at32f403a_407_tmr.o
+ .debug_str     0x00000000000046ec     0x11b1 ./firmware/at32f403a_407_tmr.o
                                        0x2011 (size before relaxing)
- .debug_str     0x0000000000005897      0x602 ./firmware/at32f403a_407_usart.o
+ .debug_str     0x000000000000589d      0x602 ./firmware/at32f403a_407_usart.o
                                         0xdef (size before relaxing)
- .debug_str     0x0000000000005e99      0x145 ./cmsis/bsp/at32f403a_407_board.o
+ .debug_str     0x0000000000005e9f      0x145 ./cmsis/bsp/at32f403a_407_board.o
                                         0xe6a (size before relaxing)
- .debug_str     0x0000000000005fde       0x2f ./cmsis/startup_at32f403a_407.o
+ .debug_str     0x0000000000005fe4       0x2f ./cmsis/startup_at32f403a_407.o
                                          0x5e (size before relaxing)
- .debug_str     0x000000000000600d       0x56 ./cmsis/system_at32f403a_407.o
+ .debug_str     0x0000000000006013       0x56 ./cmsis/system_at32f403a_407.o
                                         0xaf7 (size before relaxing)
 
 .comment        0x0000000000000000       0x49

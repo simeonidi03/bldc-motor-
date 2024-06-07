@@ -2,12 +2,23 @@
  * motor_control.h
  *
  *  Created on: 2024 Jun 7
- *      Author: user
+ *      Author: simeonidi03
  */
+#include "at32f403a_407.h"
+#include <stdio.h>
 
 #ifndef INCLUDE_MOTOR_CONTROL_H_
 #define INCLUDE_MOTOR_CONTROL_H_
+#define CW  0 // clockwise         по часовой
+#define CCW 1 // counterclock-wise против часовой
 
+#define DIRECTION_SECOND_WHEEL_1 0 //pulse 1 or PA8
+#define PWM_1 1                    //pulse 2 or PA9
+#define DIRECTION_SECOND_WHEEL_2 2 //pulse 3 or PA10
+#define PWM_2 3                    //pulse 4 or PA11
+
+extern uint16_t timer_period;
+extern uint16_t channel1_pulse, channel2_pulse, channel3_pulse, channel4_pulse;
 
 typedef void (*pSetPIDMotor)(int16_t);
 
@@ -35,7 +46,9 @@ typedef struct {
 	pSetPIDMotor SetPIDMotor; //указатель на функцию задающую вращение мотора
 } MotorData;
 
+extern MotorData current_data;
 
+void SetMotorDir(int16_t wheel_direction, char motor_number);
 
 
 
