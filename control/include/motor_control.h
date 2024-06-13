@@ -11,21 +11,42 @@
 #define INCLUDE_MOTOR_CONTROL_H_
 #define CW  0 // clockwise         по часовой
 #define CCW 1 // counterclock-wise против часовой
+#define PWM_K 2.94 // перевод от системы от 0 до 255 в систему от 0 до 750
 
 #define DIRECTION_SECOND_WHEEL_1 0 //pulse 1 or PA8
 #define PWM_1 1                    //pulse 2 or PA9
 #define DIRECTION_SECOND_WHEEL_2 2 //pulse 3 or PA10
 #define PWM_2 3                    //pulse 4 or PA11
 
+//режимы работы моторов
+#define MOTOR_MODE_NONE 0 //моторы не крутим
+#define MOTOR_MODE_PWM 1 //прямое управление моторами задавая скважность ШИМ
+#define MOTOR_MODE_PID 2 //управление посредством ПИД регулятора
+
+
 extern uint16_t timer_period;
 extern uint16_t channel1_pulse, channel2_pulse, channel3_pulse, channel4_pulse;
 
 typedef void (*pSetPIDMotor)(int16_t);
 
+//------параметры сохраняемые в EEPROM----------------------------
+typedef struct {
+	uint8_t workMode; //режим работы
+	float kP;  							// пропорциональный коэффициент
+	int8_t kPint;
+	float kI;  							// интегральный  коэффициент
+	int8_t kIint;
+	float kD;  							// дифференциальный  коэффициент
+	int8_t kDint;
+	int16_t limitSum;					// ограничение интегральной суммы
+	uint16_t timePID;					// период работы ПИД регулятора в мс
+	uint8_t pwmDeadZone;				//мертвая зона ШИМ, ниже которой значение будет всегда 0
+} WorkParams;
+
 //структура с переменными для ПИД регулятора и управление мотором
 typedef struct {
 	char name; //имя двигателя, для отладки
-	volatile uint8_t* timerPWMReg;		//регистр таймера
+	uint8_t channel_number; // номер канала
 	volatile uint8_t* portCw; //порт выхода направления вращения
 	volatile uint8_t* pinCw; //пин выхода направления вращения
 	uint8_t bitCwMask; //маска
@@ -46,10 +67,15 @@ typedef struct {
 	pSetPIDMotor SetPIDMotor; //указатель на функцию задающую вращение мотора
 } MotorData;
 
-extern MotorData current_data;
+extern WorkParams workParams;
+
 
 void SetMotorDir(int16_t wheel_direction, char motor_number);
-
-
+void SetMotorPWM(MotorData *data, uint16_t pwm);
+void PidParamInit();
+void MotorAInit();
+void MotorBInit();
+void CalcPid(MotorData* data);
+void OdometrProcess(MotorData *data);
 
 #endif /* INCLUDE_MOTOR_CONTROL_H_ */

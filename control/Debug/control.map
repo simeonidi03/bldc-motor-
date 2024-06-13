@@ -126,19 +126,11 @@ Discarded input sections
  .text          0x0000000000000000        0x0 ./user/motor_control.o
  .data          0x0000000000000000        0x0 ./user/motor_control.o
  .bss           0x0000000000000000        0x0 ./user/motor_control.o
- .text.SetMotorDir
-                0x0000000000000000      0x104 ./user/motor_control.o
- .debug_info    0x0000000000000000      0xf96 ./user/motor_control.o
- .debug_abbrev  0x0000000000000000      0x11c ./user/motor_control.o
- .debug_aranges
-                0x0000000000000000       0x20 ./user/motor_control.o
- .debug_ranges  0x0000000000000000       0x10 ./user/motor_control.o
- .debug_line    0x0000000000000000      0x260 ./user/motor_control.o
- .debug_str     0x0000000000000000      0x64c ./user/motor_control.o
- .comment       0x0000000000000000       0x4a ./user/motor_control.o
- .debug_frame   0x0000000000000000       0x34 ./user/motor_control.o
- .ARM.attributes
-                0x0000000000000000       0x34 ./user/motor_control.o
+ .text.PidParamInit
+                0x0000000000000000       0x58 ./user/motor_control.o
+ .text.CalcPID  0x0000000000000000      0x188 ./user/motor_control.o
+ .text.OdometrProcess
+                0x0000000000000000       0x3e ./user/motor_control.o
  .text          0x0000000000000000        0x0 ./firmware/at32f403a_407_acc.o
  .data          0x0000000000000000        0x0 ./firmware/at32f403a_407_acc.o
  .bss           0x0000000000000000        0x0 ./firmware/at32f403a_407_acc.o
@@ -1460,7 +1452,7 @@ LOAD /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x8
                 0x0000000008000000                g_pfnVectors
                 0x0000000008000184                . = ALIGN (0x4)
 
-.text           0x0000000008000184     0x23d0
+.text           0x0000000008000184     0x2490
                 0x0000000008000184                . = ALIGN (0x4)
  *(.text)
  .text          0x0000000008000184       0x40 /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/platform/tools/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
@@ -1504,363 +1496,373 @@ LOAD /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x8
                 0x0000000008000604       0x14 ./user/at32f403a_407_int.o
                 0x0000000008000604                SysTick_Handler
  .text.EXINT15_10_IRQHandler
-                0x0000000008000618       0x40 ./user/at32f403a_407_int.o
+                0x0000000008000618       0x4c ./user/at32f403a_407_int.o
                 0x0000000008000618                EXINT15_10_IRQHandler
  .text.USART2_IRQHandler
-                0x0000000008000658        0xc ./user/at32f403a_407_int.o
-                0x0000000008000658                USART2_IRQHandler
+                0x0000000008000664        0xc ./user/at32f403a_407_int.o
+                0x0000000008000664                USART2_IRQHandler
  .text.TMR6_GLOBAL_IRQHandler
-                0x0000000008000664       0x54 ./user/at32f403a_407_int.o
-                0x0000000008000664                TMR6_GLOBAL_IRQHandler
+                0x0000000008000670       0x54 ./user/at32f403a_407_int.o
+                0x0000000008000670                TMR6_GLOBAL_IRQHandler
  .text.USART3_IRQHandler
-                0x00000000080006b8        0xe ./user/at32f403a_407_int.o
-                0x00000000080006b8                USART3_IRQHandler
+                0x00000000080006c4        0xe ./user/at32f403a_407_int.o
+                0x00000000080006c4                USART3_IRQHandler
  .text.wk_nvic_config
-                0x00000000080006c6       0x12 ./user/at32f403a_407_wk_config.o
-                0x00000000080006c6                wk_nvic_config
+                0x00000000080006d2       0x12 ./user/at32f403a_407_wk_config.o
+                0x00000000080006d2                wk_nvic_config
  .text.wk_tmr6_init
-                0x00000000080006d8       0x44 ./user/at32f403a_407_wk_config.o
-                0x00000000080006d8                wk_tmr6_init
+                0x00000000080006e4       0x44 ./user/at32f403a_407_wk_config.o
+                0x00000000080006e4                wk_tmr6_init
  .text.crm_init
-                0x000000000800071c       0x38 ./user/at32f403a_407_wk_config.o
-                0x000000000800071c                crm_init
+                0x0000000008000728       0x38 ./user/at32f403a_407_wk_config.o
+                0x0000000008000728                crm_init
  .text.wk_gpio_init
-                0x0000000008000754       0xf0 ./user/at32f403a_407_wk_config.o
-                0x0000000008000754                wk_gpio_init
+                0x0000000008000760       0xf0 ./user/at32f403a_407_wk_config.o
+                0x0000000008000760                wk_gpio_init
  .text.wk_tmr1_init
-                0x0000000008000844      0x180 ./user/at32f403a_407_wk_config.o
-                0x0000000008000844                wk_tmr1_init
+                0x0000000008000850      0x180 ./user/at32f403a_407_wk_config.o
+                0x0000000008000850                wk_tmr1_init
  .text.usart_configuration
-                0x00000000080009c4       0xb0 ./user/main.o
-                0x00000000080009c4                usart_configuration
+                0x00000000080009d0       0xb0 ./user/main.o
+                0x00000000080009d0                usart_configuration
  .text.holl_exint_init
-                0x0000000008000a74       0x52 ./user/main.o
-                0x0000000008000a74                holl_exint_init
- *fill*         0x0000000008000ac6        0x2 
+                0x0000000008000a80       0x52 ./user/main.o
+                0x0000000008000a80                holl_exint_init
+ *fill*         0x0000000008000ad2        0x2 
  .text.usart2_tx_rx_handler
-                0x0000000008000ac8       0x5c ./user/main.o
-                0x0000000008000ac8                usart2_tx_rx_handler
+                0x0000000008000ad4       0x5c ./user/main.o
+                0x0000000008000ad4                usart2_tx_rx_handler
  .text.usart2_tx_without_int
-                0x0000000008000b24      0x1cc ./user/main.o
-                0x0000000008000b24                usart2_tx_without_int
- .text.main     0x0000000008000cf0      0x1f8 ./user/main.o
-                0x0000000008000cf0                main
+                0x0000000008000b30      0x1cc ./user/main.o
+                0x0000000008000b30                usart2_tx_without_int
+ .text.main     0x0000000008000cfc      0x134 ./user/main.o
+                0x0000000008000cfc                main
+ .text.SetMotorDir
+                0x0000000008000e30      0x104 ./user/motor_control.o
+                0x0000000008000e30                SetMotorDir
+ .text.SetMotorPWM
+                0x0000000008000f34       0x58 ./user/motor_control.o
+                0x0000000008000f34                SetMotorPWM
+ .text.MotorAInit
+                0x0000000008000f8c       0x1a ./user/motor_control.o
+                0x0000000008000f8c                MotorAInit
+ *fill*         0x0000000008000fa6        0x2 
  .text.crm_reset
-                0x0000000008000ee8       0x6c ./firmware/at32f403a_407_crm.o
-                0x0000000008000ee8                crm_reset
+                0x0000000008000fa8       0x6c ./firmware/at32f403a_407_crm.o
+                0x0000000008000fa8                crm_reset
  .text.crm_flag_get
-                0x0000000008000f54       0x50 ./firmware/at32f403a_407_crm.o
-                0x0000000008000f54                crm_flag_get
+                0x0000000008001014       0x50 ./firmware/at32f403a_407_crm.o
+                0x0000000008001014                crm_flag_get
  .text.crm_hext_stable_wait
-                0x0000000008000fa4       0x4a ./firmware/at32f403a_407_crm.o
-                0x0000000008000fa4                crm_hext_stable_wait
+                0x0000000008001064       0x4a ./firmware/at32f403a_407_crm.o
+                0x0000000008001064                crm_hext_stable_wait
  .text.crm_periph_clock_enable
-                0x0000000008000fee       0x7c ./firmware/at32f403a_407_crm.o
-                0x0000000008000fee                crm_periph_clock_enable
- *fill*         0x000000000800106a        0x2 
+                0x00000000080010ae       0x7c ./firmware/at32f403a_407_crm.o
+                0x00000000080010ae                crm_periph_clock_enable
+ *fill*         0x000000000800112a        0x2 
  .text.crm_clock_source_enable
-                0x000000000800106c       0xa8 ./firmware/at32f403a_407_crm.o
-                0x000000000800106c                crm_clock_source_enable
+                0x000000000800112c       0xa8 ./firmware/at32f403a_407_crm.o
+                0x000000000800112c                crm_clock_source_enable
  .text.crm_ahb_div_set
-                0x0000000008001114       0x2c ./firmware/at32f403a_407_crm.o
-                0x0000000008001114                crm_ahb_div_set
+                0x00000000080011d4       0x2c ./firmware/at32f403a_407_crm.o
+                0x00000000080011d4                crm_ahb_div_set
  .text.crm_apb1_div_set
-                0x0000000008001140       0x2c ./firmware/at32f403a_407_crm.o
-                0x0000000008001140                crm_apb1_div_set
+                0x0000000008001200       0x2c ./firmware/at32f403a_407_crm.o
+                0x0000000008001200                crm_apb1_div_set
  .text.crm_apb2_div_set
-                0x000000000800116c       0x2c ./firmware/at32f403a_407_crm.o
-                0x000000000800116c                crm_apb2_div_set
+                0x000000000800122c       0x2c ./firmware/at32f403a_407_crm.o
+                0x000000000800122c                crm_apb2_div_set
  .text.crm_pll_config
-                0x0000000008001198       0x9c ./firmware/at32f403a_407_crm.o
-                0x0000000008001198                crm_pll_config
+                0x0000000008001258       0x9c ./firmware/at32f403a_407_crm.o
+                0x0000000008001258                crm_pll_config
  .text.crm_sysclk_switch
-                0x0000000008001234       0x54 ./firmware/at32f403a_407_crm.o
-                0x0000000008001234                crm_sysclk_switch
+                0x00000000080012f4       0x54 ./firmware/at32f403a_407_crm.o
+                0x00000000080012f4                crm_sysclk_switch
  .text.crm_sysclk_switch_status_get
-                0x0000000008001288       0x1c ./firmware/at32f403a_407_crm.o
-                0x0000000008001288                crm_sysclk_switch_status_get
+                0x0000000008001348       0x1c ./firmware/at32f403a_407_crm.o
+                0x0000000008001348                crm_sysclk_switch_status_get
  .text.crm_clocks_freq_get
-                0x00000000080012a4      0x1d4 ./firmware/at32f403a_407_crm.o
-                0x00000000080012a4                crm_clocks_freq_get
+                0x0000000008001364      0x1d4 ./firmware/at32f403a_407_crm.o
+                0x0000000008001364                crm_clocks_freq_get
  .text.crm_auto_step_mode_enable
-                0x0000000008001478       0x38 ./firmware/at32f403a_407_crm.o
-                0x0000000008001478                crm_auto_step_mode_enable
+                0x0000000008001538       0x38 ./firmware/at32f403a_407_crm.o
+                0x0000000008001538                crm_auto_step_mode_enable
  .text.crm_hext_clock_div_set
-                0x00000000080014b0       0x2c ./firmware/at32f403a_407_crm.o
-                0x00000000080014b0                crm_hext_clock_div_set
+                0x0000000008001570       0x2c ./firmware/at32f403a_407_crm.o
+                0x0000000008001570                crm_hext_clock_div_set
  .text.exint_default_para_init
-                0x00000000080014dc       0x2c ./firmware/at32f403a_407_exint.o
-                0x00000000080014dc                exint_default_para_init
+                0x000000000800159c       0x2c ./firmware/at32f403a_407_exint.o
+                0x000000000800159c                exint_default_para_init
  .text.exint_init
-                0x0000000008001508       0xc8 ./firmware/at32f403a_407_exint.o
-                0x0000000008001508                exint_init
+                0x00000000080015c8       0xc8 ./firmware/at32f403a_407_exint.o
+                0x00000000080015c8                exint_init
  .text.gpio_init
-                0x00000000080015d0      0x138 ./firmware/at32f403a_407_gpio.o
-                0x00000000080015d0                gpio_init
+                0x0000000008001690      0x138 ./firmware/at32f403a_407_gpio.o
+                0x0000000008001690                gpio_init
  .text.gpio_default_para_init
-                0x0000000008001708       0x34 ./firmware/at32f403a_407_gpio.o
-                0x0000000008001708                gpio_default_para_init
+                0x00000000080017c8       0x34 ./firmware/at32f403a_407_gpio.o
+                0x00000000080017c8                gpio_default_para_init
  .text.gpio_bits_set
-                0x000000000800173c       0x1e ./firmware/at32f403a_407_gpio.o
-                0x000000000800173c                gpio_bits_set
+                0x00000000080017fc       0x1e ./firmware/at32f403a_407_gpio.o
+                0x00000000080017fc                gpio_bits_set
  .text.gpio_bits_reset
-                0x000000000800175a       0x1e ./firmware/at32f403a_407_gpio.o
-                0x000000000800175a                gpio_bits_reset
+                0x000000000800181a       0x1e ./firmware/at32f403a_407_gpio.o
+                0x000000000800181a                gpio_bits_reset
  .text.gpio_exint_line_config
-                0x0000000008001778       0xf8 ./firmware/at32f403a_407_gpio.o
-                0x0000000008001778                gpio_exint_line_config
+                0x0000000008001838       0xf8 ./firmware/at32f403a_407_gpio.o
+                0x0000000008001838                gpio_exint_line_config
  .text.__NVIC_SetPriorityGrouping
-                0x0000000008001870       0x48 ./firmware/at32f403a_407_misc.o
+                0x0000000008001930       0x48 ./firmware/at32f403a_407_misc.o
  .text.__NVIC_GetPriorityGrouping
-                0x00000000080018b8       0x1c ./firmware/at32f403a_407_misc.o
+                0x0000000008001978       0x1c ./firmware/at32f403a_407_misc.o
  .text.__NVIC_EnableIRQ
-                0x00000000080018d4       0x3c ./firmware/at32f403a_407_misc.o
+                0x0000000008001994       0x3c ./firmware/at32f403a_407_misc.o
  .text.__NVIC_SetPriority
-                0x0000000008001910       0x54 ./firmware/at32f403a_407_misc.o
+                0x00000000080019d0       0x54 ./firmware/at32f403a_407_misc.o
  .text.NVIC_EncodePriority
-                0x0000000008001964       0x66 ./firmware/at32f403a_407_misc.o
+                0x0000000008001a24       0x66 ./firmware/at32f403a_407_misc.o
  .text.nvic_irq_enable
-                0x00000000080019ca       0x42 ./firmware/at32f403a_407_misc.o
-                0x00000000080019ca                nvic_irq_enable
+                0x0000000008001a8a       0x42 ./firmware/at32f403a_407_misc.o
+                0x0000000008001a8a                nvic_irq_enable
  .text.nvic_priority_group_config
-                0x0000000008001a0c       0x1a ./firmware/at32f403a_407_misc.o
-                0x0000000008001a0c                nvic_priority_group_config
- *fill*         0x0000000008001a26        0x2 
+                0x0000000008001acc       0x1a ./firmware/at32f403a_407_misc.o
+                0x0000000008001acc                nvic_priority_group_config
+ *fill*         0x0000000008001ae6        0x2 
  .text.systick_clock_source_config
-                0x0000000008001a28       0x3c ./firmware/at32f403a_407_misc.o
-                0x0000000008001a28                systick_clock_source_config
+                0x0000000008001ae8       0x3c ./firmware/at32f403a_407_misc.o
+                0x0000000008001ae8                systick_clock_source_config
  .text.tmr_counter_enable
-                0x0000000008001a64       0x2a ./firmware/at32f403a_407_tmr.o
-                0x0000000008001a64                tmr_counter_enable
+                0x0000000008001b24       0x2a ./firmware/at32f403a_407_tmr.o
+                0x0000000008001b24                tmr_counter_enable
  .text.tmr_output_default_para_init
-                0x0000000008001a8e       0x3e ./firmware/at32f403a_407_tmr.o
-                0x0000000008001a8e                tmr_output_default_para_init
+                0x0000000008001b4e       0x3e ./firmware/at32f403a_407_tmr.o
+                0x0000000008001b4e                tmr_output_default_para_init
  .text.tmr_base_init
-                0x0000000008001acc       0x2e ./firmware/at32f403a_407_tmr.o
-                0x0000000008001acc                tmr_base_init
+                0x0000000008001b8c       0x2e ./firmware/at32f403a_407_tmr.o
+                0x0000000008001b8c                tmr_base_init
  .text.tmr_cnt_dir_set
-                0x0000000008001afa       0x2a ./firmware/at32f403a_407_tmr.o
-                0x0000000008001afa                tmr_cnt_dir_set
+                0x0000000008001bba       0x2a ./firmware/at32f403a_407_tmr.o
+                0x0000000008001bba                tmr_cnt_dir_set
  .text.tmr_output_channel_config
-                0x0000000008001b24      0x204 ./firmware/at32f403a_407_tmr.o
-                0x0000000008001b24                tmr_output_channel_config
+                0x0000000008001be4      0x204 ./firmware/at32f403a_407_tmr.o
+                0x0000000008001be4                tmr_output_channel_config
  .text.tmr_channel_value_set
-                0x0000000008001d28       0x6c ./firmware/at32f403a_407_tmr.o
-                0x0000000008001d28                tmr_channel_value_set
+                0x0000000008001de8       0x6c ./firmware/at32f403a_407_tmr.o
+                0x0000000008001de8                tmr_channel_value_set
  .text.tmr_period_buffer_enable
-                0x0000000008001d94       0x2a ./firmware/at32f403a_407_tmr.o
-                0x0000000008001d94                tmr_period_buffer_enable
+                0x0000000008001e54       0x2a ./firmware/at32f403a_407_tmr.o
+                0x0000000008001e54                tmr_period_buffer_enable
  .text.tmr_primary_mode_select
-                0x0000000008001dbe       0x2a ./firmware/at32f403a_407_tmr.o
-                0x0000000008001dbe                tmr_primary_mode_select
+                0x0000000008001e7e       0x2a ./firmware/at32f403a_407_tmr.o
+                0x0000000008001e7e                tmr_primary_mode_select
  .text.tmr_interrupt_enable
-                0x0000000008001de8       0x42 ./firmware/at32f403a_407_tmr.o
-                0x0000000008001de8                tmr_interrupt_enable
+                0x0000000008001ea8       0x42 ./firmware/at32f403a_407_tmr.o
+                0x0000000008001ea8                tmr_interrupt_enable
  .text.tmr_event_sw_trigger
-                0x0000000008001e2a       0x24 ./firmware/at32f403a_407_tmr.o
-                0x0000000008001e2a                tmr_event_sw_trigger
+                0x0000000008001eea       0x24 ./firmware/at32f403a_407_tmr.o
+                0x0000000008001eea                tmr_event_sw_trigger
  .text.tmr_output_enable
-                0x0000000008001e4e       0x2a ./firmware/at32f403a_407_tmr.o
-                0x0000000008001e4e                tmr_output_enable
+                0x0000000008001f0e       0x2a ./firmware/at32f403a_407_tmr.o
+                0x0000000008001f0e                tmr_output_enable
  .text.usart_init
-                0x0000000008001e78       0xe0 ./firmware/at32f403a_407_usart.o
-                0x0000000008001e78                usart_init
+                0x0000000008001f38       0xe0 ./firmware/at32f403a_407_usart.o
+                0x0000000008001f38                usart_init
  .text.usart_enable
-                0x0000000008001f58       0x2a ./firmware/at32f403a_407_usart.o
-                0x0000000008001f58                usart_enable
+                0x0000000008002018       0x2a ./firmware/at32f403a_407_usart.o
+                0x0000000008002018                usart_enable
  .text.usart_transmitter_enable
-                0x0000000008001f82       0x2a ./firmware/at32f403a_407_usart.o
-                0x0000000008001f82                usart_transmitter_enable
+                0x0000000008002042       0x2a ./firmware/at32f403a_407_usart.o
+                0x0000000008002042                usart_transmitter_enable
  .text.usart_receiver_enable
-                0x0000000008001fac       0x2a ./firmware/at32f403a_407_usart.o
-                0x0000000008001fac                usart_receiver_enable
+                0x000000000800206c       0x2a ./firmware/at32f403a_407_usart.o
+                0x000000000800206c                usart_receiver_enable
  .text.usart_interrupt_enable
-                0x0000000008001fd6       0x68 ./firmware/at32f403a_407_usart.o
-                0x0000000008001fd6                usart_interrupt_enable
+                0x0000000008002096       0x68 ./firmware/at32f403a_407_usart.o
+                0x0000000008002096                usart_interrupt_enable
  .text.usart_data_transmit
-                0x000000000800203e       0x22 ./firmware/at32f403a_407_usart.o
-                0x000000000800203e                usart_data_transmit
+                0x00000000080020fe       0x22 ./firmware/at32f403a_407_usart.o
+                0x00000000080020fe                usart_data_transmit
  .text.usart_flag_get
-                0x0000000008002060       0x28 ./firmware/at32f403a_407_usart.o
-                0x0000000008002060                usart_flag_get
+                0x0000000008002120       0x28 ./firmware/at32f403a_407_usart.o
+                0x0000000008002120                usart_flag_get
  .text.at32_board_init
-                0x0000000008002088       0x34 ./cmsis/bsp/at32f403a_407_board.o
-                0x0000000008002088                at32_board_init
+                0x0000000008002148       0x34 ./cmsis/bsp/at32f403a_407_board.o
+                0x0000000008002148                at32_board_init
  .text.at32_button_init
-                0x00000000080020bc       0x44 ./cmsis/bsp/at32f403a_407_board.o
-                0x00000000080020bc                at32_button_init
+                0x000000000800217c       0x44 ./cmsis/bsp/at32f403a_407_board.o
+                0x000000000800217c                at32_button_init
  .text.at32_led_init
-                0x0000000008002100       0x68 ./cmsis/bsp/at32f403a_407_board.o
-                0x0000000008002100                at32_led_init
+                0x00000000080021c0       0x68 ./cmsis/bsp/at32f403a_407_board.o
+                0x00000000080021c0                at32_led_init
  .text.at32_led_on
-                0x0000000008002168       0x48 ./cmsis/bsp/at32f403a_407_board.o
-                0x0000000008002168                at32_led_on
+                0x0000000008002228       0x48 ./cmsis/bsp/at32f403a_407_board.o
+                0x0000000008002228                at32_led_on
  .text.at32_led_off
-                0x00000000080021b0       0x48 ./cmsis/bsp/at32f403a_407_board.o
-                0x00000000080021b0                at32_led_off
+                0x0000000008002270       0x48 ./cmsis/bsp/at32f403a_407_board.o
+                0x0000000008002270                at32_led_off
  .text.delay_init
-                0x00000000080021f8       0x40 ./cmsis/bsp/at32f403a_407_board.o
-                0x00000000080021f8                delay_init
+                0x00000000080022b8       0x40 ./cmsis/bsp/at32f403a_407_board.o
+                0x00000000080022b8                delay_init
  .text.delay_ms
-                0x0000000008002238       0x98 ./cmsis/bsp/at32f403a_407_board.o
-                0x0000000008002238                delay_ms
+                0x00000000080022f8       0x98 ./cmsis/bsp/at32f403a_407_board.o
+                0x00000000080022f8                delay_ms
  .text.Reset_Handler
-                0x00000000080022d0       0x48 ./cmsis/startup_at32f403a_407.o
-                0x00000000080022d0                Reset_Handler
+                0x0000000008002390       0x48 ./cmsis/startup_at32f403a_407.o
+                0x0000000008002390                Reset_Handler
  .text.Default_Handler
-                0x0000000008002318        0x2 ./cmsis/startup_at32f403a_407.o
-                0x0000000008002318                SDIO1_IRQHandler
-                0x0000000008002318                XMC_IRQHandler
-                0x0000000008002318                EXINT2_IRQHandler
-                0x0000000008002318                USBFS_L_CAN1_RX0_IRQHandler
-                0x0000000008002318                UART8_IRQHandler
-                0x0000000008002318                SPI4_IRQHandler
-                0x0000000008002318                I2C2_EVT_IRQHandler
-                0x0000000008002318                TMR1_OVF_TMR10_IRQHandler
-                0x0000000008002318                TMR8_TRG_HALL_TMR14_IRQHandler
-                0x0000000008002318                USBFS_H_CAN1_TX_IRQHandler
-                0x0000000008002318                I2C1_ERR_IRQHandler
-                0x0000000008002318                EXINT9_5_IRQHandler
-                0x0000000008002318                EMAC_IRQHandler
-                0x0000000008002318                CAN2_RX1_IRQHandler
-                0x0000000008002318                TMR5_GLOBAL_IRQHandler
-                0x0000000008002318                SDIO2_IRQHandler
-                0x0000000008002318                ADC1_2_IRQHandler
-                0x0000000008002318                SPI1_IRQHandler
-                0x0000000008002318                TAMPER_IRQHandler
-                0x0000000008002318                CAN2_RX0_IRQHandler
-                0x0000000008002318                DMA2_Channel2_IRQHandler
-                0x0000000008002318                DMA1_Channel4_IRQHandler
-                0x0000000008002318                TMR8_CH_IRQHandler
-                0x0000000008002318                USART6_IRQHandler
-                0x0000000008002318                EXINT0_IRQHandler
-                0x0000000008002318                RTC_IRQHandler
-                0x0000000008002318                DMA1_Channel7_IRQHandler
-                0x0000000008002318                CAN1_RX1_IRQHandler
-                0x0000000008002318                UART5_IRQHandler
-                0x0000000008002318                ADC3_IRQHandler
-                0x0000000008002318                ACC_IRQHandler
-                0x0000000008002318                EMAC_WKUP_IRQHandler
-                0x0000000008002318                DMA2_Channel1_IRQHandler
-                0x0000000008002318                EXINT3_IRQHandler
-                0x0000000008002318                DMA1_Channel6_IRQHandler
-                0x0000000008002318                UART4_IRQHandler
-                0x0000000008002318                DMA1_Channel1_IRQHandler
-                0x0000000008002318                Default_Handler
-                0x0000000008002318                USBFS_MAPH_IRQHandler
-                0x0000000008002318                TMR3_GLOBAL_IRQHandler
-                0x0000000008002318                TMR7_GLOBAL_IRQHandler
-                0x0000000008002318                CAN1_SE_IRQHandler
-                0x0000000008002318                CAN2_TX_IRQHandler
-                0x0000000008002318                I2C3_ERR_IRQHandler
-                0x0000000008002318                SPI3_I2S3EXT_IRQHandler
-                0x0000000008002318                TMR1_BRK_TMR9_IRQHandler
-                0x0000000008002318                USBFS_MAPL_IRQHandler
-                0x0000000008002318                TMR8_BRK_TMR12_IRQHandler
-                0x0000000008002318                TMR1_TRG_HALL_TMR11_IRQHandler
-                0x0000000008002318                DMA1_Channel5_IRQHandler
-                0x0000000008002318                TMR4_GLOBAL_IRQHandler
-                0x0000000008002318                EXINT4_IRQHandler
-                0x0000000008002318                CAN2_SE_IRQHandler
-                0x0000000008002318                DMA2_Channel6_7_IRQHandler
-                0x0000000008002318                PVM_IRQHandler
-                0x0000000008002318                I2C3_EVT_IRQHandler
-                0x0000000008002318                DMA1_Channel3_IRQHandler
-                0x0000000008002318                I2C1_EVT_IRQHandler
-                0x0000000008002318                TMR8_OVF_TMR13_IRQHandler
-                0x0000000008002318                EXINT1_IRQHandler
-                0x0000000008002318                RTCAlarm_IRQHandler
-                0x0000000008002318                DMA2_Channel4_5_IRQHandler
-                0x0000000008002318                UART7_IRQHandler
-                0x0000000008002318                DMA1_Channel2_IRQHandler
-                0x0000000008002318                TMR2_GLOBAL_IRQHandler
-                0x0000000008002318                FLASH_IRQHandler
-                0x0000000008002318                SPI2_I2S2EXT_IRQHandler
-                0x0000000008002318                I2C2_ERR_IRQHandler
-                0x0000000008002318                USBFSWakeUp_IRQHandler
-                0x0000000008002318                USART1_IRQHandler
-                0x0000000008002318                TMR1_CH_IRQHandler
-                0x0000000008002318                CRM_IRQHandler
-                0x0000000008002318                WWDT_IRQHandler
-                0x0000000008002318                DMA2_Channel3_IRQHandler
- *fill*         0x000000000800231a        0x2 
+                0x00000000080023d8        0x2 ./cmsis/startup_at32f403a_407.o
+                0x00000000080023d8                SDIO1_IRQHandler
+                0x00000000080023d8                XMC_IRQHandler
+                0x00000000080023d8                EXINT2_IRQHandler
+                0x00000000080023d8                USBFS_L_CAN1_RX0_IRQHandler
+                0x00000000080023d8                UART8_IRQHandler
+                0x00000000080023d8                SPI4_IRQHandler
+                0x00000000080023d8                I2C2_EVT_IRQHandler
+                0x00000000080023d8                TMR1_OVF_TMR10_IRQHandler
+                0x00000000080023d8                TMR8_TRG_HALL_TMR14_IRQHandler
+                0x00000000080023d8                USBFS_H_CAN1_TX_IRQHandler
+                0x00000000080023d8                I2C1_ERR_IRQHandler
+                0x00000000080023d8                EXINT9_5_IRQHandler
+                0x00000000080023d8                EMAC_IRQHandler
+                0x00000000080023d8                CAN2_RX1_IRQHandler
+                0x00000000080023d8                TMR5_GLOBAL_IRQHandler
+                0x00000000080023d8                SDIO2_IRQHandler
+                0x00000000080023d8                ADC1_2_IRQHandler
+                0x00000000080023d8                SPI1_IRQHandler
+                0x00000000080023d8                TAMPER_IRQHandler
+                0x00000000080023d8                CAN2_RX0_IRQHandler
+                0x00000000080023d8                DMA2_Channel2_IRQHandler
+                0x00000000080023d8                DMA1_Channel4_IRQHandler
+                0x00000000080023d8                TMR8_CH_IRQHandler
+                0x00000000080023d8                USART6_IRQHandler
+                0x00000000080023d8                EXINT0_IRQHandler
+                0x00000000080023d8                RTC_IRQHandler
+                0x00000000080023d8                DMA1_Channel7_IRQHandler
+                0x00000000080023d8                CAN1_RX1_IRQHandler
+                0x00000000080023d8                UART5_IRQHandler
+                0x00000000080023d8                ADC3_IRQHandler
+                0x00000000080023d8                ACC_IRQHandler
+                0x00000000080023d8                EMAC_WKUP_IRQHandler
+                0x00000000080023d8                DMA2_Channel1_IRQHandler
+                0x00000000080023d8                EXINT3_IRQHandler
+                0x00000000080023d8                DMA1_Channel6_IRQHandler
+                0x00000000080023d8                UART4_IRQHandler
+                0x00000000080023d8                DMA1_Channel1_IRQHandler
+                0x00000000080023d8                Default_Handler
+                0x00000000080023d8                USBFS_MAPH_IRQHandler
+                0x00000000080023d8                TMR3_GLOBAL_IRQHandler
+                0x00000000080023d8                TMR7_GLOBAL_IRQHandler
+                0x00000000080023d8                CAN1_SE_IRQHandler
+                0x00000000080023d8                CAN2_TX_IRQHandler
+                0x00000000080023d8                I2C3_ERR_IRQHandler
+                0x00000000080023d8                SPI3_I2S3EXT_IRQHandler
+                0x00000000080023d8                TMR1_BRK_TMR9_IRQHandler
+                0x00000000080023d8                USBFS_MAPL_IRQHandler
+                0x00000000080023d8                TMR8_BRK_TMR12_IRQHandler
+                0x00000000080023d8                TMR1_TRG_HALL_TMR11_IRQHandler
+                0x00000000080023d8                DMA1_Channel5_IRQHandler
+                0x00000000080023d8                TMR4_GLOBAL_IRQHandler
+                0x00000000080023d8                EXINT4_IRQHandler
+                0x00000000080023d8                CAN2_SE_IRQHandler
+                0x00000000080023d8                DMA2_Channel6_7_IRQHandler
+                0x00000000080023d8                PVM_IRQHandler
+                0x00000000080023d8                I2C3_EVT_IRQHandler
+                0x00000000080023d8                DMA1_Channel3_IRQHandler
+                0x00000000080023d8                I2C1_EVT_IRQHandler
+                0x00000000080023d8                TMR8_OVF_TMR13_IRQHandler
+                0x00000000080023d8                EXINT1_IRQHandler
+                0x00000000080023d8                RTCAlarm_IRQHandler
+                0x00000000080023d8                DMA2_Channel4_5_IRQHandler
+                0x00000000080023d8                UART7_IRQHandler
+                0x00000000080023d8                DMA1_Channel2_IRQHandler
+                0x00000000080023d8                TMR2_GLOBAL_IRQHandler
+                0x00000000080023d8                FLASH_IRQHandler
+                0x00000000080023d8                SPI2_I2S2EXT_IRQHandler
+                0x00000000080023d8                I2C2_ERR_IRQHandler
+                0x00000000080023d8                USBFSWakeUp_IRQHandler
+                0x00000000080023d8                USART1_IRQHandler
+                0x00000000080023d8                TMR1_CH_IRQHandler
+                0x00000000080023d8                CRM_IRQHandler
+                0x00000000080023d8                WWDT_IRQHandler
+                0x00000000080023d8                DMA2_Channel3_IRQHandler
+ *fill*         0x00000000080023da        0x2 
  .text.SystemInit
-                0x000000000800231c       0x88 ./cmsis/system_at32f403a_407.o
-                0x000000000800231c                SystemInit
+                0x00000000080023dc       0x88 ./cmsis/system_at32f403a_407.o
+                0x00000000080023dc                SystemInit
  .text.system_core_clock_update
-                0x00000000080023a4      0x150 ./cmsis/system_at32f403a_407.o
-                0x00000000080023a4                system_core_clock_update
+                0x0000000008002464      0x150 ./cmsis/system_at32f403a_407.o
+                0x0000000008002464                system_core_clock_update
  .text.__libc_init_array
-                0x00000000080024f4       0x48 /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/platform/tools/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(lib_a-init.o)
-                0x00000000080024f4                __libc_init_array
+                0x00000000080025b4       0x48 /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/platform/tools/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(lib_a-init.o)
+                0x00000000080025b4                __libc_init_array
  *(.glue_7)
- .glue_7        0x000000000800253c        0x0 linker stubs
+ .glue_7        0x00000000080025fc        0x0 linker stubs
  *(.glue_7t)
- .glue_7t       0x000000000800253c        0x0 linker stubs
+ .glue_7t       0x00000000080025fc        0x0 linker stubs
  *(.eh_frame)
- .eh_frame      0x000000000800253c        0x0 /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/platform/tools/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+ .eh_frame      0x00000000080025fc        0x0 /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/platform/tools/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
  *(.init)
- .init          0x000000000800253c        0x4 /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/platform/tools/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crti.o
-                0x000000000800253c                _init
- .init          0x0000000008002540        0x8 /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/platform/tools/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtn.o
+ .init          0x00000000080025fc        0x4 /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/platform/tools/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crti.o
+                0x00000000080025fc                _init
+ .init          0x0000000008002600        0x8 /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/platform/tools/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtn.o
  *(.fini)
- .fini          0x0000000008002548        0x4 /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/platform/tools/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crti.o
-                0x0000000008002548                _fini
- .fini          0x000000000800254c        0x8 /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/platform/tools/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtn.o
-                0x0000000008002554                . = ALIGN (0x4)
-                0x0000000008002554                _etext = .
+ .fini          0x0000000008002608        0x4 /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/platform/tools/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crti.o
+                0x0000000008002608                _fini
+ .fini          0x000000000800260c        0x8 /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/platform/tools/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtn.o
+                0x0000000008002614                . = ALIGN (0x4)
+                0x0000000008002614                _etext = .
 
-.vfp11_veneer   0x0000000008002554        0x0
- .vfp11_veneer  0x0000000008002554        0x0 linker stubs
+.vfp11_veneer   0x0000000008002614        0x0
+ .vfp11_veneer  0x0000000008002614        0x0 linker stubs
 
-.v4_bx          0x0000000008002554        0x0
- .v4_bx         0x0000000008002554        0x0 linker stubs
+.v4_bx          0x0000000008002614        0x0
+ .v4_bx         0x0000000008002614        0x0 linker stubs
 
-.iplt           0x0000000008002554        0x0
- .iplt          0x0000000008002554        0x0 /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/platform/tools/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+.iplt           0x0000000008002614        0x0
+ .iplt          0x0000000008002614        0x0 /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/platform/tools/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
 
-.rodata         0x0000000008002554       0x4c
-                0x0000000008002554                . = ALIGN (0x4)
+.rodata         0x0000000008002614       0x4c
+                0x0000000008002614                . = ALIGN (0x4)
  *(.rodata)
- .rodata        0x0000000008002554       0x14 ./user/main.o
- .rodata        0x0000000008002568       0x28 ./firmware/at32f403a_407_crm.o
- .rodata        0x0000000008002590       0x10 ./cmsis/system_at32f403a_407.o
+ .rodata        0x0000000008002614       0x14 ./user/main.o
+ .rodata        0x0000000008002628       0x28 ./firmware/at32f403a_407_crm.o
+ .rodata        0x0000000008002650       0x10 ./cmsis/system_at32f403a_407.o
  *(.rodata*)
-                0x00000000080025a0                . = ALIGN (0x4)
+                0x0000000008002660                . = ALIGN (0x4)
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
 
-.ARM            0x00000000080025a0        0x8
-                0x00000000080025a0                __exidx_start = .
+.ARM            0x0000000008002660        0x8
+                0x0000000008002660                __exidx_start = .
  *(.ARM.exidx*)
- .ARM.exidx     0x00000000080025a0        0x8 /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/platform/tools/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/libgcc.a(_udivmoddi4.o)
-                0x00000000080025a8                __exidx_end = .
+ .ARM.exidx     0x0000000008002660        0x8 /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/platform/tools/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/libgcc.a(_udivmoddi4.o)
+                0x0000000008002668                __exidx_end = .
 
-.rel.dyn        0x00000000080025a8        0x0
- .rel.iplt      0x00000000080025a8        0x0 /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/platform/tools/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+.rel.dyn        0x0000000008002668        0x0
+ .rel.iplt      0x0000000008002668        0x0 /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/platform/tools/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
 
-.preinit_array  0x00000000080025a8        0x0
-                0x00000000080025a8                PROVIDE (__preinit_array_start = .)
+.preinit_array  0x0000000008002668        0x0
+                0x0000000008002668                PROVIDE (__preinit_array_start = .)
  *(.preinit_array*)
-                0x00000000080025a8                PROVIDE (__preinit_array_end = .)
+                0x0000000008002668                PROVIDE (__preinit_array_end = .)
 
-.init_array     0x00000000080025a8        0x4
-                0x00000000080025a8                PROVIDE (__init_array_start = .)
+.init_array     0x0000000008002668        0x4
+                0x0000000008002668                PROVIDE (__init_array_start = .)
  *(SORT_BY_NAME(.init_array.*))
  *(.init_array*)
- .init_array    0x00000000080025a8        0x4 /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/platform/tools/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
-                0x00000000080025ac                PROVIDE (__init_array_end = .)
+ .init_array    0x0000000008002668        0x4 /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/platform/tools/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+                0x000000000800266c                PROVIDE (__init_array_end = .)
 
-.fini_array     0x00000000080025ac        0x4
+.fini_array     0x000000000800266c        0x4
                 [!provide]                        PROVIDE (__fini_array_start = .)
  *(SORT_BY_NAME(.fini_array.*))
  *(.fini_array*)
- .fini_array    0x00000000080025ac        0x4 /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/platform/tools/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+ .fini_array    0x000000000800266c        0x4 /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/platform/tools/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
                 [!provide]                        PROVIDE (__fini_array_end = .)
-                0x00000000080025b0                _sidata = LOADADDR (.data)
+                0x0000000008002670                _sidata = LOADADDR (.data)
 
-.data           0x0000000020000000       0x2c load address 0x00000000080025b0
+.data           0x0000000020000000       0x2c load address 0x0000000008002670
                 0x0000000020000000                . = ALIGN (0x4)
                 0x0000000020000000                _sdata = .
  *(.data)
@@ -1881,7 +1883,7 @@ LOAD /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x8
                 0x0000000008400000                _spim_init_base = LOADADDR (.spim)
                 0x0000000000000000                _spim_init_length = SIZEOF (.spim)
 
-.igot.plt       0x000000002000002c        0x0 load address 0x00000000080025dc
+.igot.plt       0x000000002000002c        0x0 load address 0x000000000800269c
  .igot.plt      0x000000002000002c        0x0 /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/platform/tools/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
 
 .spim           0x0000000008400000        0x0
@@ -1893,50 +1895,49 @@ LOAD /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x8
                 0x0000000008400000                _spim_end = .
                 0x0000000008400000                . = ALIGN (0x4)
 
-.bss            0x000000002000002c       0x6c
+.bss            0x000000002000002c      0x100
                 0x000000002000002c                _sbss = .
                 0x000000002000002c                __bss_start__ = _sbss
  *(.bss)
  .bss           0x000000002000002c       0x1c /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/platform/tools/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
- .bss           0x0000000020000048       0x46 ./user/main.o
-                0x0000000020000048                usart2_rx_buffer
-                0x0000000020000049                usart3_rx_buffer
-                0x000000002000004a                usart2_tx_counter
-                0x000000002000004b                usart3_tx_counter
-                0x000000002000004c                usart2_rx_counter
-                0x000000002000004d                usart3_rx_counter
-                0x000000002000004e                odometr
-                0x0000000020000050                odometr_div18
-                0x0000000020000054                odometr_bef
-                0x0000000020000058                odometr_next
-                0x000000002000005c                speed_hall
-                0x000000002000005e                direction
-                0x0000000020000060                gpio_init_struct
-                0x0000000020000068                tmr_output_struct
-                0x0000000020000070                crm_clocks_freq_struct
-                0x0000000020000084                timer_period
-                0x0000000020000086                channel1_pulse
-                0x0000000020000088                channel2_pulse
-                0x000000002000008a                channel3_pulse
-                0x000000002000008c                channel4_pulse
- *fill*         0x000000002000008e        0x2 
- .bss           0x0000000020000090        0x8 ./cmsis/bsp/at32f403a_407_board.o
+ .bss           0x0000000020000048       0xda ./user/main.o
+                0x0000000020000048                workParams
+                0x0000000020000068                motorA
+                0x00000000200000a4                motorB
+                0x00000000200000e0                usart2_rx_buffer
+                0x00000000200000e1                usart3_rx_buffer
+                0x00000000200000e4                odometr_div18
+                0x00000000200000e8                odometr_bef
+                0x00000000200000ec                odometr_next
+                0x00000000200000f0                speed_hall
+                0x00000000200000f2                direction
+                0x00000000200000f4                gpio_init_struct
+                0x00000000200000fc                tmr_output_struct
+                0x0000000020000104                crm_clocks_freq_struct
+                0x0000000020000118                timer_period
+                0x000000002000011a                channel1_pulse
+                0x000000002000011c                channel2_pulse
+                0x000000002000011e                channel3_pulse
+                0x0000000020000120                channel4_pulse
+ *fill*         0x0000000020000122        0x2 
+ .bss           0x0000000020000124        0x8 ./cmsis/bsp/at32f403a_407_board.o
  *(.bss*)
  *(COMMON)
-                0x0000000020000098                . = ALIGN (0x4)
-                0x0000000020000098                _ebss = .
-                0x0000000020000098                __bss_end__ = _ebss
+                0x000000002000012c                . = ALIGN (0x4)
+                0x000000002000012c                _ebss = .
+                0x000000002000012c                __bss_end__ = _ebss
 
 ._user_heap_stack
-                0x0000000020000098      0x600
-                0x0000000020000098                . = ALIGN (0x8)
+                0x000000002000012c      0x604
+                0x0000000020000130                . = ALIGN (0x8)
+ *fill*         0x000000002000012c        0x4 
                 [!provide]                        PROVIDE (end = .)
                 [!provide]                        PROVIDE (_end = .)
-                0x0000000020000298                . = (. + _Min_Heap_Size)
- *fill*         0x0000000020000098      0x200 
-                0x0000000020000698                . = (. + _Min_Stack_Size)
- *fill*         0x0000000020000298      0x400 
-                0x0000000020000698                . = ALIGN (0x8)
+                0x0000000020000330                . = (. + _Min_Heap_Size)
+ *fill*         0x0000000020000130      0x200 
+                0x0000000020000730                . = (. + _Min_Stack_Size)
+ *fill*         0x0000000020000330      0x400 
+                0x0000000020000730                . = ALIGN (0x8)
 
 /DISCARD/
  libc.a(*)
@@ -1959,70 +1960,74 @@ LOAD /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x8
  .ARM.attributes
                 0x00000000000000ee       0x34 ./user/main.o
  .ARM.attributes
-                0x0000000000000122       0x34 ./firmware/at32f403a_407_crm.o
+                0x0000000000000122       0x34 ./user/motor_control.o
  .ARM.attributes
-                0x0000000000000156       0x34 ./firmware/at32f403a_407_exint.o
+                0x0000000000000156       0x34 ./firmware/at32f403a_407_crm.o
  .ARM.attributes
-                0x000000000000018a       0x34 ./firmware/at32f403a_407_gpio.o
+                0x000000000000018a       0x34 ./firmware/at32f403a_407_exint.o
  .ARM.attributes
-                0x00000000000001be       0x34 ./firmware/at32f403a_407_misc.o
+                0x00000000000001be       0x34 ./firmware/at32f403a_407_gpio.o
  .ARM.attributes
-                0x00000000000001f2       0x34 ./firmware/at32f403a_407_tmr.o
+                0x00000000000001f2       0x34 ./firmware/at32f403a_407_misc.o
  .ARM.attributes
-                0x0000000000000226       0x34 ./firmware/at32f403a_407_usart.o
+                0x0000000000000226       0x34 ./firmware/at32f403a_407_tmr.o
  .ARM.attributes
-                0x000000000000025a       0x34 ./cmsis/bsp/at32f403a_407_board.o
+                0x000000000000025a       0x34 ./firmware/at32f403a_407_usart.o
  .ARM.attributes
-                0x000000000000028e       0x21 ./cmsis/startup_at32f403a_407.o
+                0x000000000000028e       0x34 ./cmsis/bsp/at32f403a_407_board.o
  .ARM.attributes
-                0x00000000000002af       0x34 ./cmsis/system_at32f403a_407.o
+                0x00000000000002c2       0x21 ./cmsis/startup_at32f403a_407.o
  .ARM.attributes
-                0x00000000000002e3       0x1e /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/platform/tools/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/libgcc.a(_aeabi_ldivmod.o)
+                0x00000000000002e3       0x34 ./cmsis/system_at32f403a_407.o
  .ARM.attributes
-                0x0000000000000301       0x34 /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/platform/tools/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/libgcc.a(_udivmoddi4.o)
+                0x0000000000000317       0x1e /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/platform/tools/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/libgcc.a(_aeabi_ldivmod.o)
  .ARM.attributes
-                0x0000000000000335       0x1e /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/platform/tools/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/libgcc.a(_dvmd_tls.o)
+                0x0000000000000335       0x34 /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/platform/tools/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/libgcc.a(_udivmoddi4.o)
  .ARM.attributes
-                0x0000000000000353       0x34 /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/platform/tools/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(lib_a-init.o)
+                0x0000000000000369       0x1e /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/platform/tools/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/libgcc.a(_dvmd_tls.o)
  .ARM.attributes
-                0x0000000000000387       0x1e /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/platform/tools/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtn.o
+                0x0000000000000387       0x34 /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/platform/tools/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(lib_a-init.o)
+ .ARM.attributes
+                0x00000000000003bb       0x1e /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/platform/tools/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtn.o
 OUTPUT(control.elf elf32-littlearm)
 LOAD linker stubs
 LOAD /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/platform/tools/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a
 LOAD /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/platform/tools/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a
 LOAD /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/platform/tools/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/libgcc.a
 
-.debug_info     0x0000000000000000    0x11830
+.debug_info     0x0000000000000000    0x12c8d
  .debug_info    0x0000000000000000      0x3cc ./user/at32f403a_407_clock.o
  .debug_info    0x00000000000003cc     0x127a ./user/at32f403a_407_int.o
  .debug_info    0x0000000000001646     0x229d ./user/at32f403a_407_wk_config.o
- .debug_info    0x00000000000038e3     0x2cdd ./user/main.o
- .debug_info    0x00000000000065c0     0x2375 ./firmware/at32f403a_407_crm.o
- .debug_info    0x0000000000008935      0x54c ./firmware/at32f403a_407_exint.o
- .debug_info    0x0000000000008e81     0x1f20 ./firmware/at32f403a_407_gpio.o
- .debug_info    0x000000000000ada1      0x9de ./firmware/at32f403a_407_misc.o
- .debug_info    0x000000000000b77f     0x26ca ./firmware/at32f403a_407_tmr.o
- .debug_info    0x000000000000de49     0x10a6 ./firmware/at32f403a_407_usart.o
- .debug_info    0x000000000000eeef     0x1389 ./cmsis/bsp/at32f403a_407_board.o
- .debug_info    0x0000000000010278       0x22 ./cmsis/startup_at32f403a_407.o
- .debug_info    0x000000000001029a     0x1596 ./cmsis/system_at32f403a_407.o
+ .debug_info    0x00000000000038e3     0x2e8b ./user/main.o
+ .debug_info    0x000000000000676e     0x12af ./user/motor_control.o
+ .debug_info    0x0000000000007a1d     0x2375 ./firmware/at32f403a_407_crm.o
+ .debug_info    0x0000000000009d92      0x54c ./firmware/at32f403a_407_exint.o
+ .debug_info    0x000000000000a2de     0x1f20 ./firmware/at32f403a_407_gpio.o
+ .debug_info    0x000000000000c1fe      0x9de ./firmware/at32f403a_407_misc.o
+ .debug_info    0x000000000000cbdc     0x26ca ./firmware/at32f403a_407_tmr.o
+ .debug_info    0x000000000000f2a6     0x10a6 ./firmware/at32f403a_407_usart.o
+ .debug_info    0x000000000001034c     0x1389 ./cmsis/bsp/at32f403a_407_board.o
+ .debug_info    0x00000000000116d5       0x22 ./cmsis/startup_at32f403a_407.o
+ .debug_info    0x00000000000116f7     0x1596 ./cmsis/system_at32f403a_407.o
 
-.debug_abbrev   0x0000000000000000     0x15fe
+.debug_abbrev   0x0000000000000000     0x1800
  .debug_abbrev  0x0000000000000000       0x78 ./user/at32f403a_407_clock.o
  .debug_abbrev  0x0000000000000078      0x180 ./user/at32f403a_407_int.o
  .debug_abbrev  0x00000000000001f8      0x168 ./user/at32f403a_407_wk_config.o
- .debug_abbrev  0x0000000000000360      0x298 ./user/main.o
- .debug_abbrev  0x00000000000005f8      0x229 ./firmware/at32f403a_407_crm.o
- .debug_abbrev  0x0000000000000821      0x17b ./firmware/at32f403a_407_exint.o
- .debug_abbrev  0x000000000000099c      0x215 ./firmware/at32f403a_407_gpio.o
- .debug_abbrev  0x0000000000000bb1      0x245 ./firmware/at32f403a_407_misc.o
- .debug_abbrev  0x0000000000000df6      0x1e5 ./firmware/at32f403a_407_tmr.o
- .debug_abbrev  0x0000000000000fdb      0x248 ./firmware/at32f403a_407_usart.o
- .debug_abbrev  0x0000000000001223      0x242 ./cmsis/bsp/at32f403a_407_board.o
- .debug_abbrev  0x0000000000001465       0x12 ./cmsis/startup_at32f403a_407.o
- .debug_abbrev  0x0000000000001477      0x187 ./cmsis/system_at32f403a_407.o
+ .debug_abbrev  0x0000000000000360      0x2c2 ./user/main.o
+ .debug_abbrev  0x0000000000000622      0x1d8 ./user/motor_control.o
+ .debug_abbrev  0x00000000000007fa      0x229 ./firmware/at32f403a_407_crm.o
+ .debug_abbrev  0x0000000000000a23      0x17b ./firmware/at32f403a_407_exint.o
+ .debug_abbrev  0x0000000000000b9e      0x215 ./firmware/at32f403a_407_gpio.o
+ .debug_abbrev  0x0000000000000db3      0x245 ./firmware/at32f403a_407_misc.o
+ .debug_abbrev  0x0000000000000ff8      0x1e5 ./firmware/at32f403a_407_tmr.o
+ .debug_abbrev  0x00000000000011dd      0x248 ./firmware/at32f403a_407_usart.o
+ .debug_abbrev  0x0000000000001425      0x242 ./cmsis/bsp/at32f403a_407_board.o
+ .debug_abbrev  0x0000000000001667       0x12 ./cmsis/startup_at32f403a_407.o
+ .debug_abbrev  0x0000000000001679      0x187 ./cmsis/system_at32f403a_407.o
 
-.debug_aranges  0x0000000000000000      0x790
+.debug_aranges  0x0000000000000000      0x7d8
  .debug_aranges
                 0x0000000000000000       0x20 ./user/at32f403a_407_clock.o
  .debug_aranges
@@ -2032,80 +2037,86 @@ LOAD /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x8
  .debug_aranges
                 0x00000000000000e0       0x40 ./user/main.o
  .debug_aranges
-                0x0000000000000120      0x138 ./firmware/at32f403a_407_crm.o
+                0x0000000000000120       0x48 ./user/motor_control.o
  .debug_aranges
-                0x0000000000000258       0x60 ./firmware/at32f403a_407_exint.o
+                0x0000000000000168      0x138 ./firmware/at32f403a_407_crm.o
  .debug_aranges
-                0x00000000000002b8       0xa8 ./firmware/at32f403a_407_gpio.o
+                0x00000000000002a0       0x60 ./firmware/at32f403a_407_exint.o
  .debug_aranges
-                0x0000000000000360       0x88 ./firmware/at32f403a_407_misc.o
+                0x0000000000000300       0xa8 ./firmware/at32f403a_407_gpio.o
  .debug_aranges
-                0x00000000000003e8      0x1d8 ./firmware/at32f403a_407_tmr.o
+                0x00000000000003a8       0x88 ./firmware/at32f403a_407_misc.o
  .debug_aranges
-                0x00000000000005c0      0x108 ./firmware/at32f403a_407_usart.o
+                0x0000000000000430      0x1d8 ./firmware/at32f403a_407_tmr.o
  .debug_aranges
-                0x00000000000006c8       0x78 ./cmsis/bsp/at32f403a_407_board.o
+                0x0000000000000608      0x108 ./firmware/at32f403a_407_usart.o
  .debug_aranges
-                0x0000000000000740       0x28 ./cmsis/startup_at32f403a_407.o
+                0x0000000000000710       0x78 ./cmsis/bsp/at32f403a_407_board.o
  .debug_aranges
-                0x0000000000000768       0x28 ./cmsis/system_at32f403a_407.o
+                0x0000000000000788       0x28 ./cmsis/startup_at32f403a_407.o
+ .debug_aranges
+                0x00000000000007b0       0x28 ./cmsis/system_at32f403a_407.o
 
-.debug_ranges   0x0000000000000000      0x6c8
+.debug_ranges   0x0000000000000000      0x700
  .debug_ranges  0x0000000000000000       0x10 ./user/at32f403a_407_clock.o
  .debug_ranges  0x0000000000000010       0x70 ./user/at32f403a_407_int.o
  .debug_ranges  0x0000000000000080       0x30 ./user/at32f403a_407_wk_config.o
  .debug_ranges  0x00000000000000b0       0x30 ./user/main.o
- .debug_ranges  0x00000000000000e0      0x128 ./firmware/at32f403a_407_crm.o
- .debug_ranges  0x0000000000000208       0x50 ./firmware/at32f403a_407_exint.o
- .debug_ranges  0x0000000000000258       0x98 ./firmware/at32f403a_407_gpio.o
- .debug_ranges  0x00000000000002f0       0x78 ./firmware/at32f403a_407_misc.o
- .debug_ranges  0x0000000000000368      0x1c8 ./firmware/at32f403a_407_tmr.o
- .debug_ranges  0x0000000000000530       0xf8 ./firmware/at32f403a_407_usart.o
- .debug_ranges  0x0000000000000628       0x68 ./cmsis/bsp/at32f403a_407_board.o
- .debug_ranges  0x0000000000000690       0x20 ./cmsis/startup_at32f403a_407.o
- .debug_ranges  0x00000000000006b0       0x18 ./cmsis/system_at32f403a_407.o
+ .debug_ranges  0x00000000000000e0       0x38 ./user/motor_control.o
+ .debug_ranges  0x0000000000000118      0x128 ./firmware/at32f403a_407_crm.o
+ .debug_ranges  0x0000000000000240       0x50 ./firmware/at32f403a_407_exint.o
+ .debug_ranges  0x0000000000000290       0x98 ./firmware/at32f403a_407_gpio.o
+ .debug_ranges  0x0000000000000328       0x78 ./firmware/at32f403a_407_misc.o
+ .debug_ranges  0x00000000000003a0      0x1c8 ./firmware/at32f403a_407_tmr.o
+ .debug_ranges  0x0000000000000568       0xf8 ./firmware/at32f403a_407_usart.o
+ .debug_ranges  0x0000000000000660       0x68 ./cmsis/bsp/at32f403a_407_board.o
+ .debug_ranges  0x00000000000006c8       0x20 ./cmsis/startup_at32f403a_407.o
+ .debug_ranges  0x00000000000006e8       0x18 ./cmsis/system_at32f403a_407.o
 
-.debug_line     0x0000000000000000     0x449f
+.debug_line     0x0000000000000000     0x47fd
  .debug_line    0x0000000000000000      0x267 ./user/at32f403a_407_clock.o
- .debug_line    0x0000000000000267      0x344 ./user/at32f403a_407_int.o
- .debug_line    0x00000000000005ab      0x3a3 ./user/at32f403a_407_wk_config.o
- .debug_line    0x000000000000094e      0x641 ./user/main.o
- .debug_line    0x0000000000000f8f      0x9ad ./firmware/at32f403a_407_crm.o
- .debug_line    0x000000000000193c      0x3be ./firmware/at32f403a_407_exint.o
- .debug_line    0x0000000000001cfa      0x60b ./firmware/at32f403a_407_gpio.o
- .debug_line    0x0000000000002305      0x4cb ./firmware/at32f403a_407_misc.o
- .debug_line    0x00000000000027d0      0xc87 ./firmware/at32f403a_407_tmr.o
- .debug_line    0x0000000000003457      0x6aa ./firmware/at32f403a_407_usart.o
- .debug_line    0x0000000000003b01      0x55f ./cmsis/bsp/at32f403a_407_board.o
- .debug_line    0x0000000000004060       0x7c ./cmsis/startup_at32f403a_407.o
- .debug_line    0x00000000000040dc      0x3c3 ./cmsis/system_at32f403a_407.o
+ .debug_line    0x0000000000000267      0x34d ./user/at32f403a_407_int.o
+ .debug_line    0x00000000000005b4      0x3a3 ./user/at32f403a_407_wk_config.o
+ .debug_line    0x0000000000000957      0x5b6 ./user/main.o
+ .debug_line    0x0000000000000f0d      0x3e0 ./user/motor_control.o
+ .debug_line    0x00000000000012ed      0x9ad ./firmware/at32f403a_407_crm.o
+ .debug_line    0x0000000000001c9a      0x3be ./firmware/at32f403a_407_exint.o
+ .debug_line    0x0000000000002058      0x60b ./firmware/at32f403a_407_gpio.o
+ .debug_line    0x0000000000002663      0x4cb ./firmware/at32f403a_407_misc.o
+ .debug_line    0x0000000000002b2e      0xc87 ./firmware/at32f403a_407_tmr.o
+ .debug_line    0x00000000000037b5      0x6aa ./firmware/at32f403a_407_usart.o
+ .debug_line    0x0000000000003e5f      0x55f ./cmsis/bsp/at32f403a_407_board.o
+ .debug_line    0x00000000000043be       0x7c ./cmsis/startup_at32f403a_407.o
+ .debug_line    0x000000000000443a      0x3c3 ./cmsis/system_at32f403a_407.o
 
-.debug_str      0x0000000000000000     0x6069
+.debug_str      0x0000000000000000     0x61bf
  .debug_str     0x0000000000000000      0x7bb ./user/at32f403a_407_clock.o
                                         0x7fe (size before relaxing)
- .debug_str     0x00000000000007bb      0x5f7 ./user/at32f403a_407_int.o
+ .debug_str     0x00000000000007bb      0x5ed ./user/at32f403a_407_int.o
                                         0x796 (size before relaxing)
- .debug_str     0x0000000000000db2     0x12e8 ./user/at32f403a_407_wk_config.o
+ .debug_str     0x0000000000000da8     0x12e8 ./user/at32f403a_407_wk_config.o
                                        0x1825 (size before relaxing)
- .debug_str     0x000000000000209a      0x69d ./user/main.o
-                                       0x1df4 (size before relaxing)
- .debug_str     0x0000000000002737     0x1408 ./firmware/at32f403a_407_crm.o
+ .debug_str     0x0000000000002090      0x767 ./user/main.o
+                                       0x1ed2 (size before relaxing)
+ .debug_str     0x00000000000027f7       0x9b ./user/motor_control.o
+                                        0x7fa (size before relaxing)
+ .debug_str     0x0000000000002892     0x1408 ./firmware/at32f403a_407_crm.o
                                        0x214f (size before relaxing)
- .debug_str     0x0000000000003b3f       0xff ./firmware/at32f403a_407_exint.o
+ .debug_str     0x0000000000003c9a       0xff ./firmware/at32f403a_407_exint.o
                                         0x431 (size before relaxing)
- .debug_str     0x0000000000003c3e      0x6f9 ./firmware/at32f403a_407_gpio.o
+ .debug_str     0x0000000000003d99      0x6f9 ./firmware/at32f403a_407_gpio.o
                                        0x139f (size before relaxing)
- .debug_str     0x0000000000004337      0x3b5 ./firmware/at32f403a_407_misc.o
+ .debug_str     0x0000000000004492      0x3b5 ./firmware/at32f403a_407_misc.o
                                         0xada (size before relaxing)
- .debug_str     0x00000000000046ec     0x11b1 ./firmware/at32f403a_407_tmr.o
+ .debug_str     0x0000000000004847     0x11b1 ./firmware/at32f403a_407_tmr.o
                                        0x2011 (size before relaxing)
- .debug_str     0x000000000000589d      0x602 ./firmware/at32f403a_407_usart.o
+ .debug_str     0x00000000000059f8      0x5fd ./firmware/at32f403a_407_usart.o
                                         0xdef (size before relaxing)
- .debug_str     0x0000000000005e9f      0x145 ./cmsis/bsp/at32f403a_407_board.o
+ .debug_str     0x0000000000005ff5      0x145 ./cmsis/bsp/at32f403a_407_board.o
                                         0xe6a (size before relaxing)
- .debug_str     0x0000000000005fe4       0x2f ./cmsis/startup_at32f403a_407.o
+ .debug_str     0x000000000000613a       0x2f ./cmsis/startup_at32f403a_407.o
                                          0x5e (size before relaxing)
- .debug_str     0x0000000000006013       0x56 ./cmsis/system_at32f403a_407.o
+ .debug_str     0x0000000000006169       0x56 ./cmsis/system_at32f403a_407.o
                                         0xaf7 (size before relaxing)
 
 .comment        0x0000000000000000       0x49
@@ -2114,6 +2125,7 @@ LOAD /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x8
  .comment       0x0000000000000049       0x4a ./user/at32f403a_407_int.o
  .comment       0x0000000000000049       0x4a ./user/at32f403a_407_wk_config.o
  .comment       0x0000000000000049       0x4a ./user/main.o
+ .comment       0x0000000000000049       0x4a ./user/motor_control.o
  .comment       0x0000000000000049       0x4a ./firmware/at32f403a_407_crm.o
  .comment       0x0000000000000049       0x4a ./firmware/at32f403a_407_exint.o
  .comment       0x0000000000000049       0x4a ./firmware/at32f403a_407_gpio.o
@@ -2123,19 +2135,20 @@ LOAD /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x8
  .comment       0x0000000000000049       0x4a ./cmsis/bsp/at32f403a_407_board.o
  .comment       0x0000000000000049       0x4a ./cmsis/system_at32f403a_407.o
 
-.debug_frame    0x0000000000000000     0x1f20
+.debug_frame    0x0000000000000000     0x2010
  .debug_frame   0x0000000000000000       0x2c ./user/at32f403a_407_clock.o
  .debug_frame   0x000000000000002c      0x188 ./user/at32f403a_407_int.o
  .debug_frame   0x00000000000001b4       0x9c ./user/at32f403a_407_wk_config.o
  .debug_frame   0x0000000000000250       0xc8 ./user/main.o
- .debug_frame   0x0000000000000318      0x590 ./firmware/at32f403a_407_crm.o
- .debug_frame   0x00000000000008a8      0x170 ./firmware/at32f403a_407_exint.o
- .debug_frame   0x0000000000000a18      0x2d0 ./firmware/at32f403a_407_gpio.o
- .debug_frame   0x0000000000000ce8      0x210 ./firmware/at32f403a_407_misc.o
- .debug_frame   0x0000000000000ef8      0x8c4 ./firmware/at32f403a_407_tmr.o
- .debug_frame   0x00000000000017bc      0x4b8 ./firmware/at32f403a_407_usart.o
- .debug_frame   0x0000000000001c74      0x1b4 ./cmsis/bsp/at32f403a_407_board.o
- .debug_frame   0x0000000000001e28       0x54 ./cmsis/system_at32f403a_407.o
- .debug_frame   0x0000000000001e7c       0x44 /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/platform/tools/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/libgcc.a(_aeabi_ldivmod.o)
- .debug_frame   0x0000000000001ec0       0x34 /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/platform/tools/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/libgcc.a(_udivmoddi4.o)
- .debug_frame   0x0000000000001ef4       0x2c /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/platform/tools/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(lib_a-init.o)
+ .debug_frame   0x0000000000000318       0xf0 ./user/motor_control.o
+ .debug_frame   0x0000000000000408      0x590 ./firmware/at32f403a_407_crm.o
+ .debug_frame   0x0000000000000998      0x170 ./firmware/at32f403a_407_exint.o
+ .debug_frame   0x0000000000000b08      0x2d0 ./firmware/at32f403a_407_gpio.o
+ .debug_frame   0x0000000000000dd8      0x210 ./firmware/at32f403a_407_misc.o
+ .debug_frame   0x0000000000000fe8      0x8c4 ./firmware/at32f403a_407_tmr.o
+ .debug_frame   0x00000000000018ac      0x4b8 ./firmware/at32f403a_407_usart.o
+ .debug_frame   0x0000000000001d64      0x1b4 ./cmsis/bsp/at32f403a_407_board.o
+ .debug_frame   0x0000000000001f18       0x54 ./cmsis/system_at32f403a_407.o
+ .debug_frame   0x0000000000001f6c       0x44 /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/platform/tools/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/libgcc.a(_aeabi_ldivmod.o)
+ .debug_frame   0x0000000000001fb0       0x34 /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/platform/tools/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/libgcc.a(_udivmoddi4.o)
+ .debug_frame   0x0000000000001fe4       0x2c /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/platform/tools/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(lib_a-init.o)

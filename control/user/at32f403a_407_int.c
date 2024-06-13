@@ -139,16 +139,20 @@ void SysTick_Handler(void)
 }
 
 void EXINT15_10_IRQHandler(void)
-{
-	if(direction == 0){
-		odometr_div18++;
-	}else{
-		odometr_div18--;
+ {
+	// Проверка, что прерывание вызвано именно линией 13
+	if (EXINT->intsts & EXINT_LINE_13) {
+		if (direction == 0) {
+			odometr_div18++;
+		} else {
+			odometr_div18--;
+		}
+		EXINT->intsts = EXINT_LINE_13;
 	}
-
-
-    EXINT->intsts = EXINT_LINE_13;
 }
+
+
+
 
 void USART2_IRQHandler(void)
 {

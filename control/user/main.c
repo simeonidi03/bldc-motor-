@@ -7,19 +7,20 @@
 #define CW  0 // clockwise         по часовой
 #define CCW 1 // counterclock-wise против часовой
 
+WorkParams workParams;
+
+MotorData motorA;
+MotorData motorB;
+
 uint16_t usart2_tx_buffer = 1;
 uint8_t usart2_rx_buffer;
 uint8_t usart3_rx_buffer;
-uint8_t usart2_tx_counter = 0x00;
-uint8_t usart3_tx_counter = 0x00;
-uint8_t usart2_rx_counter = 0x00;
-uint8_t usart3_rx_counter = 0x00;
 uint8_t usart2_tx_buffer_size = 1;
 
 void usart_configuration(void);
 void usart2_tx_rx_handler(void);
 
-int16_t odometr = 0;
+
 int32_t odometr_div18 = 0;
 int32_t odometr_bef = 0;
 int32_t odometr_next = 0;
@@ -168,6 +169,8 @@ void usart2_tx_without_int() {
 	}
 }
 
+
+
 int main(void) {
 	system_clock_config();
 	at32_board_init();
@@ -191,44 +194,27 @@ int main(void) {
 
 	holl_exint_init();
 
+	MotorAInit(&motorA);
+
 	while (1) {
 
 		usart_data_transmit(USART2, usart2_tx_buffer);
 		usart2_tx_buffer++;
 
-		if (direction) {
-			/* channel 3 */
-			channel3_pulse = (uint16_t) (((uint32_t) 1000 * (timer_period - 1))
-					/ 1000);
-			tmr_channel_value_set(TMR1, TMR_SELECT_CHANNEL_3, channel3_pulse);
-			//gpio_bits_reset(GPIOA, GPIO_PINS_4);
-		} else {
-			channel3_pulse = (uint16_t) (((uint32_t) 10 * (timer_period - 1))
-					/ 1000);
-			tmr_channel_value_set(TMR1, TMR_SELECT_CHANNEL_3, channel3_pulse);
-			//gpio_bits_set(GPIOA, GPIO_PINS_4);
-		}
-
+		SetMotorDir(direction,1);
 		//gpio_bits_write(GPIOA, GPIO_PINS_4, direction);
 		//набор скорости
 		for (int i = 0; i < 750; i++) {
-			channel2_pulse = (uint16_t) (((uint32_t) speed * (timer_period - 1))
-					/ 1000);
-			tmr_channel_value_set(TMR1, TMR_SELECT_CHANNEL_2, channel2_pulse);
+			SetMotorPWM(&motorA ,speed);
 			speed--;
-
-			odometr = odometr_div18 / 10;
 			usart2_tx_without_int();
 			delay_ms(50);
 		}
 
 		//сброс скорости
 		for (int i = 0; i < 750; i++) {
-			channel2_pulse = (uint16_t) (((uint32_t) speed * (timer_period - 1))
-					/ 1000);
-			tmr_channel_value_set(TMR1, TMR_SELECT_CHANNEL_2, channel2_pulse);
+			SetMotorPWM(&motorA ,speed);
 			speed++;
-			odometr = odometr_div18 / 10;
 			usart2_tx_without_int();
 			delay_ms(50);
 		}
