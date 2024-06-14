@@ -7,12 +7,17 @@
 #include "motor_control.h"
 #include "at32f403a_407.h"
 
-void SetMotorDir(int16_t wheel_direction, char motor_number) {
+// Функция для преобразования уровня работы двигателя из одной системы в другую
+float convertEngineLevel(float oldLevel) {
+    return ((MAX_OLD - oldLevel) * (MAX_NEW - MIN_NEW) / (MAX_OLD - MIN_OLD)) + MIN_NEW;
+}
+
+void SetMotorDir(int16_t wheel_direction, MotorData *data) {
 
 //CW  0 // clockwise         по часовой
 //CCW 1 // counterclock-wise против часовой
-
-	if (motor_number == 1) {
+//  gpio_bits_write(GPIOA, GPIO_PINS_4, wheel_direction);
+	if (data->name == 1) {
 		if (wheel_direction) {
 			/* channel 3 */
 			channel3_pulse = (uint16_t) (((uint32_t) 1000 * (timer_period - 1))
@@ -24,9 +29,10 @@ void SetMotorDir(int16_t wheel_direction, char motor_number) {
 					/ 1000);
 			tmr_channel_value_set(TMR1, TMR_SELECT_CHANNEL_3, channel3_pulse);
 			//gpio_bits_set(GPIOA, GPIO_PINS_4);
+
 		}
 	} else {
-		if (motor_number == 2) {
+		if (data->name == 2) {
 			if (wheel_direction) {
 				/* channel 3 */
 				channel1_pulse = (uint16_t) (((uint32_t) 1000
@@ -43,6 +49,7 @@ void SetMotorDir(int16_t wheel_direction, char motor_number) {
 			}
 		}
 	}
+	data->direction = wheel_direction;
 }
 
 // от 0 до 750 есть смысл в регулировании
@@ -78,11 +85,14 @@ void PidParamInit() {
 }
 
 void MotorAInit(MotorData *data){
+	data->name = 1;
 	data->channel_number = 2;
+	data->direction = CW;
+	data->odomCountOld = 0;
 }
 
 //вычисление ПИД регулятора для двигателя и установка направления вращения и ШИМ
-void CalcPID(MotorData* data)
+void CalcPid(MotorData* data)
 {
 	int16_t errorParrot; //ошибка
 	int32_t odomCount;
@@ -91,8 +101,8 @@ void CalcPID(MotorData* data)
 
 
 	odomCount = data->odomCount; //получаем значение счетчика одометра
-	setParrot = data->setParrot; //получаем уставку
-
+	setParrot = 100 - (data->setParrot / 7.89); //получаем уставку
+	if(data->direction ) setParrot *= -1;
 
 	data->currentParrot = odomCount - data->odomCountOld;		//текущие значения попугаев(импульсов датчика холла за время timePID)
 	data->odomCountOld = odomCount;
@@ -160,15 +170,19 @@ void CalcPID(MotorData* data)
 	data->oldErrorParrot = errorParrot; //сохранил ошибку
 	data->resPID = data->pParrot + data->iParrot + data->dParrot; //сумма ПИД
 
-//	SetMotorDirPWM(data, data->resPID); //применил на мотор
+	if(data->resPID > 100) data->resPID = 100;
+	if(data->resPID < -100 && data->direction) data->resPID = 100;
+	if(data->resPID > 100 && data->direction) data->resPID = 0;
+	SetMotorDirPWM(data, 750 - 7.5 * abs(data->resPID)); //применил на мотор
 
 //	printf_P(PSTR("odo:%d set:%d curr:%d P:%.2f I:%.2f D:%.2f res: %d\n"), (int)odomCount, (int)setParrot, (int)motorA.currentParrot,
 //			(float)motorA.pParrot, (float)motorA.iParrot, (float)motorA.dParrot, (int)motorA.resPID);
 
 }
+
 void OdometrProcess(MotorData *data)
 {
-	if (*data->pinCw & data->bitCwMask) //смотрим в какую сторону крутиться мотор
+	if (data->direction == 0) //смотрим в какую сторону крутиться мотор
 	{
 		data->odomCount++; //увеличиваем значение одометра
 	}
@@ -177,4 +191,27 @@ void OdometrProcess(MotorData *data)
 		data->odomCount--; //уменьшаем значение одометр
 	}
 }
+
+
+void SetMotorDirPWM(MotorData *data, int16_t pwm)
+{
+	uint16_t timerPWM = abs(pwm);
+
+	if (timerPWM > 750)
+		timerPWM = 750;
+
+	SetMotorDir(/*(pwm > 0)*/data->direction, data);
+	SetMotorPWM(data, timerPWM);
+}
+
+void CalcParrot(MotorData *data)
+{
+	int32_t odomCount;
+	odomCount = data->odomCount; //получаем значение одометра(тики датчика холла)
+	data->currentParrot = odomCount - data->odomCountOld;//вычисляем количество тиков за время timePID (попугаи)
+	data->odomCountOld = odomCount;
+}
+
+
+
 

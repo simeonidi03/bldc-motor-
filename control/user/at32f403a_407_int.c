@@ -28,7 +28,7 @@
 #include "at32f403a_407_int.h"
 
 extern void usart2_tx_rx_handler(void);
-extern uint16_t direction;
+
 
 
 /** @addtogroup AT32F403A_periph_examples
@@ -142,11 +142,13 @@ void EXINT15_10_IRQHandler(void)
  {
 	// Проверка, что прерывание вызвано именно линией 13
 	if (EXINT->intsts & EXINT_LINE_13) {
-		if (direction == 0) {
-			odometr_div18++;
-		} else {
-			odometr_div18--;
-		}
+
+	OdometrProcess(motorA_ptr);
+//		if (direction == 0) {
+//			odometr_div18++;
+//		} else {
+//			odometr_div18--;
+//		}
 		EXINT->intsts = EXINT_LINE_13;
 	}
 }
@@ -162,10 +164,13 @@ void USART2_IRQHandler(void)
 void TMR6_GLOBAL_IRQHandler(void)
 {
   TMR6->ists_bit.ovfif = 0;
+  //CalcParrot(motorA_ptr);
+  CalcPid(motorA_ptr);
+  //usart2_tx_without_int();
 
-  odometr_next = odometr_div18;
-  speed_hall = (odometr_next - odometr_bef)/2;
-  odometr_bef = odometr_div18;
+  //odometr_next = odometr_div18;
+  //speed_hall = (odometr_next - odometr_bef)/2;
+  //odometr_bef = odometr_div18;
 
   /* add user code begin TMR6_GLOBAL_IRQ 0 */
 

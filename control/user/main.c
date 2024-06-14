@@ -9,9 +9,11 @@
 
 WorkParams workParams;
 
-MotorData motorA;
 MotorData motorB;
+MotorData motorA;
 
+void* motorA_ptr = &motorA;
+void* motorB_ptr = &motorB;
 uint16_t usart2_tx_buffer = 1;
 uint8_t usart2_rx_buffer;
 uint8_t usart3_rx_buffer;
@@ -122,7 +124,7 @@ void usart2_tx_rx_handler(void) {
 }
 
 void usart2_tx_without_int() {
-	int64_t odo_path = speed_hall;  // Примерное значение переменной
+	int64_t odo_path = motorA.currentParrot;  // Примерное значение переменной
 	char buffer[20] = { '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0',
 			'0', '0', '0', '0', '0', '0', '0', '0', '0' };
 	// Увеличиваем размер буфера для безопасного хранения длинных строк
@@ -184,28 +186,26 @@ int main(void) {
 	wk_tmr6_init();
 	wk_gpio_init();
 	wk_tmr1_init();
-
 	uint16_t speed = 750;
 
-//  gpio_bits_write(GPIOA, GPIO_PINS_4, direction);
-	channel2_pulse =
-			(uint16_t) (((uint32_t) speed * (timer_period - 1)) / 1000);
-	tmr_channel_value_set(TMR1, TMR_SELECT_CHANNEL_2, channel2_pulse);
-
+//    gpio_bits_write(GPIOA, GPIO_PINS_4, direction);
+//	channel2_pulse = (uint16_t) (((uint32_t) speed * (timer_period - 1)) / 1000);
+//	tmr_channel_value_set(TMR1, TMR_SELECT_CHANNEL_2, channel2_pulse);
 	holl_exint_init();
 
+	PidParamInit();
 	MotorAInit(&motorA);
 
-	while (1) {
 
+	while (1) {
 		usart_data_transmit(USART2, usart2_tx_buffer);
 		usart2_tx_buffer++;
+		//SetMotorDir(motorA.direction,&motorA);
 
-		SetMotorDir(direction,1);
-		//gpio_bits_write(GPIOA, GPIO_PINS_4, direction);
 		//набор скорости
 		for (int i = 0; i < 750; i++) {
-			SetMotorPWM(&motorA ,speed);
+			//SetMotorPWM(&motorA, speed);
+			motorA.setParrot = speed;
 			speed--;
 			usart2_tx_without_int();
 			delay_ms(50);
@@ -213,16 +213,17 @@ int main(void) {
 
 		//сброс скорости
 		for (int i = 0; i < 750; i++) {
-			SetMotorPWM(&motorA ,speed);
+			//SetMotorPWM(&motorA ,speed);
+			motorA.setParrot = speed;
 			speed++;
 			usart2_tx_without_int();
 			delay_ms(50);
 		}
 
-		if (direction == CW) {
-			direction = CCW;
+		if (motorA.direction == CW) {
+			motorA.direction = CCW;
 		} else {
-			direction = CW;
+			motorA.direction = CW;
 		}
 		uint16_t speed = 750;
 		at32_led_on(LED2);

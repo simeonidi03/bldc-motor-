@@ -6,6 +6,7 @@
  */
 #include "at32f403a_407.h"
 #include <stdio.h>
+#include <math.h>
 
 #ifndef INCLUDE_MOTOR_CONTROL_H_
 #define INCLUDE_MOTOR_CONTROL_H_
@@ -22,6 +23,12 @@
 #define MOTOR_MODE_NONE 0 //моторы не крутим
 #define MOTOR_MODE_PWM 1 //прямое управление моторами задавая скважность ШИМ
 #define MOTOR_MODE_PID 2 //управление посредством ПИД регулятора
+
+// Определение макросов для параметров преобразования
+#define MIN_OLD 750.0
+#define MAX_OLD 0.0
+#define MIN_NEW 0.0
+#define MAX_NEW 95.0
 
 
 extern uint16_t timer_period;
@@ -45,14 +52,14 @@ typedef struct {
 
 //структура с переменными для ПИД регулятора и управление мотором
 typedef struct {
-	char name; //имя двигателя, для отладки
+	uint8_t name; //имя двигателя, для отладки
 	uint8_t channel_number; // номер канала
 	volatile uint8_t* portCw; //порт выхода направления вращения
 	volatile uint8_t* pinCw; //пин выхода направления вращения
 	uint8_t bitCwMask; //маска
 	volatile uint8_t* pinFg; //пин входа обратной связи (датчик холла)
 	uint8_t bitFgMask; //маска
-	//uint8_t dir; //направление вращения для задания через шину i2c
+	uint8_t direction; //направление вращения для задания через шину i2c
 	int32_t odomCount; //счетчик тиков датчика холла
 	int32_t odomCountOld; //старое значение тиков с датчика холла
 	int16_t setParrot;	//уставка (тики датчика холла за время timePID)
@@ -70,12 +77,14 @@ typedef struct {
 extern WorkParams workParams;
 
 
-void SetMotorDir(int16_t wheel_direction, char motor_number);
+void SetMotorDir(int16_t wheel_direction, MotorData *data);
 void SetMotorPWM(MotorData *data, uint16_t pwm);
-void PidParamInit();
 void MotorAInit();
+void PidParamInit();
 void MotorBInit();
 void CalcPid(MotorData* data);
 void OdometrProcess(MotorData *data);
+void CalcParrot(MotorData *data);
+void SetMotorDirPWM(MotorData *data, int16_t pwm);
 
 #endif /* INCLUDE_MOTOR_CONTROL_H_ */

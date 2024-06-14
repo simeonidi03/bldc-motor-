@@ -24,7 +24,7 @@ void wk_tmr6_init(void)
   /* add user code end tmr6_init 1 */
 
   /* configure counter settings */
-  tmr_base_init(TMR6, 65535, 910);
+  tmr_base_init(TMR6, 65535, 445);
   tmr_cnt_dir_set(TMR6, TMR_COUNT_UP);
   tmr_period_buffer_enable(TMR6, FALSE);
 

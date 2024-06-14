@@ -34,13 +34,15 @@ extern "C" {
 
 /* includes ------------------------------------------------------------------*/
 #include "at32f403a_407.h"
+#include "motor_control.h"
 
 extern int32_t odometr_div18;
 extern int16_t odometr;
 extern int32_t odometr_bef;
 extern int32_t odometr_next;
 extern int16_t speed_hall;
-extern int16_t speed;
+extern void* motorA_ptr;
+extern void* motorB_ptr;
 
 /* exported types ------------------------------------------------------------*/
 /* exported constants --------------------------------------------------------*/
