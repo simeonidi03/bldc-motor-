@@ -76,6 +76,7 @@ void wk_gpio_init(void) {
 	/* timer1 output pin Configuration */
 	gpio_init_struct.gpio_pins = /*GPIO_PINS_8 |*/GPIO_PINS_9 | GPIO_PINS_10
 			| GPIO_PINS_11;
+
 	gpio_init_struct.gpio_mode = GPIO_MODE_MUX;
 	gpio_init_struct.gpio_out_type = GPIO_OUTPUT_PUSH_PULL;
 	gpio_init_struct.gpio_pull = GPIO_PULL_NONE;

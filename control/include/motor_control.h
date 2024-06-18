@@ -7,6 +7,8 @@
 #include "at32f403a_407.h"
 #include <stdio.h>
 #include <math.h>
+extern void* motorA_ptr;
+extern void* motorB_ptr;
 
 #ifndef INCLUDE_MOTOR_CONTROL_H_
 #define INCLUDE_MOTOR_CONTROL_H_

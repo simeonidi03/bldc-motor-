@@ -17,6 +17,7 @@ void SetMotorDir(int16_t wheel_direction, MotorData *data) {
 //CW  0 // clockwise         по часовой
 //CCW 1 // counterclock-wise против часовой
 //  gpio_bits_write(GPIOA, GPIO_PINS_4, wheel_direction);
+
 	if (data->name == 1) {
 		if (wheel_direction) {
 			/* channel 3 */
@@ -78,7 +79,7 @@ void PidParamInit() {
 	workParams.kIint = 20;
 	workParams.kD = 0;  							// дифф коэфф
 	workParams.kDint = 0;
-	workParams.limitSum = 500;					// лимит интегральной суммы
+	workParams.limitSum = 150;					// лимит интегральной суммы
 	workParams.timePID = 56;			//период ПИД регулятора
 	workParams.pwmDeadZone = 40;		//мертвая зона ШИМ
 
@@ -94,6 +95,7 @@ void MotorAInit(MotorData *data){
 //вычисление ПИД регулятора для двигателя и установка направления вращения и ШИМ
 void CalcPid(MotorData* data)
 {
+
 	int16_t errorParrot; //ошибка
 	int32_t odomCount;
 	int16_t setParrot;
@@ -102,26 +104,14 @@ void CalcPid(MotorData* data)
 
 	odomCount = data->odomCount; //получаем значение счетчика одометра
 	setParrot = 100 - (data->setParrot / 7.89); //получаем уставку
-	if(data->direction ) setParrot *= -1;
+//	if(data->direction) setParrot *= -1;
 
-	data->currentParrot = odomCount - data->odomCountOld;		//текущие значения попугаев(импульсов датчика холла за время timePID)
+	//текущие значения попугаев(импульсов датчика холла за время timePID)
+	data->currentParrot = abs(odomCount - data->odomCountOld);
 	data->odomCountOld = odomCount;
-
 	errorParrot = setParrot - data->currentParrot; //ошибка
 
-	data->integralSum += errorParrot;          //суммируем ошибку  (интегрирование)
-
-	/*
-	Parms->integralBuff[Parms->integralCount] = errorParrot;
-	Parms->integralCount++;
-	if (Parms->integralCount > (IntegralBuffelLength-1))
-		Parms->integralCount = 0;
-
-
-	Parms->integralSum = 0;
-	for (uint8_t i = 0; i<IntegralBuffelLength; i++)
-		Parms->integralSum += Parms->integralBuff[i];
-	*/
+	data->integralSum += errorParrot;              //суммируем ошибку  (интегрирование)
 
 	if (data->integralSum > workParams.limitSum) //нормализуем интегральную сумму
 		data->integralSum = workParams.limitSum;
@@ -142,27 +132,6 @@ void CalcPid(MotorData* data)
 				data->integralSum ++;
 	}
 
-//	if ((data->setParrot == 0) && (data->currentParrot == 0) && (data->integralSum != 0))
-//	{
-//		stepIntegralDecrement = workParams.timePID >> 2;
-//		if (stepIntegralDecrement == 0)
-//			stepIntegralDecrement = 1;
-//
-//		if (data->integralSum > 0)
-//		{
-//			if (data->integralSum > stepIntegralDecrement)
-//				data->integralSum -= stepIntegralDecrement;
-//			else
-//				data->integralSum = 0;
-//		}
-//		else
-//		{
-//			if (data->integralSum < -stepIntegralDecrement)
-//				data->integralSum += stepIntegralDecrement;
-//			else
-//				data->integralSum = 0;
-//		}
-//	}
 
 	data->pParrot = workParams.kP * errorParrot;    // пропорциональная составляющая
 	data->iParrot = workParams.kI * data->integralSum;    // интегральная составляющая
@@ -171,12 +140,10 @@ void CalcPid(MotorData* data)
 	data->resPID = data->pParrot + data->iParrot + data->dParrot; //сумма ПИД
 
 	if(data->resPID > 100) data->resPID = 100;
-	if(data->resPID < -100 && data->direction) data->resPID = 100;
-	if(data->resPID > 100 && data->direction) data->resPID = 0;
-	SetMotorDirPWM(data, 750 - 7.5 * abs(data->resPID)); //применил на мотор
+	if(data->resPID < 0 && data->direction) data->resPID = 0;
 
-//	printf_P(PSTR("odo:%d set:%d curr:%d P:%.2f I:%.2f D:%.2f res: %d\n"), (int)odomCount, (int)setParrot, (int)motorA.currentParrot,
-//			(float)motorA.pParrot, (float)motorA.iParrot, (float)motorA.dParrot, (int)motorA.resPID);
+
+	SetMotorDirPWM(data, 789 - 7.89 * abs(data->resPID)); //применил на мотор
 
 }
 
