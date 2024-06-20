@@ -147,20 +147,20 @@ void SysTick_Handler(void)
 
 void EXINT15_10_IRQHandler(void)
 {
-
-	if (EXINT->intsts & EXINT_LINE_12) {
-		OdometrProcess(motorB_ptr);
-		EXINT->intsts = EXINT_LINE_12;
-	}
-
 	// Проверка, что прерывание вызвано именно линией 13
 	if (EXINT->intsts & EXINT_LINE_13) {
 		OdometrProcess(motorA_ptr);
 		EXINT->intsts = EXINT_LINE_13;
 	}
-
 }
 
+void EXINT0_IRQHandler(void)
+{
+	if (EXINT->intsts & EXINT_LINE_0) {
+		OdometrProcess(motorB_ptr);
+		EXINT->intsts = EXINT_LINE_0;
+	}
+}
 
 
 
@@ -175,6 +175,7 @@ void TMR6_GLOBAL_IRQHandler(void)
   TMR6->ists_bit.ovfif = 0;
   //CalcParrot(motorA_ptr);
   CalcPid(motorA_ptr);
+  CalcPid(motorB_ptr);
   //usart2_tx_without_int();
 
   //odometr_next = odometr_div18;

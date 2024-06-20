@@ -11,6 +11,7 @@ void wk_nvic_config(void)
 {
   nvic_priority_group_config(NVIC_PRIORITY_GROUP_4);
   nvic_irq_enable(TMR6_GLOBAL_IRQn, 0, 0);
+  nvic_irq_enable(EXINT0_IRQn, 0, 0);
 }
 
 void wk_tmr6_init(void)
@@ -180,16 +181,16 @@ void wk_exint_config(void)
   /* configure the EXINT12 */
   gpio_default_para_init(&gpio_init_struct);
   gpio_init_struct.gpio_mode = GPIO_MODE_INPUT;
-  gpio_init_struct.gpio_pins = GPIO_PINS_12;
+  gpio_init_struct.gpio_pins = GPIO_PINS_0;
   gpio_init_struct.gpio_pull = GPIO_PULL_NONE;
   gpio_init(GPIOC, &gpio_init_struct);
 
-  gpio_exint_line_config(GPIO_PORT_SOURCE_GPIOC, GPIO_PINS_SOURCE12);
+  gpio_exint_line_config(GPIO_PORT_SOURCE_GPIOC, GPIO_PINS_SOURCE0);
 
   exint_default_para_init(&exint_init_struct);
   exint_init_struct.line_enable = TRUE;
   exint_init_struct.line_mode = EXINT_LINE_INTERRUPUT;
-  exint_init_struct.line_select = EXINT_LINE_12;
+  exint_init_struct.line_select = EXINT_LINE_0;
   exint_init_struct.line_polarity = EXINT_TRIGGER_RISING_EDGE;
   exint_init(&exint_init_struct);
 

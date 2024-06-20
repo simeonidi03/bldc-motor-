@@ -160,7 +160,6 @@ void usart2_tx_without_int() {
 	ostatok = 0;
 	int8_t sight_2 = 0;
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////
 	int16_t odo_path_2 = 100 - (motorA.setParrot / 7.89);
 
 	if (motorA.direction) {
@@ -182,6 +181,9 @@ void usart2_tx_without_int() {
 		iter++;
 	}
 
+	buffer[iter++] = ' ';
+	buffer[iter++] = 'A';
+
 
 	buffer[iter] = '\r';
 	buffer[++iter] = '\n';
@@ -200,7 +202,6 @@ void usart2_tx_without_int() {
 		usart_data_transmit(USART2, (int8_t) buffer[i]);
 	}
 }
-
 
 
 int main(void) {
@@ -235,12 +236,13 @@ int main(void) {
 	while (1) {
 		usart_data_transmit(USART2, usart2_tx_buffer);
 		usart2_tx_buffer++;
-		SetMotorDir(direction, &motorB);
+//		SetMotorDir(direction, &motorB);
+
 		//набор скорости
 		for (int i = 0; i < 750; i++) {
 			//SetMotorPWM(&motorA, speed);
-			SetMotorPWM(&motorB, speed);
 			motorA.setParrot = speed;
+			motorB.setParrot = speed;
 			speed--;
 			usart2_tx_without_int();
 			delay_ms(50);
@@ -249,8 +251,9 @@ int main(void) {
 		//сброс скорости
 		for (int i = 0; i < 750; i++) {
 			//SetMotorPWM(&motorA ,speed);
-			SetMotorPWM(&motorB, speed);
+			//SetMotorPWM(&motorB, speed);
 			motorA.setParrot = speed;
+			motorB.setParrot = speed;
 			speed++;
 			usart2_tx_without_int();
 			delay_ms(50);
@@ -262,10 +265,10 @@ int main(void) {
 			motorA.direction = CW;
 		}
 
-		if (direction == CW) {
-			direction = CCW;
+		if (motorB.direction == CW) {
+			motorB.direction = CCW;
 		} else {
-			direction = CW;
+			motorB.direction = CW;
 		}
 
 		uint16_t speed = 750;
