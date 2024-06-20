@@ -2746,3 +2746,33 @@ For more details, see the openocd console.
 
 !ENTRY org.eclipse.embedcdt.packs.core 4 1 2024-06-20 19:43:01.207
 !MESSAGE arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 0 2024-06-20 19:46:30.614
+!MESSAGE Debug session 'control Debug' already started. Terminate the first one before restarting.
+
+!ENTRY org.eclipse.embedcdt.packs.core 4 1 2024-06-20 19:46:35.900
+!MESSAGE arm-none-eabi-gdb --version
+
+!ENTRY org.eclipse.embedcdt.packs.core 4 1 2024-06-20 19:46:36.011
+!MESSAGE /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/OpenOCD/bin/openocd -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/OpenOCD/scripts -f ./interface/atlink.cfg -f ./target/at32f403axG.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.packs.core 4 1 2024-06-20 19:46:36.136
+!MESSAGE arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.embedcdt.packs.core 4 1 2024-06-20 19:47:44.417
+!MESSAGE arm-none-eabi-gdb --version
+
+!ENTRY org.eclipse.embedcdt.packs.core 4 1 2024-06-20 19:47:44.540
+!MESSAGE /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/OpenOCD/bin/openocd -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/OpenOCD/scripts -f ./interface/atlink.cfg -f ./target/at32f403axG.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.packs.core 4 1 2024-06-20 19:47:44.666
+!MESSAGE arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.embedcdt.packs.core 4 1 2024-06-20 19:51:38.372
+!MESSAGE arm-none-eabi-gdb --version
+
+!ENTRY org.eclipse.embedcdt.packs.core 4 1 2024-06-20 19:51:38.484
+!MESSAGE /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/OpenOCD/bin/openocd -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s /home/user/Documents/AT32_IDE_V1.0.09_Linux-x86_64/AT32IDE_V1.0.09_Linux-x86_64/OpenOCD/scripts -f ./interface/atlink.cfg -f ./target/at32f403axG.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.packs.core 4 1 2024-06-20 19:51:38.612
+!MESSAGE arm-none-eabi-gdb --interpreter=mi2 --nx

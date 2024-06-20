@@ -122,6 +122,7 @@ void usart2_tx_rx_handler(void) {
 	}
 }
 
+// переписать по нормальному !!!!!!!!!!!!!!!!!
 void usart2_tx_without_int() {
 	int64_t odo_path = motorA.currentParrot;  // Примерное значение переменной
 	char buffer[20] = { '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0',
@@ -183,6 +184,66 @@ void usart2_tx_without_int() {
 
 	buffer[iter++] = ' ';
 	buffer[iter++] = 'A';
+	buffer[iter++] = ' ';
+	buffer[iter++] = ' ';
+	buffer[iter++] = ' ';
+	odo_path = motorB.currentParrot;  // Примерное значение переменной
+	// Увеличиваем размер буфера для безопасного хранения длинных строк
+
+	ostatok = 0;
+	sight = 0;
+
+	if (!motorB.direction) {
+		sight = 0x4d;
+	}
+
+	if (odo_path < 0) {
+		odo_path *= -1;
+	}
+
+	if (odo_path == 0) {
+		buffer[iter++] = '0';
+	} else {
+		while (odo_path > 0) {
+			ostatok = odo_path % 10;
+			odo_path /= 10;
+			buffer[iter++] = '0' + ostatok;  // Преобразование числа в символ
+		}
+	}
+
+	if (sight) {
+		buffer[iter] = '-';
+		iter++;
+	}
+
+	buffer[iter++] = ' ';
+
+	ostatok = 0;
+	sight_2 = 0;
+
+	odo_path_2 = 100 - (motorA.setParrot / 7.89);
+
+	if (motorA.direction) {
+		sight_2 = 0x4d;
+	}
+
+	if (odo_path_2 == 0) {
+		buffer[iter++] = '0';
+	} else {
+		while (odo_path_2 > 0) {
+			ostatok = odo_path_2 % 10;
+			odo_path_2 /= 10;
+			buffer[iter++] = '0' + ostatok;  // Преобразование числа в символ
+		}
+	}
+
+	if (sight_2) {
+		buffer[iter] = '-';
+		iter++;
+	}
+
+	buffer[iter++] = ' ';
+	buffer[iter++] = 'B';
 
 
 	buffer[iter] = '\r';
