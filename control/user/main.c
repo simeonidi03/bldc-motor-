@@ -95,16 +95,14 @@ void holl_exint_init(void) {
 
 	crm_periph_clock_enable(CRM_IOMUX_PERIPH_CLOCK, TRUE);
 	gpio_exint_line_config(GPIO_PORT_SOURCE_GPIOC, GPIO_PINS_SOURCE13);
-	gpio_exint_line_config(GPIO_PORT_SOURCE_GPIOC, GPIO_PINS_SOURCE15);
 
 	exint_default_para_init(&exint_init_struct);
 	exint_init_struct.line_enable = TRUE;
 	exint_init_struct.line_mode = EXINT_LINE_INTERRUPUT;
-	exint_init_struct.line_select = EXINT_LINE_13 | EXINT_LINE_15;
+	exint_init_struct.line_select = EXINT_LINE_13 ;
 	exint_init_struct.line_polarity = EXINT_TRIGGER_RISING_EDGE;
 	exint_init(&exint_init_struct);
 
-	nvic_priority_group_config(NVIC_PRIORITY_GROUP_4);
 	nvic_irq_enable(EXINT15_10_IRQn, 0, 0);
 }
 
@@ -206,7 +204,6 @@ void usart2_tx_without_int() {
 
 
 int main(void) {
-
 	system_clock_config();
 	at32_board_init();
 
@@ -219,9 +216,10 @@ int main(void) {
 	wk_tmr6_init();
 	wk_gpio_init();
 	wk_tmr1_init();
+	wk_exint_config();
+
 	uint16_t speed = 750;
 
-//    gpio_bits_write(GPIOA, GPIO_PINS_4, direction);
 //	channel2_pulse = (uint16_t) (((uint32_t) speed * (timer_period - 1)) / 1000);
 //	tmr_channel_value_set(TMR1, TMR_SELECT_CHANNEL_2, channel2_pulse);
 
@@ -231,12 +229,13 @@ int main(void) {
 	MotorBInit(&motorB);
 	uint16_t channel_pulse;
 
-	//motorA.direction = CCW;
+	direction = CCW;
+	gpio_bits_write(GPIOA, GPIO_PINS_6, TRUE);
 
 	while (1) {
 		usart_data_transmit(USART2, usart2_tx_buffer);
 		usart2_tx_buffer++;
-		//SetMotorDir(motorA.direction,&motorA);
+		SetMotorDir(direction, &motorB);
 		//набор скорости
 		for (int i = 0; i < 750; i++) {
 			//SetMotorPWM(&motorA, speed);
@@ -262,6 +261,13 @@ int main(void) {
 		} else {
 			motorA.direction = CW;
 		}
+
+		if (direction == CW) {
+			direction = CCW;
+		} else {
+			direction = CW;
+		}
+
 		uint16_t speed = 750;
 		at32_led_on(LED2);
 	}

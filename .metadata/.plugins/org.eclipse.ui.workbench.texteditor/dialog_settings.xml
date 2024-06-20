@@ -6,19 +6,23 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="GPIO_PINS_4"/>
+		<item key="selection" value="13"/>
 		<list key="findhistory">
-			<item value="GPIO_PINS_4"/>
+			<item value="13"/>
+			<item value="exint_init_struct"/>
+			<item value="timePID"/>
+			<item value="timePid"/>
+			<item value="speed_hall"/>
 			<item value="direction"/>
+			<item value="direcion"/>
+			<item value="motorA"/>
+			<item value="speed"/>
+			<item value="odometr"/>
+			<item value="GPIO_PINS_4"/>
 			<item value="TMR3"/>
 			<item value="peripheral_base_addr"/>
 			<item value="channel4"/>
 			<item value="ch4"/>
-			<item value="tmr3"/>
-			<item value="rx_buf"/>
-			<item value="tx_buf"/>
-			<item value="channel"/>
-			<item value="ch"/>
 		</list>
 		<list key="replacehistory">
 		</list>

@@ -1,22 +1,14 @@
-13:05:13 **** Incremental Build of configuration Debug for project control ****
+16:18:17 **** Incremental Build of configuration Debug for project control ****
 make all 
+Building file: ../user/at32f403a_407_wk_config.c
+Invoking: GNU Arm Cross C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -O0 -ffunction-sections  -g -DAT_START_F403A_V1 -DAT32F403AVGT7 -DUSE_STDPERIPH_DRIVER -I"../include" -I"../include/libraries/drivers/inc" -I"../include/libraries/cmsis/cm4/core_support" -I"../include/libraries/cmsis/cm4/device_support" -std=c99 -MMD -MP -MF"user/at32f403a_407_wk_config.d" -MT"user/at32f403a_407_wk_config.o" -c -o "user/at32f403a_407_wk_config.o" "../user/at32f403a_407_wk_config.c"
+Finished building: ../user/at32f403a_407_wk_config.c
+ 
 Building file: ../user/main.c
 Invoking: GNU Arm Cross C Compiler
 arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -O0 -ffunction-sections  -g -DAT_START_F403A_V1 -DAT32F403AVGT7 -DUSE_STDPERIPH_DRIVER -I"../include" -I"../include/libraries/drivers/inc" -I"../include/libraries/cmsis/cm4/core_support" -I"../include/libraries/cmsis/cm4/device_support" -std=c99 -MMD -MP -MF"user/main.d" -MT"user/main.o" -c -o "user/main.o" "../user/main.c"
 Finished building: ../user/main.c
- 
-Building file: ../user/motor_control.c
-Invoking: GNU Arm Cross C Compiler
-arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -O0 -ffunction-sections  -g -DAT_START_F403A_V1 -DAT32F403AVGT7 -DUSE_STDPERIPH_DRIVER -I"../include" -I"../include/libraries/drivers/inc" -I"../include/libraries/cmsis/cm4/core_support" -I"../include/libraries/cmsis/cm4/device_support" -std=c99 -MMD -MP -MF"user/motor_control.d" -MT"user/motor_control.o" -c -o "user/motor_control.o" "../user/motor_control.c"
-../user/motor_control.c: In function 'CalcPid':
-../user/motor_control.c:117:24: warning: implicit declaration of function 'abs' [-Wimplicit-function-declaration]
-  117 |  data->currentParrot = abs(odomCount - data->odomCountOld);
-      |                        ^~~
-../user/motor_control.c:117:38: warning: 'abs' argument 1 promotes to 'int32_t' {aka 'long int'} where 'int' is expected in a call to built-in function declared without prototype [-Wbuiltin-declaration-mismatch]
-  117 |  data->currentParrot = abs(odomCount - data->odomCountOld);
-      |                            ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~
-<built-in>: note: built-in 'abs' declared here
-Finished building: ../user/motor_control.c
  
 Building target: control.elf
 Invoking: GNU Arm Cross C Linker
@@ -30,9 +22,9 @@ Finished building: control.hex
 Invoking: GNU Arm Cross Print Size
 arm-none-eabi-size --format=berkeley "control.elf"
    text	   data	    bss	    dec	    hex	filename
-  12888	     60	   1796	  14744	   3998	control.elf
+  12940	     60	   1796	  14796	   39cc	control.elf
 Finished building: control.siz
  
 
-13:05:13 Build Finished. 0 errors, 2 warnings. (took 269ms)
+16:18:17 Build Finished. 0 errors, 0 warnings. (took 272ms)
 

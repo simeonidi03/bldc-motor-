@@ -62,6 +62,7 @@ typedef struct {
 	volatile uint8_t* pinFg; //пин входа обратной связи (датчик холла)
 	uint8_t bitFgMask; //маска
 	uint8_t direction; //направление вращения для задания через шину i2c
+	uint8_t direction_channel; //канал для управления направлением
 	int32_t odomCount; //счетчик тиков датчика холла
 	int32_t odomCountOld; //старое значение тиков с датчика холла
 	int16_t setParrot;	//уставка (тики датчика холла за время timePID)

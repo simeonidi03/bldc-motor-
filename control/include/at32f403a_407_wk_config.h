@@ -56,6 +56,9 @@ extern uint16_t channel1_pulse, channel2_pulse, channel3_pulse, channel4_pulse;
   /* init tmr1 function. */
   void wk_tmr1_init(void);
 
+  /* init exint function. */
+  void wk_exint_config(void);
+
 /* add user code begin exported functions */
 
 /* add user code end exported functions */

@@ -148,9 +148,9 @@ void SysTick_Handler(void)
 void EXINT15_10_IRQHandler(void)
 {
 
-	if (EXINT->intsts & EXINT_LINE_15) {
+	if (EXINT->intsts & EXINT_LINE_12) {
 		OdometrProcess(motorB_ptr);
-		EXINT->intsts = EXINT_LINE_15;
+		EXINT->intsts = EXINT_LINE_12;
 	}
 
 	// Проверка, что прерывание вызвано именно линией 13

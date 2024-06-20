@@ -9,7 +9,7 @@
 
 void wk_nvic_config(void)
 {
-  //nvic_priority_group_config(NVIC_PRIORITY_GROUP_4);
+  nvic_priority_group_config(NVIC_PRIORITY_GROUP_4);
   nvic_irq_enable(TMR6_GLOBAL_IRQn, 0, 0);
 }
 
@@ -62,13 +62,11 @@ void crm_init(void){
 void wk_gpio_init(void) {
 
 	/* gpio output config */
-	gpio_bits_set(GPIOA, GPIO_PINS_4);
-	gpio_bits_reset(GPIOA, GPIO_PINS_5);
 
 	gpio_init_struct.gpio_drive_strength = GPIO_DRIVE_STRENGTH_MODERATE;
 	gpio_init_struct.gpio_out_type = GPIO_OUTPUT_PUSH_PULL;
 	gpio_init_struct.gpio_mode = GPIO_MODE_OUTPUT;
-	gpio_init_struct.gpio_pins = GPIO_PINS_4 | GPIO_PINS_5;
+	gpio_init_struct.gpio_pins = GPIO_PINS_6;
 	gpio_init_struct.gpio_pull = GPIO_PULL_NONE;
 	gpio_init(GPIOA, &gpio_init_struct);
 
@@ -94,7 +92,7 @@ void wk_gpio_init(void) {
 	gpio_init_struct.gpio_drive_strength = GPIO_DRIVE_STRENGTH_STRONGER;
 	gpio_init(GPIOB, &gpio_init_struct);
 
-	gpio_init_struct.gpio_pins = GPIO_PINS_13 | GPIO_PINS_15;
+	gpio_init_struct.gpio_pins = GPIO_PINS_13;
 	gpio_init_struct.gpio_mode = GPIO_MODE_INPUT;
 	//gpio_init_struct.gpio_out_type = GPIO_OUTPUT_PUSH_PULL;
 	gpio_init_struct.gpio_pull = GPIO_PULL_NONE;
@@ -166,3 +164,44 @@ void wk_tmr1_init(void) {
 	tmr_counter_enable(TMR1, TRUE);
 }
 
+void wk_exint_config(void)
+{
+  /* add user code begin exint_config 0 */
+
+  /* add user code end exint_config 0 */
+
+  gpio_init_type gpio_init_struct;
+  exint_init_type exint_init_struct;
+
+  /* add user code begin exint_config 1 */
+
+  /* add user code end exint_config 1 */
+
+  /* configure the EXINT12 */
+  gpio_default_para_init(&gpio_init_struct);
+  gpio_init_struct.gpio_mode = GPIO_MODE_INPUT;
+  gpio_init_struct.gpio_pins = GPIO_PINS_12;
+  gpio_init_struct.gpio_pull = GPIO_PULL_NONE;
+  gpio_init(GPIOC, &gpio_init_struct);
+
+  gpio_exint_line_config(GPIO_PORT_SOURCE_GPIOC, GPIO_PINS_SOURCE12);
+
+  exint_default_para_init(&exint_init_struct);
+  exint_init_struct.line_enable = TRUE;
+  exint_init_struct.line_mode = EXINT_LINE_INTERRUPUT;
+  exint_init_struct.line_select = EXINT_LINE_12;
+  exint_init_struct.line_polarity = EXINT_TRIGGER_RISING_EDGE;
+  exint_init(&exint_init_struct);
+
+  /**
+   * Users need to configure EXINT12 interrupt functions according to the actual application.
+   * 1. Call the below function to enable the corresponding EXINT12 interrupt.
+   *     --exint_interrupt_enable(EXINT_LINE_12, TRUE);
+   * 2. Add the user's interrupt handler code into the below function in the at32f403a_407_int.c file.
+   *     --void EXINT15_10_IRQHandler(void)
+   */
+
+  /* add user code begin exint_config 2 */
+
+  /* add user code end exint_config 2 */
+}

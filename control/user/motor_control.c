@@ -23,33 +23,19 @@ void SetMotorDir(int16_t wheel_direction, MotorData *data) {
 			/* channel 3 */
 			channel3_pulse = (uint16_t) (((uint32_t) 1000 * (timer_period - 1))
 					/ 1000);
-			tmr_channel_value_set(TMR1, TMR_SELECT_CHANNEL_3, channel3_pulse);
+			tmr_channel_value_set(TMR1, data->direction_channel,
+					channel3_pulse);
 			//gpio_bits_reset(GPIOA, GPIO_PINS_4);
 		} else {
 			channel3_pulse = (uint16_t) (((uint32_t) 10 * (timer_period - 1))
 					/ 1000);
-			tmr_channel_value_set(TMR1, TMR_SELECT_CHANNEL_3, channel3_pulse);
+			tmr_channel_value_set(TMR1, data->direction_channel,
+					channel3_pulse);
 			//gpio_bits_set(GPIOA, GPIO_PINS_4);
 
 		}
-	} else {
-		if (data->name == 2) {
-			if (wheel_direction) {
-				/* channel 3 */
-				channel1_pulse = (uint16_t) (((uint32_t) 1000
-						* (timer_period - 1)) / 1000);
-				tmr_channel_value_set(TMR1, TMR_SELECT_CHANNEL_1,
-						channel1_pulse);
-				//gpio_bits_reset(GPIOA, GPIO_PINS_4);
-			} else {
-				channel1_pulse =
-						(uint16_t) (((uint32_t) 10 * (timer_period - 1)) / 1000);
-				tmr_channel_value_set(TMR1, TMR_SELECT_CHANNEL_1,
-						channel1_pulse);
-				//gpio_bits_set(GPIOA, GPIO_PINS_4);
-			}
-		}
-	}
+	} else if (data->name == 2) gpio_bits_write(GPIOA, GPIO_PINS_6, wheel_direction);
+
 	data->direction = wheel_direction;
 }
 
@@ -90,13 +76,15 @@ void MotorAInit(MotorData *data){
 	data->channel_number = TMR_SELECT_CHANNEL_2;
 	data->direction = CW;
 	data->odomCountOld = 0;
+	data->direction_channel = TMR_SELECT_CHANNEL_3;
 }
 
 void MotorBInit(MotorData *data){
 	data->name = 2;
 	data->channel_number = TMR_SELECT_CHANNEL_1;
-	data->direction = CW;
+	data->direction = CCW;
 	data->odomCountOld = 0;
+	data->direction_channel = TMR_SELECT_CHANNEL_4;
 }
 
 //вычисление ПИД регулятора для двигателя и установка направления вращения и ШИМ
