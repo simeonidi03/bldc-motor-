@@ -87,7 +87,14 @@ void PidParamInit() {
 
 void MotorAInit(MotorData *data){
 	data->name = 1;
-	data->channel_number = 2;
+	data->channel_number = TMR_SELECT_CHANNEL_2;
+	data->direction = CW;
+	data->odomCountOld = 0;
+}
+
+void MotorBInit(MotorData *data){
+	data->name = 2;
+	data->channel_number = TMR_SELECT_CHANNEL_1;
 	data->direction = CW;
 	data->odomCountOld = 0;
 }

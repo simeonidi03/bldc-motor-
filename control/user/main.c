@@ -9,14 +9,14 @@
 
 WorkParams workParams;
 
-MotorData motorB;
 MotorData motorA;
+MotorData motorB;
+
 
 void* motorA_ptr = &motorA;
 void* motorB_ptr = &motorB;
 uint16_t usart2_tx_buffer = 1;
 uint8_t usart2_rx_buffer;
-uint8_t usart3_rx_buffer;
 uint8_t usart2_tx_buffer_size = 1;
 
 void usart_configuration(void);
@@ -63,7 +63,7 @@ void usart_configuration(void) {
 
 	/* enable the usart3 and gpio clock */
 	crm_periph_clock_enable(CRM_USART3_PERIPH_CLOCK, TRUE);
-	crm_periph_clock_enable(CRM_GPIOB_PERIPH_CLOCK, TRUE);
+
 
 	gpio_default_para_init(&gpio_init_struct);
 
@@ -95,11 +95,12 @@ void holl_exint_init(void) {
 
 	crm_periph_clock_enable(CRM_IOMUX_PERIPH_CLOCK, TRUE);
 	gpio_exint_line_config(GPIO_PORT_SOURCE_GPIOC, GPIO_PINS_SOURCE13);
+	gpio_exint_line_config(GPIO_PORT_SOURCE_GPIOC, GPIO_PINS_SOURCE15);
 
 	exint_default_para_init(&exint_init_struct);
 	exint_init_struct.line_enable = TRUE;
 	exint_init_struct.line_mode = EXINT_LINE_INTERRUPUT;
-	exint_init_struct.line_select = EXINT_LINE_13;
+	exint_init_struct.line_select = EXINT_LINE_13 | EXINT_LINE_15;
 	exint_init_struct.line_polarity = EXINT_TRIGGER_RISING_EDGE;
 	exint_init(&exint_init_struct);
 
@@ -206,7 +207,6 @@ void usart2_tx_without_int() {
 
 int main(void) {
 
-
 	system_clock_config();
 	at32_board_init();
 
@@ -224,10 +224,12 @@ int main(void) {
 //    gpio_bits_write(GPIOA, GPIO_PINS_4, direction);
 //	channel2_pulse = (uint16_t) (((uint32_t) speed * (timer_period - 1)) / 1000);
 //	tmr_channel_value_set(TMR1, TMR_SELECT_CHANNEL_2, channel2_pulse);
-	holl_exint_init();
 
+	holl_exint_init();
 	PidParamInit();
 	MotorAInit(&motorA);
+	MotorBInit(&motorB);
+	uint16_t channel_pulse;
 
 	//motorA.direction = CCW;
 
@@ -235,10 +237,10 @@ int main(void) {
 		usart_data_transmit(USART2, usart2_tx_buffer);
 		usart2_tx_buffer++;
 		//SetMotorDir(motorA.direction,&motorA);
-
 		//набор скорости
 		for (int i = 0; i < 750; i++) {
 			//SetMotorPWM(&motorA, speed);
+			SetMotorPWM(&motorB, speed);
 			motorA.setParrot = speed;
 			speed--;
 			usart2_tx_without_int();
@@ -248,6 +250,7 @@ int main(void) {
 		//сброс скорости
 		for (int i = 0; i < 750; i++) {
 			//SetMotorPWM(&motorA ,speed);
+			SetMotorPWM(&motorB, speed);
 			motorA.setParrot = speed;
 			speed++;
 			usart2_tx_without_int();

@@ -138,20 +138,29 @@ void SysTick_Handler(void)
   tmr_event_sw_trigger(TMR1, TMR_HALL_SWTRIG);
 }
 
-void EXINT15_10_IRQHandler(void)
- {
-	// Проверка, что прерывание вызвано именно линией 13
-	if (EXINT->intsts & EXINT_LINE_13) {
 
-	OdometrProcess(motorA_ptr);
 //		if (direction == 0) {
 //			odometr_div18++;
 //		} else {
 //			odometr_div18--;
 //		}
+
+void EXINT15_10_IRQHandler(void)
+{
+
+	if (EXINT->intsts & EXINT_LINE_15) {
+		OdometrProcess(motorB_ptr);
+		EXINT->intsts = EXINT_LINE_15;
+	}
+
+	// Проверка, что прерывание вызвано именно линией 13
+	if (EXINT->intsts & EXINT_LINE_13) {
+		OdometrProcess(motorA_ptr);
 		EXINT->intsts = EXINT_LINE_13;
 	}
+
 }
+
 
 
 

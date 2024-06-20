@@ -55,7 +55,6 @@ void crm_init(void){
   crm_periph_clock_enable(CRM_TMR6_PERIPH_CLOCK, TRUE);
   crm_periph_clock_enable(CRM_GPIOA_PERIPH_CLOCK, TRUE);
   crm_periph_clock_enable(CRM_GPIOB_PERIPH_CLOCK, TRUE);
-
 }
 
 
@@ -74,9 +73,7 @@ void wk_gpio_init(void) {
 	gpio_init(GPIOA, &gpio_init_struct);
 
 	/* timer1 output pin Configuration */
-	gpio_init_struct.gpio_pins = /*GPIO_PINS_8 |*/GPIO_PINS_9 | GPIO_PINS_10
-			| GPIO_PINS_11;
-
+	gpio_init_struct.gpio_pins = GPIO_PINS_8 | GPIO_PINS_9 | GPIO_PINS_10 | GPIO_PINS_11;
 	gpio_init_struct.gpio_mode = GPIO_MODE_MUX;
 	gpio_init_struct.gpio_out_type = GPIO_OUTPUT_PUSH_PULL;
 	gpio_init_struct.gpio_pull = GPIO_PULL_NONE;
@@ -97,9 +94,9 @@ void wk_gpio_init(void) {
 	gpio_init_struct.gpio_drive_strength = GPIO_DRIVE_STRENGTH_STRONGER;
 	gpio_init(GPIOB, &gpio_init_struct);
 
-	gpio_init_struct.gpio_pins = GPIO_PINS_13;
+	gpio_init_struct.gpio_pins = GPIO_PINS_13 | GPIO_PINS_15;
 	gpio_init_struct.gpio_mode = GPIO_MODE_INPUT;
-	gpio_init_struct.gpio_out_type = GPIO_OUTPUT_PUSH_PULL;
+	//gpio_init_struct.gpio_out_type = GPIO_OUTPUT_PUSH_PULL;
 	gpio_init_struct.gpio_pull = GPIO_PULL_NONE;
 	gpio_init_struct.gpio_drive_strength = GPIO_DRIVE_STRENGTH_STRONGER;
 	gpio_init(GPIOC, &gpio_init_struct);
