@@ -6,8 +6,9 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="13"/>
+		<item key="selection" value="nvic_irq_enable"/>
 		<list key="findhistory">
+			<item value="nvic_irq_enable"/>
 			<item value="13"/>
 			<item value="exint_init_struct"/>
 			<item value="timePID"/>
@@ -22,7 +23,6 @@
 			<item value="TMR3"/>
 			<item value="peripheral_base_addr"/>
 			<item value="channel4"/>
-			<item value="ch4"/>
 		</list>
 		<list key="replacehistory">
 		</list>

@@ -1,0 +1,44 @@
+!SESSION 2024-06-21 14:14:37.365 -----------------------------------------------
+eclipse.buildId=4.23.0.I20220308-0310
+java.version=17.0.2
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_us_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.cpp.product
+
+!ENTRY org.eclipse.jface 2 0 2024-06-21 14:14:42.444
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2024-06-21 14:14:42.444
+!MESSAGE A conflict occurred for CTRL+6:
+Binding(CTRL+6,
+	ParameterizedCommand(Command(com.atk.at32ide.application.commands.umCommand,Open UM,
+		,
+		Category(com.atk.at32ide.application.commands.category,application Category,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@71f437d7,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+6,
+	ParameterizedCommand(Command(com.atk.at32ide.application.commands.clCommand,Change Language,
+		,
+		Category(com.atk.at32ide.application.commands.category,application Category,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@5186c801,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+6,
+	ParameterizedCommand(Command(com.atk.at32ide.flash.commands.downloadCommand,Flash Download,
+		,
+		Category(com.atk.at32ide.flash.commands.category,Flash Category,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@20e41f13,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+6,
+	ParameterizedCommand(Command(com.atk.at32ide.flash.commands.eraseCommand,Flash Erase,
+		,
+		Category(com.atk.at32ide.flash.commands.category,Flash Category,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@6fbfd28b,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)

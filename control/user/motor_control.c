@@ -12,6 +12,7 @@ float convertEngineLevel(float oldLevel) {
     return ((MAX_OLD - oldLevel) * (MAX_NEW - MIN_NEW) / (MAX_OLD - MIN_OLD)) + MIN_NEW;
 }
 
+
 void SetMotorDir(int16_t wheel_direction, MotorData *data) {
 
 //CW  0 // clockwise         по часовой
@@ -44,7 +45,7 @@ void SetMotorPWM(MotorData *data, uint16_t pwm) {
 
 	if (pwm < workParams.pwmDeadZone) pwm = 0;
 
-	uint16_t channel_pulse = (uint16_t) (((uint32_t) pwm * (timer_period - 1)) / 1000);
+	uint16_t channel_pulse = (uint16_t) (((uint32_t) pwm * (timer_period - 1)) / 10000);
 	tmr_channel_value_set(TMR1, data->channel_number, channel_pulse);
 
 #ifdef MOTOR_INV
@@ -98,7 +99,7 @@ void CalcPid(MotorData* data)
 
 
 	odomCount = data->odomCount; //получаем значение счетчика одометра
-	setParrot = 100 - (data->setParrot / 7.89); //получаем уставку
+	setParrot = 100 - (data->setParrot / 60); //получаем уставку
 //	if(data->direction) setParrot *= -1;
 
 	//текущие значения попугаев(импульсов датчика холла за время timePID)
@@ -138,7 +139,7 @@ void CalcPid(MotorData* data)
 	if(data->resPID < 0 && data->direction) data->resPID = 0;
 
 
-	SetMotorDirPWM(data, 789 - 7.89 * abs(data->resPID)); //применил на мотор
+	SetMotorDirPWM(data, 6000 - 60 * abs(data->resPID)); //применил на мотор
 
 }
 
@@ -159,8 +160,8 @@ void SetMotorDirPWM(MotorData *data, int16_t pwm)
 {
 	uint16_t timerPWM = abs(pwm);
 
-	if (timerPWM > 750)
-		timerPWM = 750;
+	if (timerPWM > 6000)
+		timerPWM = 6000;
 
 	SetMotorDir(/*(pwm > 0)*/data->direction, data);
 	SetMotorPWM(data, timerPWM);
@@ -174,6 +175,36 @@ void CalcParrot(MotorData *data)
 	data->odomCountOld = odomCount;
 }
 
+void TMR3_DMA_Duty_Cycle(void)
+{
+	//for (int i = 0; i < 1000000; i++);
 
+	/* set tmr channel CC value */
+	tmr_channel_value_set(TMR3, TMR_SELECT_CHANNEL_4, 0);
+
+  /* config set the number of data to be transferred by dma */
+  dma_channel_enable(DMA1_CHANNEL3, FALSE);
+  dma_data_number_set(DMA1_CHANNEL3, PWM_DataLength);
+  dma_channel_enable(DMA1_CHANNEL3, TRUE);
+
+	/* TMR enable counter */
+	tmr_counter_enable(TMR3, TRUE);
+
+	/* wait for the end of dma transfer */
+	while (!dma_flag_get(DMA1_FDT3_FLAG));
+	/* Clear dma flag */
+	dma_flag_clear(DMA1_FDT3_FLAG);
+
+	/* Clear TMR3 update Interrupt  pending bit */
+	tmr_flag_clear(TMR3, TMR_OVF_FLAG);
+  while(SET!=tmr_flag_get(TMR3, TMR_OVF_FLAG));
+	/* Clear TMR3 update Interrupt  pending bit */
+	tmr_flag_clear(TMR3, TMR_OVF_FLAG);
+  while(SET != tmr_flag_get(TMR3, TMR_OVF_FLAG));
+
+	/* TMR disable counter */
+	tmr_counter_enable(TMR3, FALSE);
+
+}
 
 

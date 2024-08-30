@@ -10,8 +10,9 @@
 void wk_nvic_config(void)
 {
   nvic_priority_group_config(NVIC_PRIORITY_GROUP_4);
-  nvic_irq_enable(TMR6_GLOBAL_IRQn, 0, 0);
-  nvic_irq_enable(EXINT0_IRQn, 0, 0);
+  nvic_irq_enable(TMR6_GLOBAL_IRQn, 1, 0);
+  nvic_irq_enable(EXINT0_IRQn, 1, 0);
+  nvic_irq_enable(I2C2_EVT_IRQn, 1, 0);
 }
 
 void wk_tmr6_init(void)
@@ -25,7 +26,7 @@ void wk_tmr6_init(void)
   /* add user code end tmr6_init 1 */
 
   /* configure counter settings */
-  tmr_base_init(TMR6, 65535, 445);
+  tmr_base_init(TMR6, 65535, 150);
   tmr_cnt_dir_set(TMR6, TMR_COUNT_UP);
   tmr_period_buffer_enable(TMR6, FALSE);
 
@@ -56,6 +57,10 @@ void crm_init(void){
   crm_periph_clock_enable(CRM_TMR6_PERIPH_CLOCK, TRUE);
   crm_periph_clock_enable(CRM_GPIOA_PERIPH_CLOCK, TRUE);
   crm_periph_clock_enable(CRM_GPIOB_PERIPH_CLOCK, TRUE);
+  crm_periph_clock_enable(CRM_TMR3_PERIPH_CLOCK, TRUE);
+
+	/* dma clock enable */
+  crm_periph_clock_enable(CRM_DMA1_PERIPH_CLOCK, TRUE);
 }
 
 
@@ -91,6 +96,13 @@ void wk_gpio_init(void) {
 	gpio_init_struct.gpio_out_type = GPIO_OUTPUT_PUSH_PULL;
 	gpio_init_struct.gpio_pull = GPIO_PULL_NONE;
 	gpio_init_struct.gpio_drive_strength = GPIO_DRIVE_STRENGTH_STRONGER;
+	gpio_init(GPIOB, &gpio_init_struct);
+
+	gpio_init_type gpio_init_struct;
+	gpio_default_para_init(&gpio_init_struct);
+	/* configure PB1 tmr3_ch4 as output*/
+	gpio_init_struct.gpio_pins = GPIO_PINS_1;
+	gpio_init_struct.gpio_mode = GPIO_MODE_MUX;
 	gpio_init(GPIOB, &gpio_init_struct);
 
 	gpio_init_struct.gpio_pins = GPIO_PINS_13;
@@ -165,6 +177,55 @@ void wk_tmr1_init(void) {
 	tmr_counter_enable(TMR1, TRUE);
 }
 
+void dma_configuration(void)
+{
+	dma_init_type dma_init_struct = {0};
+	uint16_t index = 0;
+
+	while(index < PWM_DataLength)
+	{
+		src_buffer[index] = (uint16_t) (((uint32_t) (src_buffer[index]) * (TMRx_PR)) / (1000));
+		index++;
+	}
+
+  /* dma1 channel7 configuration */
+  dma_default_para_init(&dma_init_struct);
+
+  dma_init_struct.buffer_size = PWM_DataLength;
+  dma_init_struct.direction = DMA_DIR_MEMORY_TO_PERIPHERAL;
+  dma_init_struct.memory_base_addr = (uint32_t)src_buffer;
+  dma_init_struct.memory_data_width = DMA_MEMORY_DATA_WIDTH_HALFWORD;
+  dma_init_struct.memory_inc_enable = TRUE;
+  dma_init_struct.peripheral_base_addr = (uint32_t)&TMR3->c4dt;
+  dma_init_struct.peripheral_data_width= DMA_PERIPHERAL_DATA_WIDTH_HALFWORD;
+  dma_init_struct.peripheral_inc_enable  = FALSE;
+  dma_init_struct.priority = DMA_PRIORITY_HIGH;
+  dma_init_struct.loop_mode_enable = FALSE;
+  dma_init(DMA1_CHANNEL3, &dma_init_struct);
+}
+
+
+void tmr3_configuration(void)
+{
+  /* Init TMR3 */
+	//2603879
+  tmr_base_init(TMR3, TMRx_PR-1, 4798);
+  tmr_cnt_dir_set(TMR3, TMR_COUNT_UP);
+
+	/* TMR configuration as output mode */
+  tmr_output_default_para_init(&tmr_output_struct);
+  tmr_output_struct.oc_mode = TMR_OUTPUT_CONTROL_PWM_MODE_A;
+  tmr_output_struct.oc_output_state = TRUE;
+  tmr_output_struct.oc_polarity = TMR_OUTPUT_ACTIVE_LOW;
+
+	/* TMR3 channel 4 configuration */
+  tmr_output_channel_config(TMR3, TMR_SELECT_CHANNEL_4, &tmr_output_struct);
+
+	/* enable tmr output channel buffer */
+  tmr_output_channel_buffer_enable(TMR3, TMR_SELECT_CHANNEL_4, TRUE);
+}
+
+
 void wk_exint_config(void)
 {
   /* add user code begin exint_config 0 */
@@ -206,3 +267,5 @@ void wk_exint_config(void)
 
   /* add user code end exint_config 2 */
 }
+
+

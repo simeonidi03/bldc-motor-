@@ -60,6 +60,8 @@ void PendSV_Handler(void);
 void SysTick_Handler(void);
 void EXINT15_10_IRQHandler(void);
 void TMR6_GLOBAL_IRQHandler(void);
+void I2Cx_EVT_IRQHandler(void);
+void I2Cx_ERR_IRQHandler(void);
 
 #ifdef __cplusplus
 }

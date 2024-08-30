@@ -9,6 +9,7 @@
 #include <math.h>
 extern void* motorA_ptr;
 extern void* motorB_ptr;
+extern uint16_t PWM_DataLength;
 
 #ifndef INCLUDE_MOTOR_CONTROL_H_
 #define INCLUDE_MOTOR_CONTROL_H_
@@ -89,5 +90,6 @@ void CalcPid(MotorData* data);
 void OdometrProcess(MotorData *data);
 void CalcParrot(MotorData *data);
 void SetMotorDirPWM(MotorData *data, int16_t pwm);
+void TMR3_DMA_Duty_Cycle(void);
 
 #endif /* INCLUDE_MOTOR_CONTROL_H_ */

@@ -26,6 +26,12 @@
 
 /* includes ------------------------------------------------------------------*/
 #include "at32f403a_407_int.h"
+#include "i2c_application.h"
+
+extern i2c_handle_type hi2cx;
+
+#define I2Cx_EVT_IRQHandler              I2C2_EVT_IRQHandler
+#define I2Cx_ERR_IRQHandler              I2C2_ERR_IRQHandler
 
 extern void usart2_tx_rx_handler(void);
 
@@ -173,9 +179,9 @@ void USART2_IRQHandler(void)
 void TMR6_GLOBAL_IRQHandler(void)
 {
   TMR6->ists_bit.ovfif = 0;
-  //CalcParrot(motorA_ptr);
+//  CalcParrot(motorA_ptr);
   CalcPid(motorA_ptr);
-  CalcPid(motorB_ptr);
+//  CalcPid(motorB_ptr);
   //usart2_tx_without_int();
 
   //odometr_next = odometr_div18;
@@ -199,4 +205,12 @@ void USART3_IRQHandler(void)
 {
 
 }
+
+
+
+/**
+  * @brief  this function handles i2c error interrupt request.
+  * @param  none
+  * @retval none
+  */
 
